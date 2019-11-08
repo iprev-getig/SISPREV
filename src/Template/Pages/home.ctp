@@ -27,7 +27,7 @@ if (!Configure::read('debug')) :
     );
 endif;
 
-$cakeDescription = 'CakePHP: the rapid development PHP framework';
+$cakeDescription = 'SISPREV: Instituto de Previdência do Estado de Santa Catarina';
 ?>
 <!DOCTYPE html>
 <html>
