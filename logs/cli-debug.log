@@ -1,0 +1,753 @@
+2019-11-08 18:27:50 Notice: Deprecated (16384): Plugin::load() is deprecated. Use Application::addPlugin() instead. This method will be removed in 4.0.0. - /var/www/html/SISPREV/config/bootstrap.php, line: 156
+ You can disable deprecation warnings by setting `Error.errorLevel` to `E_ALL & ~E_USER_DEPRECATED` in your config/app.php. in [/var/www/html/SISPREV/vendor/cakephp/cakephp/src/Core/functions.php, line 311]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 158
+deprecationWarning - CORE/src/Core/functions.php, line 311
+Cake\Core\Plugin::load() - CORE/src/Core/Plugin.php, line 117
+require_once - ROOT/config/bootstrap.php, line 156
+Cake\Http\BaseApplication::bootstrap() - CORE/src/Http/BaseApplication.php, line 151
+App\Application::bootstrap() - APP/Application.php, line 38
+Cake\Console\CommandRunner::bootstrap() - CORE/src/Console/CommandRunner.php, line 189
+Cake\Console\CommandRunner::run() - CORE/src/Console/CommandRunner.php, line 132
+[main] - ROOT/bin/cake.php, line 12
+
+
+
+2019-11-08 18:27:51 Notice: Deprecated (16384): TableSchema::columnType() is deprecated. Use TableSchema::setColumnType() or TableSchema::getColumnType() instead. - /var/www/html/SISPREV/tmp/bake/index-ctp.php, line: 19
+ You can disable deprecation warnings by setting `Error.errorLevel` to `E_ALL & ~E_USER_DEPRECATED` in your config/app.php. in [/var/www/html/SISPREV/vendor/cakephp/cakephp/src/Core/functions.php, line 311]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 158
+deprecationWarning - CORE/src/Core/functions.php, line 311
+Cake\Database\Schema\TableSchema::columnType() - CORE/src/Database/Schema/TableSchema.php, line 383
+Bake\View\BakeView::{closure}() - ROOT/tmp/bake/index-ctp.php, line 19
+CallbackFilterIterator::accept() - [internal], line ??
+FilterIterator::rewind() - [internal], line ??
+IteratorIterator::rewind() - [internal], line ??
+LimitIterator::rewind() - [internal], line ??
+IteratorIterator::rewind() - [internal], line ??
+include - ROOT/tmp/bake/index-ctp.php, line 49
+Bake\View\BakeView::_evaluate() - ROOT/vendor/cakephp/bake/src/View/BakeView.php, line 214
+Cake\View\View::_render() - CORE/src/View/View.php, line 1381
+WyriHaximus\TwigView\View\TwigView::_render() - ROOT/vendor/wyrihaximus/twig-view/src/View/TwigView.php, line 166
+Bake\View\BakeView::render() - ROOT/vendor/cakephp/bake/src/View/BakeView.php, line 146
+Bake\Shell\Task\BakeTemplateTask::generate() - ROOT/vendor/cakephp/bake/src/Shell/Task/BakeTemplateTask.php, line 91
+Bake\Shell\Task\TemplateTask::getContent() - ROOT/vendor/cakephp/bake/src/Shell/Task/TemplateTask.php, line 386
+Bake\Shell\Task\TemplateTask::main() - ROOT/vendor/cakephp/bake/src/Shell/Task/TemplateTask.php, line 146
+Bake\Shell\BakeShell::Bake\Shell\{closure}() - ROOT/vendor/cakephp/bake/src/Shell/BakeShell.php, line 279
+Cake\Collection\Collection::each() - CORE/src/Collection/CollectionTrait.php, line 64
+Bake\Shell\BakeShell::all() - ROOT/vendor/cakephp/bake/src/Shell/BakeShell.php, line 280
+Cake\Console\Shell::runCommand() - CORE/src/Console/Shell.php, line 517
+Cake\Console\CommandRunner::runShell() - CORE/src/Console/CommandRunner.php, line 385
+Cake\Console\CommandRunner::run() - CORE/src/Console/CommandRunner.php, line 162
+[main] - ROOT/bin/cake.php, line 12
+
+
+
+2019-11-08 18:27:51 Notice: Deprecated (16384): TableSchema::columnType() is deprecated. Use TableSchema::setColumnType() or TableSchema::getColumnType() instead. - /var/www/html/SISPREV/tmp/bake/index-ctp.php, line: 19
+ You can disable deprecation warnings by setting `Error.errorLevel` to `E_ALL & ~E_USER_DEPRECATED` in your config/app.php. in [/var/www/html/SISPREV/vendor/cakephp/cakephp/src/Core/functions.php, line 311]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 158
+deprecationWarning - CORE/src/Core/functions.php, line 311
+Cake\Database\Schema\TableSchema::columnType() - CORE/src/Database/Schema/TableSchema.php, line 383
+Bake\View\BakeView::{closure}() - ROOT/tmp/bake/index-ctp.php, line 19
+CallbackFilterIterator::accept() - [internal], line ??
+FilterIterator::next() - [internal], line ??
+IteratorIterator::next() - [internal], line ??
+LimitIterator::next() - [internal], line ??
+IteratorIterator::next() - [internal], line ??
+include - ROOT/tmp/bake/index-ctp.php, line 49
+Bake\View\BakeView::_evaluate() - ROOT/vendor/cakephp/bake/src/View/BakeView.php, line 214
+Cake\View\View::_render() - CORE/src/View/View.php, line 1381
+WyriHaximus\TwigView\View\TwigView::_render() - ROOT/vendor/wyrihaximus/twig-view/src/View/TwigView.php, line 166
+Bake\View\BakeView::render() - ROOT/vendor/cakephp/bake/src/View/BakeView.php, line 146
+Bake\Shell\Task\BakeTemplateTask::generate() - ROOT/vendor/cakephp/bake/src/Shell/Task/BakeTemplateTask.php, line 91
+Bake\Shell\Task\TemplateTask::getContent() - ROOT/vendor/cakephp/bake/src/Shell/Task/TemplateTask.php, line 386
+Bake\Shell\Task\TemplateTask::main() - ROOT/vendor/cakephp/bake/src/Shell/Task/TemplateTask.php, line 146
+Bake\Shell\BakeShell::Bake\Shell\{closure}() - ROOT/vendor/cakephp/bake/src/Shell/BakeShell.php, line 279
+Cake\Collection\Collection::each() - CORE/src/Collection/CollectionTrait.php, line 64
+Bake\Shell\BakeShell::all() - ROOT/vendor/cakephp/bake/src/Shell/BakeShell.php, line 280
+Cake\Console\Shell::runCommand() - CORE/src/Console/Shell.php, line 517
+Cake\Console\CommandRunner::runShell() - CORE/src/Console/CommandRunner.php, line 385
+Cake\Console\CommandRunner::run() - CORE/src/Console/CommandRunner.php, line 162
+[main] - ROOT/bin/cake.php, line 12
+
+
+
+2019-11-08 18:27:51 Notice: Deprecated (16384): TableSchema::columnType() is deprecated. Use TableSchema::setColumnType() or TableSchema::getColumnType() instead. - /var/www/html/SISPREV/tmp/bake/index-ctp.php, line: 19
+ You can disable deprecation warnings by setting `Error.errorLevel` to `E_ALL & ~E_USER_DEPRECATED` in your config/app.php. in [/var/www/html/SISPREV/vendor/cakephp/cakephp/src/Core/functions.php, line 311]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 158
+deprecationWarning - CORE/src/Core/functions.php, line 311
+Cake\Database\Schema\TableSchema::columnType() - CORE/src/Database/Schema/TableSchema.php, line 383
+Bake\View\BakeView::{closure}() - ROOT/tmp/bake/index-ctp.php, line 19
+CallbackFilterIterator::accept() - [internal], line ??
+FilterIterator::next() - [internal], line ??
+IteratorIterator::next() - [internal], line ??
+LimitIterator::next() - [internal], line ??
+IteratorIterator::next() - [internal], line ??
+include - ROOT/tmp/bake/index-ctp.php, line 49
+Bake\View\BakeView::_evaluate() - ROOT/vendor/cakephp/bake/src/View/BakeView.php, line 214
+Cake\View\View::_render() - CORE/src/View/View.php, line 1381
+WyriHaximus\TwigView\View\TwigView::_render() - ROOT/vendor/wyrihaximus/twig-view/src/View/TwigView.php, line 166
+Bake\View\BakeView::render() - ROOT/vendor/cakephp/bake/src/View/BakeView.php, line 146
+Bake\Shell\Task\BakeTemplateTask::generate() - ROOT/vendor/cakephp/bake/src/Shell/Task/BakeTemplateTask.php, line 91
+Bake\Shell\Task\TemplateTask::getContent() - ROOT/vendor/cakephp/bake/src/Shell/Task/TemplateTask.php, line 386
+Bake\Shell\Task\TemplateTask::main() - ROOT/vendor/cakephp/bake/src/Shell/Task/TemplateTask.php, line 146
+Bake\Shell\BakeShell::Bake\Shell\{closure}() - ROOT/vendor/cakephp/bake/src/Shell/BakeShell.php, line 279
+Cake\Collection\Collection::each() - CORE/src/Collection/CollectionTrait.php, line 64
+Bake\Shell\BakeShell::all() - ROOT/vendor/cakephp/bake/src/Shell/BakeShell.php, line 280
+Cake\Console\Shell::runCommand() - CORE/src/Console/Shell.php, line 517
+Cake\Console\CommandRunner::runShell() - CORE/src/Console/CommandRunner.php, line 385
+Cake\Console\CommandRunner::run() - CORE/src/Console/CommandRunner.php, line 162
+[main] - ROOT/bin/cake.php, line 12
+
+
+
+2019-11-08 18:27:51 Notice: Deprecated (16384): TableSchema::columnType() is deprecated. Use TableSchema::setColumnType() or TableSchema::getColumnType() instead. - /var/www/html/SISPREV/tmp/bake/index-ctp.php, line: 19
+ You can disable deprecation warnings by setting `Error.errorLevel` to `E_ALL & ~E_USER_DEPRECATED` in your config/app.php. in [/var/www/html/SISPREV/vendor/cakephp/cakephp/src/Core/functions.php, line 311]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 158
+deprecationWarning - CORE/src/Core/functions.php, line 311
+Cake\Database\Schema\TableSchema::columnType() - CORE/src/Database/Schema/TableSchema.php, line 383
+Bake\View\BakeView::{closure}() - ROOT/tmp/bake/index-ctp.php, line 19
+CallbackFilterIterator::accept() - [internal], line ??
+FilterIterator::rewind() - [internal], line ??
+IteratorIterator::rewind() - [internal], line ??
+LimitIterator::rewind() - [internal], line ??
+IteratorIterator::rewind() - [internal], line ??
+include - ROOT/tmp/bake/index-ctp.php, line 58
+Bake\View\BakeView::_evaluate() - ROOT/vendor/cakephp/bake/src/View/BakeView.php, line 214
+Cake\View\View::_render() - CORE/src/View/View.php, line 1381
+WyriHaximus\TwigView\View\TwigView::_render() - ROOT/vendor/wyrihaximus/twig-view/src/View/TwigView.php, line 166
+Bake\View\BakeView::render() - ROOT/vendor/cakephp/bake/src/View/BakeView.php, line 146
+Bake\Shell\Task\BakeTemplateTask::generate() - ROOT/vendor/cakephp/bake/src/Shell/Task/BakeTemplateTask.php, line 91
+Bake\Shell\Task\TemplateTask::getContent() - ROOT/vendor/cakephp/bake/src/Shell/Task/TemplateTask.php, line 386
+Bake\Shell\Task\TemplateTask::main() - ROOT/vendor/cakephp/bake/src/Shell/Task/TemplateTask.php, line 146
+Bake\Shell\BakeShell::Bake\Shell\{closure}() - ROOT/vendor/cakephp/bake/src/Shell/BakeShell.php, line 279
+Cake\Collection\Collection::each() - CORE/src/Collection/CollectionTrait.php, line 64
+Bake\Shell\BakeShell::all() - ROOT/vendor/cakephp/bake/src/Shell/BakeShell.php, line 280
+Cake\Console\Shell::runCommand() - CORE/src/Console/Shell.php, line 517
+Cake\Console\CommandRunner::runShell() - CORE/src/Console/CommandRunner.php, line 385
+Cake\Console\CommandRunner::run() - CORE/src/Console/CommandRunner.php, line 162
+[main] - ROOT/bin/cake.php, line 12
+
+
+
+2019-11-08 18:27:51 Notice: Deprecated (16384): TableSchema::columnType() is deprecated. Use TableSchema::setColumnType() or TableSchema::getColumnType() instead. - /var/www/html/SISPREV/tmp/bake/index-ctp.php, line: 72
+ You can disable deprecation warnings by setting `Error.errorLevel` to `E_ALL & ~E_USER_DEPRECATED` in your config/app.php. in [/var/www/html/SISPREV/vendor/cakephp/cakephp/src/Core/functions.php, line 311]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 158
+deprecationWarning - CORE/src/Core/functions.php, line 311
+Cake\Database\Schema\TableSchema::columnType() - CORE/src/Database/Schema/TableSchema.php, line 383
+include - ROOT/tmp/bake/index-ctp.php, line 72
+Bake\View\BakeView::_evaluate() - ROOT/vendor/cakephp/bake/src/View/BakeView.php, line 214
+Cake\View\View::_render() - CORE/src/View/View.php, line 1381
+WyriHaximus\TwigView\View\TwigView::_render() - ROOT/vendor/wyrihaximus/twig-view/src/View/TwigView.php, line 166
+Bake\View\BakeView::render() - ROOT/vendor/cakephp/bake/src/View/BakeView.php, line 146
+Bake\Shell\Task\BakeTemplateTask::generate() - ROOT/vendor/cakephp/bake/src/Shell/Task/BakeTemplateTask.php, line 91
+Bake\Shell\Task\TemplateTask::getContent() - ROOT/vendor/cakephp/bake/src/Shell/Task/TemplateTask.php, line 386
+Bake\Shell\Task\TemplateTask::main() - ROOT/vendor/cakephp/bake/src/Shell/Task/TemplateTask.php, line 146
+Bake\Shell\BakeShell::Bake\Shell\{closure}() - ROOT/vendor/cakephp/bake/src/Shell/BakeShell.php, line 279
+Cake\Collection\Collection::each() - CORE/src/Collection/CollectionTrait.php, line 64
+Bake\Shell\BakeShell::all() - ROOT/vendor/cakephp/bake/src/Shell/BakeShell.php, line 280
+Cake\Console\Shell::runCommand() - CORE/src/Console/Shell.php, line 517
+Cake\Console\CommandRunner::runShell() - CORE/src/Console/CommandRunner.php, line 385
+Cake\Console\CommandRunner::run() - CORE/src/Console/CommandRunner.php, line 162
+[main] - ROOT/bin/cake.php, line 12
+
+
+
+2019-11-08 18:27:51 Notice: Deprecated (16384): TableSchema::columnType() is deprecated. Use TableSchema::setColumnType() or TableSchema::getColumnType() instead. - /var/www/html/SISPREV/tmp/bake/index-ctp.php, line: 19
+ You can disable deprecation warnings by setting `Error.errorLevel` to `E_ALL & ~E_USER_DEPRECATED` in your config/app.php. in [/var/www/html/SISPREV/vendor/cakephp/cakephp/src/Core/functions.php, line 311]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 158
+deprecationWarning - CORE/src/Core/functions.php, line 311
+Cake\Database\Schema\TableSchema::columnType() - CORE/src/Database/Schema/TableSchema.php, line 383
+Bake\View\BakeView::{closure}() - ROOT/tmp/bake/index-ctp.php, line 19
+CallbackFilterIterator::accept() - [internal], line ??
+FilterIterator::next() - [internal], line ??
+IteratorIterator::next() - [internal], line ??
+LimitIterator::next() - [internal], line ??
+IteratorIterator::next() - [internal], line ??
+include - ROOT/tmp/bake/index-ctp.php, line 58
+Bake\View\BakeView::_evaluate() - ROOT/vendor/cakephp/bake/src/View/BakeView.php, line 214
+Cake\View\View::_render() - CORE/src/View/View.php, line 1381
+WyriHaximus\TwigView\View\TwigView::_render() - ROOT/vendor/wyrihaximus/twig-view/src/View/TwigView.php, line 166
+Bake\View\BakeView::render() - ROOT/vendor/cakephp/bake/src/View/BakeView.php, line 146
+Bake\Shell\Task\BakeTemplateTask::generate() - ROOT/vendor/cakephp/bake/src/Shell/Task/BakeTemplateTask.php, line 91
+Bake\Shell\Task\TemplateTask::getContent() - ROOT/vendor/cakephp/bake/src/Shell/Task/TemplateTask.php, line 386
+Bake\Shell\Task\TemplateTask::main() - ROOT/vendor/cakephp/bake/src/Shell/Task/TemplateTask.php, line 146
+Bake\Shell\BakeShell::Bake\Shell\{closure}() - ROOT/vendor/cakephp/bake/src/Shell/BakeShell.php, line 279
+Cake\Collection\Collection::each() - CORE/src/Collection/CollectionTrait.php, line 64
+Bake\Shell\BakeShell::all() - ROOT/vendor/cakephp/bake/src/Shell/BakeShell.php, line 280
+Cake\Console\Shell::runCommand() - CORE/src/Console/Shell.php, line 517
+Cake\Console\CommandRunner::runShell() - CORE/src/Console/CommandRunner.php, line 385
+Cake\Console\CommandRunner::run() - CORE/src/Console/CommandRunner.php, line 162
+[main] - ROOT/bin/cake.php, line 12
+
+
+
+2019-11-08 18:27:51 Notice: Deprecated (16384): TableSchema::columnType() is deprecated. Use TableSchema::setColumnType() or TableSchema::getColumnType() instead. - /var/www/html/SISPREV/tmp/bake/index-ctp.php, line: 72
+ You can disable deprecation warnings by setting `Error.errorLevel` to `E_ALL & ~E_USER_DEPRECATED` in your config/app.php. in [/var/www/html/SISPREV/vendor/cakephp/cakephp/src/Core/functions.php, line 311]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 158
+deprecationWarning - CORE/src/Core/functions.php, line 311
+Cake\Database\Schema\TableSchema::columnType() - CORE/src/Database/Schema/TableSchema.php, line 383
+include - ROOT/tmp/bake/index-ctp.php, line 72
+Bake\View\BakeView::_evaluate() - ROOT/vendor/cakephp/bake/src/View/BakeView.php, line 214
+Cake\View\View::_render() - CORE/src/View/View.php, line 1381
+WyriHaximus\TwigView\View\TwigView::_render() - ROOT/vendor/wyrihaximus/twig-view/src/View/TwigView.php, line 166
+Bake\View\BakeView::render() - ROOT/vendor/cakephp/bake/src/View/BakeView.php, line 146
+Bake\Shell\Task\BakeTemplateTask::generate() - ROOT/vendor/cakephp/bake/src/Shell/Task/BakeTemplateTask.php, line 91
+Bake\Shell\Task\TemplateTask::getContent() - ROOT/vendor/cakephp/bake/src/Shell/Task/TemplateTask.php, line 386
+Bake\Shell\Task\TemplateTask::main() - ROOT/vendor/cakephp/bake/src/Shell/Task/TemplateTask.php, line 146
+Bake\Shell\BakeShell::Bake\Shell\{closure}() - ROOT/vendor/cakephp/bake/src/Shell/BakeShell.php, line 279
+Cake\Collection\Collection::each() - CORE/src/Collection/CollectionTrait.php, line 64
+Bake\Shell\BakeShell::all() - ROOT/vendor/cakephp/bake/src/Shell/BakeShell.php, line 280
+Cake\Console\Shell::runCommand() - CORE/src/Console/Shell.php, line 517
+Cake\Console\CommandRunner::runShell() - CORE/src/Console/CommandRunner.php, line 385
+Cake\Console\CommandRunner::run() - CORE/src/Console/CommandRunner.php, line 162
+[main] - ROOT/bin/cake.php, line 12
+
+
+
+2019-11-08 18:27:51 Notice: Deprecated (16384): TableSchema::columnType() is deprecated. Use TableSchema::setColumnType() or TableSchema::getColumnType() instead. - /var/www/html/SISPREV/tmp/bake/index-ctp.php, line: 19
+ You can disable deprecation warnings by setting `Error.errorLevel` to `E_ALL & ~E_USER_DEPRECATED` in your config/app.php. in [/var/www/html/SISPREV/vendor/cakephp/cakephp/src/Core/functions.php, line 311]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 158
+deprecationWarning - CORE/src/Core/functions.php, line 311
+Cake\Database\Schema\TableSchema::columnType() - CORE/src/Database/Schema/TableSchema.php, line 383
+Bake\View\BakeView::{closure}() - ROOT/tmp/bake/index-ctp.php, line 19
+CallbackFilterIterator::accept() - [internal], line ??
+FilterIterator::next() - [internal], line ??
+IteratorIterator::next() - [internal], line ??
+LimitIterator::next() - [internal], line ??
+IteratorIterator::next() - [internal], line ??
+include - ROOT/tmp/bake/index-ctp.php, line 58
+Bake\View\BakeView::_evaluate() - ROOT/vendor/cakephp/bake/src/View/BakeView.php, line 214
+Cake\View\View::_render() - CORE/src/View/View.php, line 1381
+WyriHaximus\TwigView\View\TwigView::_render() - ROOT/vendor/wyrihaximus/twig-view/src/View/TwigView.php, line 166
+Bake\View\BakeView::render() - ROOT/vendor/cakephp/bake/src/View/BakeView.php, line 146
+Bake\Shell\Task\BakeTemplateTask::generate() - ROOT/vendor/cakephp/bake/src/Shell/Task/BakeTemplateTask.php, line 91
+Bake\Shell\Task\TemplateTask::getContent() - ROOT/vendor/cakephp/bake/src/Shell/Task/TemplateTask.php, line 386
+Bake\Shell\Task\TemplateTask::main() - ROOT/vendor/cakephp/bake/src/Shell/Task/TemplateTask.php, line 146
+Bake\Shell\BakeShell::Bake\Shell\{closure}() - ROOT/vendor/cakephp/bake/src/Shell/BakeShell.php, line 279
+Cake\Collection\Collection::each() - CORE/src/Collection/CollectionTrait.php, line 64
+Bake\Shell\BakeShell::all() - ROOT/vendor/cakephp/bake/src/Shell/BakeShell.php, line 280
+Cake\Console\Shell::runCommand() - CORE/src/Console/Shell.php, line 517
+Cake\Console\CommandRunner::runShell() - CORE/src/Console/CommandRunner.php, line 385
+Cake\Console\CommandRunner::run() - CORE/src/Console/CommandRunner.php, line 162
+[main] - ROOT/bin/cake.php, line 12
+
+
+
+2019-11-08 18:27:51 Notice: Deprecated (16384): TableSchema::columnType() is deprecated. Use TableSchema::setColumnType() or TableSchema::getColumnType() instead. - /var/www/html/SISPREV/tmp/bake/index-ctp.php, line: 72
+ You can disable deprecation warnings by setting `Error.errorLevel` to `E_ALL & ~E_USER_DEPRECATED` in your config/app.php. in [/var/www/html/SISPREV/vendor/cakephp/cakephp/src/Core/functions.php, line 311]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 158
+deprecationWarning - CORE/src/Core/functions.php, line 311
+Cake\Database\Schema\TableSchema::columnType() - CORE/src/Database/Schema/TableSchema.php, line 383
+include - ROOT/tmp/bake/index-ctp.php, line 72
+Bake\View\BakeView::_evaluate() - ROOT/vendor/cakephp/bake/src/View/BakeView.php, line 214
+Cake\View\View::_render() - CORE/src/View/View.php, line 1381
+WyriHaximus\TwigView\View\TwigView::_render() - ROOT/vendor/wyrihaximus/twig-view/src/View/TwigView.php, line 166
+Bake\View\BakeView::render() - ROOT/vendor/cakephp/bake/src/View/BakeView.php, line 146
+Bake\Shell\Task\BakeTemplateTask::generate() - ROOT/vendor/cakephp/bake/src/Shell/Task/BakeTemplateTask.php, line 91
+Bake\Shell\Task\TemplateTask::getContent() - ROOT/vendor/cakephp/bake/src/Shell/Task/TemplateTask.php, line 386
+Bake\Shell\Task\TemplateTask::main() - ROOT/vendor/cakephp/bake/src/Shell/Task/TemplateTask.php, line 146
+Bake\Shell\BakeShell::Bake\Shell\{closure}() - ROOT/vendor/cakephp/bake/src/Shell/BakeShell.php, line 279
+Cake\Collection\Collection::each() - CORE/src/Collection/CollectionTrait.php, line 64
+Bake\Shell\BakeShell::all() - ROOT/vendor/cakephp/bake/src/Shell/BakeShell.php, line 280
+Cake\Console\Shell::runCommand() - CORE/src/Console/Shell.php, line 517
+Cake\Console\CommandRunner::runShell() - CORE/src/Console/CommandRunner.php, line 385
+Cake\Console\CommandRunner::run() - CORE/src/Console/CommandRunner.php, line 162
+[main] - ROOT/bin/cake.php, line 12
+
+
+
+2019-11-08 18:27:51 Notice: Deprecated (16384): TableSchema::columnType() is deprecated. Use TableSchema::setColumnType() or TableSchema::getColumnType() instead. - /var/www/html/SISPREV/tmp/bake/view-ctp.php, line: 34
+ You can disable deprecation warnings by setting `Error.errorLevel` to `E_ALL & ~E_USER_DEPRECATED` in your config/app.php. in [/var/www/html/SISPREV/vendor/cakephp/cakephp/src/Core/functions.php, line 311]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 158
+deprecationWarning - CORE/src/Core/functions.php, line 311
+Cake\Database\Schema\TableSchema::columnType() - CORE/src/Database/Schema/TableSchema.php, line 383
+Bake\View\BakeView::{closure}() - ROOT/tmp/bake/view-ctp.php, line 34
+Cake\Collection\Iterator\FilterIterator::unwrap() - CORE/src/Collection/Iterator/FilterIterator.php, line 88
+Cake\Collection\Collection::optimizeUnwrap() - CORE/src/Collection/CollectionTrait.php, line 1019
+Cake\Collection\Collection::groupBy() - CORE/src/Collection/CollectionTrait.php, line 270
+include - ROOT/tmp/bake/view-ctp.php, line 48
+Bake\View\BakeView::_evaluate() - ROOT/vendor/cakephp/bake/src/View/BakeView.php, line 214
+Cake\View\View::_render() - CORE/src/View/View.php, line 1381
+WyriHaximus\TwigView\View\TwigView::_render() - ROOT/vendor/wyrihaximus/twig-view/src/View/TwigView.php, line 166
+Bake\View\BakeView::render() - ROOT/vendor/cakephp/bake/src/View/BakeView.php, line 146
+Bake\Shell\Task\BakeTemplateTask::generate() - ROOT/vendor/cakephp/bake/src/Shell/Task/BakeTemplateTask.php, line 91
+Bake\Shell\Task\TemplateTask::getContent() - ROOT/vendor/cakephp/bake/src/Shell/Task/TemplateTask.php, line 386
+Bake\Shell\Task\TemplateTask::main() - ROOT/vendor/cakephp/bake/src/Shell/Task/TemplateTask.php, line 146
+Bake\Shell\BakeShell::Bake\Shell\{closure}() - ROOT/vendor/cakephp/bake/src/Shell/BakeShell.php, line 279
+Cake\Collection\Collection::each() - CORE/src/Collection/CollectionTrait.php, line 64
+Bake\Shell\BakeShell::all() - ROOT/vendor/cakephp/bake/src/Shell/BakeShell.php, line 280
+Cake\Console\Shell::runCommand() - CORE/src/Console/Shell.php, line 517
+Cake\Console\CommandRunner::runShell() - CORE/src/Console/CommandRunner.php, line 385
+Cake\Console\CommandRunner::run() - CORE/src/Console/CommandRunner.php, line 162
+[main] - ROOT/bin/cake.php, line 12
+
+
+
+2019-11-08 18:27:51 Notice: Deprecated (16384): TableSchema::columnType() is deprecated. Use TableSchema::setColumnType() or TableSchema::getColumnType() instead. - /var/www/html/SISPREV/tmp/bake/view-ctp.php, line: 34
+ You can disable deprecation warnings by setting `Error.errorLevel` to `E_ALL & ~E_USER_DEPRECATED` in your config/app.php. in [/var/www/html/SISPREV/vendor/cakephp/cakephp/src/Core/functions.php, line 311]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 158
+deprecationWarning - CORE/src/Core/functions.php, line 311
+Cake\Database\Schema\TableSchema::columnType() - CORE/src/Database/Schema/TableSchema.php, line 383
+Bake\View\BakeView::{closure}() - ROOT/tmp/bake/view-ctp.php, line 34
+Cake\Collection\Iterator\FilterIterator::unwrap() - CORE/src/Collection/Iterator/FilterIterator.php, line 88
+Cake\Collection\Collection::optimizeUnwrap() - CORE/src/Collection/CollectionTrait.php, line 1019
+Cake\Collection\Collection::groupBy() - CORE/src/Collection/CollectionTrait.php, line 270
+include - ROOT/tmp/bake/view-ctp.php, line 48
+Bake\View\BakeView::_evaluate() - ROOT/vendor/cakephp/bake/src/View/BakeView.php, line 214
+Cake\View\View::_render() - CORE/src/View/View.php, line 1381
+WyriHaximus\TwigView\View\TwigView::_render() - ROOT/vendor/wyrihaximus/twig-view/src/View/TwigView.php, line 166
+Bake\View\BakeView::render() - ROOT/vendor/cakephp/bake/src/View/BakeView.php, line 146
+Bake\Shell\Task\BakeTemplateTask::generate() - ROOT/vendor/cakephp/bake/src/Shell/Task/BakeTemplateTask.php, line 91
+Bake\Shell\Task\TemplateTask::getContent() - ROOT/vendor/cakephp/bake/src/Shell/Task/TemplateTask.php, line 386
+Bake\Shell\Task\TemplateTask::main() - ROOT/vendor/cakephp/bake/src/Shell/Task/TemplateTask.php, line 146
+Bake\Shell\BakeShell::Bake\Shell\{closure}() - ROOT/vendor/cakephp/bake/src/Shell/BakeShell.php, line 279
+Cake\Collection\Collection::each() - CORE/src/Collection/CollectionTrait.php, line 64
+Bake\Shell\BakeShell::all() - ROOT/vendor/cakephp/bake/src/Shell/BakeShell.php, line 280
+Cake\Console\Shell::runCommand() - CORE/src/Console/Shell.php, line 517
+Cake\Console\CommandRunner::runShell() - CORE/src/Console/CommandRunner.php, line 385
+Cake\Console\CommandRunner::run() - CORE/src/Console/CommandRunner.php, line 162
+[main] - ROOT/bin/cake.php, line 12
+
+
+
+2019-11-08 18:27:51 Notice: Deprecated (16384): TableSchema::columnType() is deprecated. Use TableSchema::setColumnType() or TableSchema::getColumnType() instead. - /var/www/html/SISPREV/tmp/bake/view-ctp.php, line: 34
+ You can disable deprecation warnings by setting `Error.errorLevel` to `E_ALL & ~E_USER_DEPRECATED` in your config/app.php. in [/var/www/html/SISPREV/vendor/cakephp/cakephp/src/Core/functions.php, line 311]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 158
+deprecationWarning - CORE/src/Core/functions.php, line 311
+Cake\Database\Schema\TableSchema::columnType() - CORE/src/Database/Schema/TableSchema.php, line 383
+Bake\View\BakeView::{closure}() - ROOT/tmp/bake/view-ctp.php, line 34
+Cake\Collection\Iterator\FilterIterator::unwrap() - CORE/src/Collection/Iterator/FilterIterator.php, line 88
+Cake\Collection\Collection::optimizeUnwrap() - CORE/src/Collection/CollectionTrait.php, line 1019
+Cake\Collection\Collection::groupBy() - CORE/src/Collection/CollectionTrait.php, line 270
+include - ROOT/tmp/bake/view-ctp.php, line 48
+Bake\View\BakeView::_evaluate() - ROOT/vendor/cakephp/bake/src/View/BakeView.php, line 214
+Cake\View\View::_render() - CORE/src/View/View.php, line 1381
+WyriHaximus\TwigView\View\TwigView::_render() - ROOT/vendor/wyrihaximus/twig-view/src/View/TwigView.php, line 166
+Bake\View\BakeView::render() - ROOT/vendor/cakephp/bake/src/View/BakeView.php, line 146
+Bake\Shell\Task\BakeTemplateTask::generate() - ROOT/vendor/cakephp/bake/src/Shell/Task/BakeTemplateTask.php, line 91
+Bake\Shell\Task\TemplateTask::getContent() - ROOT/vendor/cakephp/bake/src/Shell/Task/TemplateTask.php, line 386
+Bake\Shell\Task\TemplateTask::main() - ROOT/vendor/cakephp/bake/src/Shell/Task/TemplateTask.php, line 146
+Bake\Shell\BakeShell::Bake\Shell\{closure}() - ROOT/vendor/cakephp/bake/src/Shell/BakeShell.php, line 279
+Cake\Collection\Collection::each() - CORE/src/Collection/CollectionTrait.php, line 64
+Bake\Shell\BakeShell::all() - ROOT/vendor/cakephp/bake/src/Shell/BakeShell.php, line 280
+Cake\Console\Shell::runCommand() - CORE/src/Console/Shell.php, line 517
+Cake\Console\CommandRunner::runShell() - CORE/src/Console/CommandRunner.php, line 385
+Cake\Console\CommandRunner::run() - CORE/src/Console/CommandRunner.php, line 162
+[main] - ROOT/bin/cake.php, line 12
+
+
+
+2019-11-08 18:27:51 Notice: Deprecated (16384): TableSchema::columnType() is deprecated. Use TableSchema::setColumnType() or TableSchema::getColumnType() instead. - /var/www/html/SISPREV/tmp/bake/view-ctp.php, line: 37
+ You can disable deprecation warnings by setting `Error.errorLevel` to `E_ALL & ~E_USER_DEPRECATED` in your config/app.php. in [/var/www/html/SISPREV/vendor/cakephp/cakephp/src/Core/functions.php, line 311]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 158
+deprecationWarning - CORE/src/Core/functions.php, line 311
+Cake\Database\Schema\TableSchema::columnType() - CORE/src/Database/Schema/TableSchema.php, line 383
+Bake\View\BakeView::{closure}() - ROOT/tmp/bake/view-ctp.php, line 37
+Cake\Collection\Collection::groupBy() - CORE/src/Collection/CollectionTrait.php, line 271
+include - ROOT/tmp/bake/view-ctp.php, line 48
+Bake\View\BakeView::_evaluate() - ROOT/vendor/cakephp/bake/src/View/BakeView.php, line 214
+Cake\View\View::_render() - CORE/src/View/View.php, line 1381
+WyriHaximus\TwigView\View\TwigView::_render() - ROOT/vendor/wyrihaximus/twig-view/src/View/TwigView.php, line 166
+Bake\View\BakeView::render() - ROOT/vendor/cakephp/bake/src/View/BakeView.php, line 146
+Bake\Shell\Task\BakeTemplateTask::generate() - ROOT/vendor/cakephp/bake/src/Shell/Task/BakeTemplateTask.php, line 91
+Bake\Shell\Task\TemplateTask::getContent() - ROOT/vendor/cakephp/bake/src/Shell/Task/TemplateTask.php, line 386
+Bake\Shell\Task\TemplateTask::main() - ROOT/vendor/cakephp/bake/src/Shell/Task/TemplateTask.php, line 146
+Bake\Shell\BakeShell::Bake\Shell\{closure}() - ROOT/vendor/cakephp/bake/src/Shell/BakeShell.php, line 279
+Cake\Collection\Collection::each() - CORE/src/Collection/CollectionTrait.php, line 64
+Bake\Shell\BakeShell::all() - ROOT/vendor/cakephp/bake/src/Shell/BakeShell.php, line 280
+Cake\Console\Shell::runCommand() - CORE/src/Console/Shell.php, line 517
+Cake\Console\CommandRunner::runShell() - CORE/src/Console/CommandRunner.php, line 385
+Cake\Console\CommandRunner::run() - CORE/src/Console/CommandRunner.php, line 162
+[main] - ROOT/bin/cake.php, line 12
+
+
+
+2019-11-08 18:27:51 Notice: Deprecated (16384): TableSchema::columnType() is deprecated. Use TableSchema::setColumnType() or TableSchema::getColumnType() instead. - /var/www/html/SISPREV/tmp/bake/view-ctp.php, line: 37
+ You can disable deprecation warnings by setting `Error.errorLevel` to `E_ALL & ~E_USER_DEPRECATED` in your config/app.php. in [/var/www/html/SISPREV/vendor/cakephp/cakephp/src/Core/functions.php, line 311]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 158
+deprecationWarning - CORE/src/Core/functions.php, line 311
+Cake\Database\Schema\TableSchema::columnType() - CORE/src/Database/Schema/TableSchema.php, line 383
+Bake\View\BakeView::{closure}() - ROOT/tmp/bake/view-ctp.php, line 37
+Cake\Collection\Collection::groupBy() - CORE/src/Collection/CollectionTrait.php, line 271
+include - ROOT/tmp/bake/view-ctp.php, line 48
+Bake\View\BakeView::_evaluate() - ROOT/vendor/cakephp/bake/src/View/BakeView.php, line 214
+Cake\View\View::_render() - CORE/src/View/View.php, line 1381
+WyriHaximus\TwigView\View\TwigView::_render() - ROOT/vendor/wyrihaximus/twig-view/src/View/TwigView.php, line 166
+Bake\View\BakeView::render() - ROOT/vendor/cakephp/bake/src/View/BakeView.php, line 146
+Bake\Shell\Task\BakeTemplateTask::generate() - ROOT/vendor/cakephp/bake/src/Shell/Task/BakeTemplateTask.php, line 91
+Bake\Shell\Task\TemplateTask::getContent() - ROOT/vendor/cakephp/bake/src/Shell/Task/TemplateTask.php, line 386
+Bake\Shell\Task\TemplateTask::main() - ROOT/vendor/cakephp/bake/src/Shell/Task/TemplateTask.php, line 146
+Bake\Shell\BakeShell::Bake\Shell\{closure}() - ROOT/vendor/cakephp/bake/src/Shell/BakeShell.php, line 279
+Cake\Collection\Collection::each() - CORE/src/Collection/CollectionTrait.php, line 64
+Bake\Shell\BakeShell::all() - ROOT/vendor/cakephp/bake/src/Shell/BakeShell.php, line 280
+Cake\Console\Shell::runCommand() - CORE/src/Console/Shell.php, line 517
+Cake\Console\CommandRunner::runShell() - CORE/src/Console/CommandRunner.php, line 385
+Cake\Console\CommandRunner::run() - CORE/src/Console/CommandRunner.php, line 162
+[main] - ROOT/bin/cake.php, line 12
+
+
+
+2019-11-08 18:27:51 Notice: Deprecated (16384): TableSchema::columnType() is deprecated. Use TableSchema::setColumnType() or TableSchema::getColumnType() instead. - /var/www/html/SISPREV/tmp/bake/view-ctp.php, line: 37
+ You can disable deprecation warnings by setting `Error.errorLevel` to `E_ALL & ~E_USER_DEPRECATED` in your config/app.php. in [/var/www/html/SISPREV/vendor/cakephp/cakephp/src/Core/functions.php, line 311]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 158
+deprecationWarning - CORE/src/Core/functions.php, line 311
+Cake\Database\Schema\TableSchema::columnType() - CORE/src/Database/Schema/TableSchema.php, line 383
+Bake\View\BakeView::{closure}() - ROOT/tmp/bake/view-ctp.php, line 37
+Cake\Collection\Collection::groupBy() - CORE/src/Collection/CollectionTrait.php, line 271
+include - ROOT/tmp/bake/view-ctp.php, line 48
+Bake\View\BakeView::_evaluate() - ROOT/vendor/cakephp/bake/src/View/BakeView.php, line 214
+Cake\View\View::_render() - CORE/src/View/View.php, line 1381
+WyriHaximus\TwigView\View\TwigView::_render() - ROOT/vendor/wyrihaximus/twig-view/src/View/TwigView.php, line 166
+Bake\View\BakeView::render() - ROOT/vendor/cakephp/bake/src/View/BakeView.php, line 146
+Bake\Shell\Task\BakeTemplateTask::generate() - ROOT/vendor/cakephp/bake/src/Shell/Task/BakeTemplateTask.php, line 91
+Bake\Shell\Task\TemplateTask::getContent() - ROOT/vendor/cakephp/bake/src/Shell/Task/TemplateTask.php, line 386
+Bake\Shell\Task\TemplateTask::main() - ROOT/vendor/cakephp/bake/src/Shell/Task/TemplateTask.php, line 146
+Bake\Shell\BakeShell::Bake\Shell\{closure}() - ROOT/vendor/cakephp/bake/src/Shell/BakeShell.php, line 279
+Cake\Collection\Collection::each() - CORE/src/Collection/CollectionTrait.php, line 64
+Bake\Shell\BakeShell::all() - ROOT/vendor/cakephp/bake/src/Shell/BakeShell.php, line 280
+Cake\Console\Shell::runCommand() - CORE/src/Console/Shell.php, line 517
+Cake\Console\CommandRunner::runShell() - CORE/src/Console/CommandRunner.php, line 385
+Cake\Console\CommandRunner::run() - CORE/src/Console/CommandRunner.php, line 162
+[main] - ROOT/bin/cake.php, line 12
+
+
+
+2019-11-08 18:27:51 Notice: Deprecated (16384): TableSchema::columnType() is deprecated. Use TableSchema::setColumnType() or TableSchema::getColumnType() instead. - /var/www/html/SISPREV/tmp/bake/Bake-Element-form-ctp.php, line: 19
+ You can disable deprecation warnings by setting `Error.errorLevel` to `E_ALL & ~E_USER_DEPRECATED` in your config/app.php. in [/var/www/html/SISPREV/vendor/cakephp/cakephp/src/Core/functions.php, line 311]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 158
+deprecationWarning - CORE/src/Core/functions.php, line 311
+Cake\Database\Schema\TableSchema::columnType() - CORE/src/Database/Schema/TableSchema.php, line 383
+Bake\View\BakeView::{closure}() - ROOT/tmp/bake/Bake-Element-form-ctp.php, line 19
+CallbackFilterIterator::accept() - [internal], line ??
+FilterIterator::rewind() - [internal], line ??
+IteratorIterator::rewind() - [internal], line ??
+include - ROOT/tmp/bake/Bake-Element-form-ctp.php, line 56
+Bake\View\BakeView::_evaluate() - ROOT/vendor/cakephp/bake/src/View/BakeView.php, line 214
+Cake\View\View::_render() - CORE/src/View/View.php, line 1381
+WyriHaximus\TwigView\View\TwigView::_render() - ROOT/vendor/wyrihaximus/twig-view/src/View/TwigView.php, line 166
+Cake\View\View::_renderElement() - CORE/src/View/View.php, line 1856
+Cake\View\View::element() - CORE/src/View/View.php, line 782
+include - ROOT/tmp/bake/add-ctp.php, line 16
+Bake\View\BakeView::_evaluate() - ROOT/vendor/cakephp/bake/src/View/BakeView.php, line 214
+Cake\View\View::_render() - CORE/src/View/View.php, line 1381
+WyriHaximus\TwigView\View\TwigView::_render() - ROOT/vendor/wyrihaximus/twig-view/src/View/TwigView.php, line 166
+Bake\View\BakeView::render() - ROOT/vendor/cakephp/bake/src/View/BakeView.php, line 146
+Bake\Shell\Task\BakeTemplateTask::generate() - ROOT/vendor/cakephp/bake/src/Shell/Task/BakeTemplateTask.php, line 91
+Bake\Shell\Task\TemplateTask::getContent() - ROOT/vendor/cakephp/bake/src/Shell/Task/TemplateTask.php, line 386
+Bake\Shell\Task\TemplateTask::main() - ROOT/vendor/cakephp/bake/src/Shell/Task/TemplateTask.php, line 146
+Bake\Shell\BakeShell::Bake\Shell\{closure}() - ROOT/vendor/cakephp/bake/src/Shell/BakeShell.php, line 279
+Cake\Collection\Collection::each() - CORE/src/Collection/CollectionTrait.php, line 64
+Bake\Shell\BakeShell::all() - ROOT/vendor/cakephp/bake/src/Shell/BakeShell.php, line 280
+Cake\Console\Shell::runCommand() - CORE/src/Console/Shell.php, line 517
+Cake\Console\CommandRunner::runShell() - CORE/src/Console/CommandRunner.php, line 385
+Cake\Console\CommandRunner::run() - CORE/src/Console/CommandRunner.php, line 162
+[main] - ROOT/bin/cake.php, line 12
+
+
+
+2019-11-08 18:27:51 Notice: Deprecated (16384): TableSchema::columnType() is deprecated. Use TableSchema::setColumnType() or TableSchema::getColumnType() instead. - /var/www/html/SISPREV/tmp/bake/Bake-Element-form-ctp.php, line: 19
+ You can disable deprecation warnings by setting `Error.errorLevel` to `E_ALL & ~E_USER_DEPRECATED` in your config/app.php. in [/var/www/html/SISPREV/vendor/cakephp/cakephp/src/Core/functions.php, line 311]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 158
+deprecationWarning - CORE/src/Core/functions.php, line 311
+Cake\Database\Schema\TableSchema::columnType() - CORE/src/Database/Schema/TableSchema.php, line 383
+Bake\View\BakeView::{closure}() - ROOT/tmp/bake/Bake-Element-form-ctp.php, line 19
+CallbackFilterIterator::accept() - [internal], line ??
+FilterIterator::next() - [internal], line ??
+IteratorIterator::next() - [internal], line ??
+include - ROOT/tmp/bake/Bake-Element-form-ctp.php, line 56
+Bake\View\BakeView::_evaluate() - ROOT/vendor/cakephp/bake/src/View/BakeView.php, line 214
+Cake\View\View::_render() - CORE/src/View/View.php, line 1381
+WyriHaximus\TwigView\View\TwigView::_render() - ROOT/vendor/wyrihaximus/twig-view/src/View/TwigView.php, line 166
+Cake\View\View::_renderElement() - CORE/src/View/View.php, line 1856
+Cake\View\View::element() - CORE/src/View/View.php, line 782
+include - ROOT/tmp/bake/add-ctp.php, line 16
+Bake\View\BakeView::_evaluate() - ROOT/vendor/cakephp/bake/src/View/BakeView.php, line 214
+Cake\View\View::_render() - CORE/src/View/View.php, line 1381
+WyriHaximus\TwigView\View\TwigView::_render() - ROOT/vendor/wyrihaximus/twig-view/src/View/TwigView.php, line 166
+Bake\View\BakeView::render() - ROOT/vendor/cakephp/bake/src/View/BakeView.php, line 146
+Bake\Shell\Task\BakeTemplateTask::generate() - ROOT/vendor/cakephp/bake/src/Shell/Task/BakeTemplateTask.php, line 91
+Bake\Shell\Task\TemplateTask::getContent() - ROOT/vendor/cakephp/bake/src/Shell/Task/TemplateTask.php, line 386
+Bake\Shell\Task\TemplateTask::main() - ROOT/vendor/cakephp/bake/src/Shell/Task/TemplateTask.php, line 146
+Bake\Shell\BakeShell::Bake\Shell\{closure}() - ROOT/vendor/cakephp/bake/src/Shell/BakeShell.php, line 279
+Cake\Collection\Collection::each() - CORE/src/Collection/CollectionTrait.php, line 64
+Bake\Shell\BakeShell::all() - ROOT/vendor/cakephp/bake/src/Shell/BakeShell.php, line 280
+Cake\Console\Shell::runCommand() - CORE/src/Console/Shell.php, line 517
+Cake\Console\CommandRunner::runShell() - CORE/src/Console/CommandRunner.php, line 385
+Cake\Console\CommandRunner::run() - CORE/src/Console/CommandRunner.php, line 162
+[main] - ROOT/bin/cake.php, line 12
+
+
+
+2019-11-08 18:27:51 Notice: Deprecated (16384): TableSchema::column() is deprecated. Use TableSchema::getColumn() instead. - /var/www/html/SISPREV/tmp/bake/Bake-Element-form-ctp.php, line: 74
+ You can disable deprecation warnings by setting `Error.errorLevel` to `E_ALL & ~E_USER_DEPRECATED` in your config/app.php. in [/var/www/html/SISPREV/vendor/cakephp/cakephp/src/Core/functions.php, line 311]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 158
+deprecationWarning - CORE/src/Core/functions.php, line 311
+Cake\Database\Schema\TableSchema::column() - CORE/src/Database/Schema/TableSchema.php, line 353
+include - ROOT/tmp/bake/Bake-Element-form-ctp.php, line 74
+Bake\View\BakeView::_evaluate() - ROOT/vendor/cakephp/bake/src/View/BakeView.php, line 214
+Cake\View\View::_render() - CORE/src/View/View.php, line 1381
+WyriHaximus\TwigView\View\TwigView::_render() - ROOT/vendor/wyrihaximus/twig-view/src/View/TwigView.php, line 166
+Cake\View\View::_renderElement() - CORE/src/View/View.php, line 1856
+Cake\View\View::element() - CORE/src/View/View.php, line 782
+include - ROOT/tmp/bake/add-ctp.php, line 16
+Bake\View\BakeView::_evaluate() - ROOT/vendor/cakephp/bake/src/View/BakeView.php, line 214
+Cake\View\View::_render() - CORE/src/View/View.php, line 1381
+WyriHaximus\TwigView\View\TwigView::_render() - ROOT/vendor/wyrihaximus/twig-view/src/View/TwigView.php, line 166
+Bake\View\BakeView::render() - ROOT/vendor/cakephp/bake/src/View/BakeView.php, line 146
+Bake\Shell\Task\BakeTemplateTask::generate() - ROOT/vendor/cakephp/bake/src/Shell/Task/BakeTemplateTask.php, line 91
+Bake\Shell\Task\TemplateTask::getContent() - ROOT/vendor/cakephp/bake/src/Shell/Task/TemplateTask.php, line 386
+Bake\Shell\Task\TemplateTask::main() - ROOT/vendor/cakephp/bake/src/Shell/Task/TemplateTask.php, line 146
+Bake\Shell\BakeShell::Bake\Shell\{closure}() - ROOT/vendor/cakephp/bake/src/Shell/BakeShell.php, line 279
+Cake\Collection\Collection::each() - CORE/src/Collection/CollectionTrait.php, line 64
+Bake\Shell\BakeShell::all() - ROOT/vendor/cakephp/bake/src/Shell/BakeShell.php, line 280
+Cake\Console\Shell::runCommand() - CORE/src/Console/Shell.php, line 517
+Cake\Console\CommandRunner::runShell() - CORE/src/Console/CommandRunner.php, line 385
+Cake\Console\CommandRunner::run() - CORE/src/Console/CommandRunner.php, line 162
+[main] - ROOT/bin/cake.php, line 12
+
+
+
+2019-11-08 18:27:51 Notice: Deprecated (16384): TableSchema::columnType() is deprecated. Use TableSchema::setColumnType() or TableSchema::getColumnType() instead. - /var/www/html/SISPREV/tmp/bake/Bake-Element-form-ctp.php, line: 19
+ You can disable deprecation warnings by setting `Error.errorLevel` to `E_ALL & ~E_USER_DEPRECATED` in your config/app.php. in [/var/www/html/SISPREV/vendor/cakephp/cakephp/src/Core/functions.php, line 311]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 158
+deprecationWarning - CORE/src/Core/functions.php, line 311
+Cake\Database\Schema\TableSchema::columnType() - CORE/src/Database/Schema/TableSchema.php, line 383
+Bake\View\BakeView::{closure}() - ROOT/tmp/bake/Bake-Element-form-ctp.php, line 19
+CallbackFilterIterator::accept() - [internal], line ??
+FilterIterator::next() - [internal], line ??
+IteratorIterator::next() - [internal], line ??
+include - ROOT/tmp/bake/Bake-Element-form-ctp.php, line 56
+Bake\View\BakeView::_evaluate() - ROOT/vendor/cakephp/bake/src/View/BakeView.php, line 214
+Cake\View\View::_render() - CORE/src/View/View.php, line 1381
+WyriHaximus\TwigView\View\TwigView::_render() - ROOT/vendor/wyrihaximus/twig-view/src/View/TwigView.php, line 166
+Cake\View\View::_renderElement() - CORE/src/View/View.php, line 1856
+Cake\View\View::element() - CORE/src/View/View.php, line 782
+include - ROOT/tmp/bake/add-ctp.php, line 16
+Bake\View\BakeView::_evaluate() - ROOT/vendor/cakephp/bake/src/View/BakeView.php, line 214
+Cake\View\View::_render() - CORE/src/View/View.php, line 1381
+WyriHaximus\TwigView\View\TwigView::_render() - ROOT/vendor/wyrihaximus/twig-view/src/View/TwigView.php, line 166
+Bake\View\BakeView::render() - ROOT/vendor/cakephp/bake/src/View/BakeView.php, line 146
+Bake\Shell\Task\BakeTemplateTask::generate() - ROOT/vendor/cakephp/bake/src/Shell/Task/BakeTemplateTask.php, line 91
+Bake\Shell\Task\TemplateTask::getContent() - ROOT/vendor/cakephp/bake/src/Shell/Task/TemplateTask.php, line 386
+Bake\Shell\Task\TemplateTask::main() - ROOT/vendor/cakephp/bake/src/Shell/Task/TemplateTask.php, line 146
+Bake\Shell\BakeShell::Bake\Shell\{closure}() - ROOT/vendor/cakephp/bake/src/Shell/BakeShell.php, line 279
+Cake\Collection\Collection::each() - CORE/src/Collection/CollectionTrait.php, line 64
+Bake\Shell\BakeShell::all() - ROOT/vendor/cakephp/bake/src/Shell/BakeShell.php, line 280
+Cake\Console\Shell::runCommand() - CORE/src/Console/Shell.php, line 517
+Cake\Console\CommandRunner::runShell() - CORE/src/Console/CommandRunner.php, line 385
+Cake\Console\CommandRunner::run() - CORE/src/Console/CommandRunner.php, line 162
+[main] - ROOT/bin/cake.php, line 12
+
+
+
+2019-11-08 18:27:51 Notice: Deprecated (16384): TableSchema::column() is deprecated. Use TableSchema::getColumn() instead. - /var/www/html/SISPREV/tmp/bake/Bake-Element-form-ctp.php, line: 74
+ You can disable deprecation warnings by setting `Error.errorLevel` to `E_ALL & ~E_USER_DEPRECATED` in your config/app.php. in [/var/www/html/SISPREV/vendor/cakephp/cakephp/src/Core/functions.php, line 311]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 158
+deprecationWarning - CORE/src/Core/functions.php, line 311
+Cake\Database\Schema\TableSchema::column() - CORE/src/Database/Schema/TableSchema.php, line 353
+include - ROOT/tmp/bake/Bake-Element-form-ctp.php, line 74
+Bake\View\BakeView::_evaluate() - ROOT/vendor/cakephp/bake/src/View/BakeView.php, line 214
+Cake\View\View::_render() - CORE/src/View/View.php, line 1381
+WyriHaximus\TwigView\View\TwigView::_render() - ROOT/vendor/wyrihaximus/twig-view/src/View/TwigView.php, line 166
+Cake\View\View::_renderElement() - CORE/src/View/View.php, line 1856
+Cake\View\View::element() - CORE/src/View/View.php, line 782
+include - ROOT/tmp/bake/add-ctp.php, line 16
+Bake\View\BakeView::_evaluate() - ROOT/vendor/cakephp/bake/src/View/BakeView.php, line 214
+Cake\View\View::_render() - CORE/src/View/View.php, line 1381
+WyriHaximus\TwigView\View\TwigView::_render() - ROOT/vendor/wyrihaximus/twig-view/src/View/TwigView.php, line 166
+Bake\View\BakeView::render() - ROOT/vendor/cakephp/bake/src/View/BakeView.php, line 146
+Bake\Shell\Task\BakeTemplateTask::generate() - ROOT/vendor/cakephp/bake/src/Shell/Task/BakeTemplateTask.php, line 91
+Bake\Shell\Task\TemplateTask::getContent() - ROOT/vendor/cakephp/bake/src/Shell/Task/TemplateTask.php, line 386
+Bake\Shell\Task\TemplateTask::main() - ROOT/vendor/cakephp/bake/src/Shell/Task/TemplateTask.php, line 146
+Bake\Shell\BakeShell::Bake\Shell\{closure}() - ROOT/vendor/cakephp/bake/src/Shell/BakeShell.php, line 279
+Cake\Collection\Collection::each() - CORE/src/Collection/CollectionTrait.php, line 64
+Bake\Shell\BakeShell::all() - ROOT/vendor/cakephp/bake/src/Shell/BakeShell.php, line 280
+Cake\Console\Shell::runCommand() - CORE/src/Console/Shell.php, line 517
+Cake\Console\CommandRunner::runShell() - CORE/src/Console/CommandRunner.php, line 385
+Cake\Console\CommandRunner::run() - CORE/src/Console/CommandRunner.php, line 162
+[main] - ROOT/bin/cake.php, line 12
+
+
+
+2019-11-08 18:27:51 Notice: Deprecated (16384): TableSchema::columnType() is deprecated. Use TableSchema::setColumnType() or TableSchema::getColumnType() instead. - /var/www/html/SISPREV/tmp/bake/Bake-Element-form-ctp.php, line: 19
+ You can disable deprecation warnings by setting `Error.errorLevel` to `E_ALL & ~E_USER_DEPRECATED` in your config/app.php. in [/var/www/html/SISPREV/vendor/cakephp/cakephp/src/Core/functions.php, line 311]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 158
+deprecationWarning - CORE/src/Core/functions.php, line 311
+Cake\Database\Schema\TableSchema::columnType() - CORE/src/Database/Schema/TableSchema.php, line 383
+Bake\View\BakeView::{closure}() - ROOT/tmp/bake/Bake-Element-form-ctp.php, line 19
+CallbackFilterIterator::accept() - [internal], line ??
+FilterIterator::rewind() - [internal], line ??
+IteratorIterator::rewind() - [internal], line ??
+include - ROOT/tmp/bake/Bake-Element-form-ctp.php, line 56
+Bake\View\BakeView::_evaluate() - ROOT/vendor/cakephp/bake/src/View/BakeView.php, line 214
+Cake\View\View::_render() - CORE/src/View/View.php, line 1381
+WyriHaximus\TwigView\View\TwigView::_render() - ROOT/vendor/wyrihaximus/twig-view/src/View/TwigView.php, line 166
+Cake\View\View::_renderElement() - CORE/src/View/View.php, line 1856
+Cake\View\View::element() - CORE/src/View/View.php, line 782
+include - ROOT/tmp/bake/edit-ctp.php, line 16
+Bake\View\BakeView::_evaluate() - ROOT/vendor/cakephp/bake/src/View/BakeView.php, line 214
+Cake\View\View::_render() - CORE/src/View/View.php, line 1381
+WyriHaximus\TwigView\View\TwigView::_render() - ROOT/vendor/wyrihaximus/twig-view/src/View/TwigView.php, line 166
+Bake\View\BakeView::render() - ROOT/vendor/cakephp/bake/src/View/BakeView.php, line 146
+Bake\Shell\Task\BakeTemplateTask::generate() - ROOT/vendor/cakephp/bake/src/Shell/Task/BakeTemplateTask.php, line 91
+Bake\Shell\Task\TemplateTask::getContent() - ROOT/vendor/cakephp/bake/src/Shell/Task/TemplateTask.php, line 386
+Bake\Shell\Task\TemplateTask::main() - ROOT/vendor/cakephp/bake/src/Shell/Task/TemplateTask.php, line 146
+Bake\Shell\BakeShell::Bake\Shell\{closure}() - ROOT/vendor/cakephp/bake/src/Shell/BakeShell.php, line 279
+Cake\Collection\Collection::each() - CORE/src/Collection/CollectionTrait.php, line 64
+Bake\Shell\BakeShell::all() - ROOT/vendor/cakephp/bake/src/Shell/BakeShell.php, line 280
+Cake\Console\Shell::runCommand() - CORE/src/Console/Shell.php, line 517
+Cake\Console\CommandRunner::runShell() - CORE/src/Console/CommandRunner.php, line 385
+Cake\Console\CommandRunner::run() - CORE/src/Console/CommandRunner.php, line 162
+[main] - ROOT/bin/cake.php, line 12
+
+
+
+2019-11-08 18:27:51 Notice: Deprecated (16384): TableSchema::columnType() is deprecated. Use TableSchema::setColumnType() or TableSchema::getColumnType() instead. - /var/www/html/SISPREV/tmp/bake/Bake-Element-form-ctp.php, line: 19
+ You can disable deprecation warnings by setting `Error.errorLevel` to `E_ALL & ~E_USER_DEPRECATED` in your config/app.php. in [/var/www/html/SISPREV/vendor/cakephp/cakephp/src/Core/functions.php, line 311]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 158
+deprecationWarning - CORE/src/Core/functions.php, line 311
+Cake\Database\Schema\TableSchema::columnType() - CORE/src/Database/Schema/TableSchema.php, line 383
+Bake\View\BakeView::{closure}() - ROOT/tmp/bake/Bake-Element-form-ctp.php, line 19
+CallbackFilterIterator::accept() - [internal], line ??
+FilterIterator::next() - [internal], line ??
+IteratorIterator::next() - [internal], line ??
+include - ROOT/tmp/bake/Bake-Element-form-ctp.php, line 56
+Bake\View\BakeView::_evaluate() - ROOT/vendor/cakephp/bake/src/View/BakeView.php, line 214
+Cake\View\View::_render() - CORE/src/View/View.php, line 1381
+WyriHaximus\TwigView\View\TwigView::_render() - ROOT/vendor/wyrihaximus/twig-view/src/View/TwigView.php, line 166
+Cake\View\View::_renderElement() - CORE/src/View/View.php, line 1856
+Cake\View\View::element() - CORE/src/View/View.php, line 782
+include - ROOT/tmp/bake/edit-ctp.php, line 16
+Bake\View\BakeView::_evaluate() - ROOT/vendor/cakephp/bake/src/View/BakeView.php, line 214
+Cake\View\View::_render() - CORE/src/View/View.php, line 1381
+WyriHaximus\TwigView\View\TwigView::_render() - ROOT/vendor/wyrihaximus/twig-view/src/View/TwigView.php, line 166
+Bake\View\BakeView::render() - ROOT/vendor/cakephp/bake/src/View/BakeView.php, line 146
+Bake\Shell\Task\BakeTemplateTask::generate() - ROOT/vendor/cakephp/bake/src/Shell/Task/BakeTemplateTask.php, line 91
+Bake\Shell\Task\TemplateTask::getContent() - ROOT/vendor/cakephp/bake/src/Shell/Task/TemplateTask.php, line 386
+Bake\Shell\Task\TemplateTask::main() - ROOT/vendor/cakephp/bake/src/Shell/Task/TemplateTask.php, line 146
+Bake\Shell\BakeShell::Bake\Shell\{closure}() - ROOT/vendor/cakephp/bake/src/Shell/BakeShell.php, line 279
+Cake\Collection\Collection::each() - CORE/src/Collection/CollectionTrait.php, line 64
+Bake\Shell\BakeShell::all() - ROOT/vendor/cakephp/bake/src/Shell/BakeShell.php, line 280
+Cake\Console\Shell::runCommand() - CORE/src/Console/Shell.php, line 517
+Cake\Console\CommandRunner::runShell() - CORE/src/Console/CommandRunner.php, line 385
+Cake\Console\CommandRunner::run() - CORE/src/Console/CommandRunner.php, line 162
+[main] - ROOT/bin/cake.php, line 12
+
+
+
+2019-11-08 18:27:51 Notice: Deprecated (16384): TableSchema::column() is deprecated. Use TableSchema::getColumn() instead. - /var/www/html/SISPREV/tmp/bake/Bake-Element-form-ctp.php, line: 74
+ You can disable deprecation warnings by setting `Error.errorLevel` to `E_ALL & ~E_USER_DEPRECATED` in your config/app.php. in [/var/www/html/SISPREV/vendor/cakephp/cakephp/src/Core/functions.php, line 311]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 158
+deprecationWarning - CORE/src/Core/functions.php, line 311
+Cake\Database\Schema\TableSchema::column() - CORE/src/Database/Schema/TableSchema.php, line 353
+include - ROOT/tmp/bake/Bake-Element-form-ctp.php, line 74
+Bake\View\BakeView::_evaluate() - ROOT/vendor/cakephp/bake/src/View/BakeView.php, line 214
+Cake\View\View::_render() - CORE/src/View/View.php, line 1381
+WyriHaximus\TwigView\View\TwigView::_render() - ROOT/vendor/wyrihaximus/twig-view/src/View/TwigView.php, line 166
+Cake\View\View::_renderElement() - CORE/src/View/View.php, line 1856
+Cake\View\View::element() - CORE/src/View/View.php, line 782
+include - ROOT/tmp/bake/edit-ctp.php, line 16
+Bake\View\BakeView::_evaluate() - ROOT/vendor/cakephp/bake/src/View/BakeView.php, line 214
+Cake\View\View::_render() - CORE/src/View/View.php, line 1381
+WyriHaximus\TwigView\View\TwigView::_render() - ROOT/vendor/wyrihaximus/twig-view/src/View/TwigView.php, line 166
+Bake\View\BakeView::render() - ROOT/vendor/cakephp/bake/src/View/BakeView.php, line 146
+Bake\Shell\Task\BakeTemplateTask::generate() - ROOT/vendor/cakephp/bake/src/Shell/Task/BakeTemplateTask.php, line 91
+Bake\Shell\Task\TemplateTask::getContent() - ROOT/vendor/cakephp/bake/src/Shell/Task/TemplateTask.php, line 386
+Bake\Shell\Task\TemplateTask::main() - ROOT/vendor/cakephp/bake/src/Shell/Task/TemplateTask.php, line 146
+Bake\Shell\BakeShell::Bake\Shell\{closure}() - ROOT/vendor/cakephp/bake/src/Shell/BakeShell.php, line 279
+Cake\Collection\Collection::each() - CORE/src/Collection/CollectionTrait.php, line 64
+Bake\Shell\BakeShell::all() - ROOT/vendor/cakephp/bake/src/Shell/BakeShell.php, line 280
+Cake\Console\Shell::runCommand() - CORE/src/Console/Shell.php, line 517
+Cake\Console\CommandRunner::runShell() - CORE/src/Console/CommandRunner.php, line 385
+Cake\Console\CommandRunner::run() - CORE/src/Console/CommandRunner.php, line 162
+[main] - ROOT/bin/cake.php, line 12
+
+
+
+2019-11-08 18:27:51 Notice: Deprecated (16384): TableSchema::columnType() is deprecated. Use TableSchema::setColumnType() or TableSchema::getColumnType() instead. - /var/www/html/SISPREV/tmp/bake/Bake-Element-form-ctp.php, line: 19
+ You can disable deprecation warnings by setting `Error.errorLevel` to `E_ALL & ~E_USER_DEPRECATED` in your config/app.php. in [/var/www/html/SISPREV/vendor/cakephp/cakephp/src/Core/functions.php, line 311]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 158
+deprecationWarning - CORE/src/Core/functions.php, line 311
+Cake\Database\Schema\TableSchema::columnType() - CORE/src/Database/Schema/TableSchema.php, line 383
+Bake\View\BakeView::{closure}() - ROOT/tmp/bake/Bake-Element-form-ctp.php, line 19
+CallbackFilterIterator::accept() - [internal], line ??
+FilterIterator::next() - [internal], line ??
+IteratorIterator::next() - [internal], line ??
+include - ROOT/tmp/bake/Bake-Element-form-ctp.php, line 56
+Bake\View\BakeView::_evaluate() - ROOT/vendor/cakephp/bake/src/View/BakeView.php, line 214
+Cake\View\View::_render() - CORE/src/View/View.php, line 1381
+WyriHaximus\TwigView\View\TwigView::_render() - ROOT/vendor/wyrihaximus/twig-view/src/View/TwigView.php, line 166
+Cake\View\View::_renderElement() - CORE/src/View/View.php, line 1856
+Cake\View\View::element() - CORE/src/View/View.php, line 782
+include - ROOT/tmp/bake/edit-ctp.php, line 16
+Bake\View\BakeView::_evaluate() - ROOT/vendor/cakephp/bake/src/View/BakeView.php, line 214
+Cake\View\View::_render() - CORE/src/View/View.php, line 1381
+WyriHaximus\TwigView\View\TwigView::_render() - ROOT/vendor/wyrihaximus/twig-view/src/View/TwigView.php, line 166
+Bake\View\BakeView::render() - ROOT/vendor/cakephp/bake/src/View/BakeView.php, line 146
+Bake\Shell\Task\BakeTemplateTask::generate() - ROOT/vendor/cakephp/bake/src/Shell/Task/BakeTemplateTask.php, line 91
+Bake\Shell\Task\TemplateTask::getContent() - ROOT/vendor/cakephp/bake/src/Shell/Task/TemplateTask.php, line 386
+Bake\Shell\Task\TemplateTask::main() - ROOT/vendor/cakephp/bake/src/Shell/Task/TemplateTask.php, line 146
+Bake\Shell\BakeShell::Bake\Shell\{closure}() - ROOT/vendor/cakephp/bake/src/Shell/BakeShell.php, line 279
+Cake\Collection\Collection::each() - CORE/src/Collection/CollectionTrait.php, line 64
+Bake\Shell\BakeShell::all() - ROOT/vendor/cakephp/bake/src/Shell/BakeShell.php, line 280
+Cake\Console\Shell::runCommand() - CORE/src/Console/Shell.php, line 517
+Cake\Console\CommandRunner::runShell() - CORE/src/Console/CommandRunner.php, line 385
+Cake\Console\CommandRunner::run() - CORE/src/Console/CommandRunner.php, line 162
+[main] - ROOT/bin/cake.php, line 12
+
+
+
+2019-11-08 18:27:51 Notice: Deprecated (16384): TableSchema::column() is deprecated. Use TableSchema::getColumn() instead. - /var/www/html/SISPREV/tmp/bake/Bake-Element-form-ctp.php, line: 74
+ You can disable deprecation warnings by setting `Error.errorLevel` to `E_ALL & ~E_USER_DEPRECATED` in your config/app.php. in [/var/www/html/SISPREV/vendor/cakephp/cakephp/src/Core/functions.php, line 311]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 158
+deprecationWarning - CORE/src/Core/functions.php, line 311
+Cake\Database\Schema\TableSchema::column() - CORE/src/Database/Schema/TableSchema.php, line 353
+include - ROOT/tmp/bake/Bake-Element-form-ctp.php, line 74
+Bake\View\BakeView::_evaluate() - ROOT/vendor/cakephp/bake/src/View/BakeView.php, line 214
+Cake\View\View::_render() - CORE/src/View/View.php, line 1381
+WyriHaximus\TwigView\View\TwigView::_render() - ROOT/vendor/wyrihaximus/twig-view/src/View/TwigView.php, line 166
+Cake\View\View::_renderElement() - CORE/src/View/View.php, line 1856
+Cake\View\View::element() - CORE/src/View/View.php, line 782
+include - ROOT/tmp/bake/edit-ctp.php, line 16
+Bake\View\BakeView::_evaluate() - ROOT/vendor/cakephp/bake/src/View/BakeView.php, line 214
+Cake\View\View::_render() - CORE/src/View/View.php, line 1381
+WyriHaximus\TwigView\View\TwigView::_render() - ROOT/vendor/wyrihaximus/twig-view/src/View/TwigView.php, line 166
+Bake\View\BakeView::render() - ROOT/vendor/cakephp/bake/src/View/BakeView.php, line 146
+Bake\Shell\Task\BakeTemplateTask::generate() - ROOT/vendor/cakephp/bake/src/Shell/Task/BakeTemplateTask.php, line 91
+Bake\Shell\Task\TemplateTask::getContent() - ROOT/vendor/cakephp/bake/src/Shell/Task/TemplateTask.php, line 386
+Bake\Shell\Task\TemplateTask::main() - ROOT/vendor/cakephp/bake/src/Shell/Task/TemplateTask.php, line 146
+Bake\Shell\BakeShell::Bake\Shell\{closure}() - ROOT/vendor/cakephp/bake/src/Shell/BakeShell.php, line 279
+Cake\Collection\Collection::each() - CORE/src/Collection/CollectionTrait.php, line 64
+Bake\Shell\BakeShell::all() - ROOT/vendor/cakephp/bake/src/Shell/BakeShell.php, line 280
+Cake\Console\Shell::runCommand() - CORE/src/Console/Shell.php, line 517
+Cake\Console\CommandRunner::runShell() - CORE/src/Console/CommandRunner.php, line 385
+Cake\Console\CommandRunner::run() - CORE/src/Console/CommandRunner.php, line 162
+[main] - ROOT/bin/cake.php, line 12
+
+
+
