@@ -15,7 +15,7 @@
 <div class="orgao form col-md-10 columns content">
     <?= $this->Form->create($orgao) ?>
     <fieldset>
-        <legend><?= 'Edit Orgao' ?></legend>
+        <legend><?= __('Edit {0}', 'Orgao') ?></legend>
         <?php
             echo $this->Form->input('nome', ['autofocus' => 'autofocus']);
             echo $this->Form->input('sigla');

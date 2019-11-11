@@ -5,10 +5,16 @@ msgid "Edit"
 msgstr "Editar"
 
 msgid "New {0}"
-msgstr "Novo {0}"
+msgstr "Novo(a) {0}"
 
 msgid "List {0}"
 msgstr "Listar {0}"
+
+msgid "Edit {0}"
+msgstr "Editar {0}"
+
+msgid "Delete {0}"
+msgstr "Deletar {0}"
 
 msgid "Delete"
 msgstr "Deletar"
@@ -21,3 +27,175 @@ msgstr "Anterior"
 
 msgid "next"
 msgstr "Próximo"
+
+msgid "Invalid {0}"
+msgstr "{0} inválido"
+
+msgid "updated"
+msgstr "atualizado(a)"
+
+msgid "saved"
+msgstr "salvo(a)"
+
+msgid "The %1$s has been %2$s"
+msgstr "%1$s foi %2$s"
+
+msgid "Please correct errors below."
+msgstr "Por favor, corrija os erros abaixo."
+
+msgid "The %1$s with id: %2$s has been deleted."
+msgstr "%1$s com id: %2$s foi excluído(a)."
+
+msgid "There was an error deleting the %1$s with id: %2$s"
+msgstr "Houve um erro excluindo %1$s com id: %2$s"
+
+msgid "You are not authorized to access that location."
+msgstr "Você não pode visualizar esta página."
+
+msgid "Not Found"
+msgstr "Não encontrado"
+
+msgid "An Internal Error Has Occurred."
+msgstr "Houve um problema com o sistema."
+
+msgid "This field cannot be left blank"
+msgstr "Este campo não pode ser deixado em branco"
+
+msgid "The requested file was not found"
+msgstr "O arquivo solicitado não foi encontrado"
+
+msgid "Sunday"
+msgstr "Domingo"
+
+msgid "Monday"
+msgstr "Segunda"
+
+msgid "Tuesday"
+msgstr "Terça"
+
+msgid "Wednesday"
+msgstr "Quarta"
+
+msgid "Thursday"
+msgstr "Quinta"
+
+msgid "Friday"
+msgstr "Sexta"
+
+msgid "Saturday"
+msgstr "Sábado"
+
+msgid "just now"
+msgstr "agora"
+
+msgid "days"
+msgstr "dias"
+
+msgid "Error in field %s"
+msgstr "Erro no campo %s"
+
+msgid "Submit"
+msgstr "Enviar"
+
+#: View/Helper/FormHelper.php:2573
+msgid "January"
+msgstr "Janeiro"
+
+#: View/Helper/FormHelper.php:2574
+msgid "February"
+msgstr "Fevereiro"
+
+#: View/Helper/FormHelper.php:2575
+msgid "March"
+msgstr "Março"
+
+msgid "April"
+msgstr "Abril"
+
+msgid "May"
+msgstr "Maio"
+
+msgid "June"
+msgstr "Junho"
+
+msgid "July"
+msgstr "Julho"
+
+msgid "August"
+msgstr "Agosto"
+
+msgid "September"
+msgstr "Setembro"
+
+msgid "October"
+msgstr "Outubro"
+
+msgid "November"
+msgstr "Novembro"
+
+msgid "December"
+msgstr "Dezembro"
+
+msgid " of "
+msgstr " de "
+
+msgid "Are you sure you want to delete # %s?"
+msgstr "Tem certeza de que deseja excluir # %s?"
+
+msgid "Are you sure you want to delete"
+msgstr "Tem certeza de que deseja excluir"
+
+msgid ""
+"Page {:page} of {:pages}, showing {:current} records out of {:count} total, "
+"starting on record {:start}, ending on {:end}"
+msgstr ""
+"Página {:page} de {:pages}, mostrando {:current} registros de um total de {:"
+"count}, começando no registro {:start}, terminando em {:end}"
+
+msgid "previous"
+msgstr "anterior"
+
+msgid "next"
+msgstr "próximo"
+
+msgid "Related {0}"
+msgstr "{0} relacionados(as)"
+
+msgid  "Login"
+msgstr "Acessar"
+
+msgid  "Username"
+msgstr "Usuário"
+
+msgid  "Password"
+msgstr "Senha"
+
+msgid "Welcome"
+msgstr "Bem-vindo(a)"
+
+msgid "You're logged in."
+msgstr "Você está logado no sistema."
+
+msgid "Users"
+msgstr "Usuários"
+
+msgid "Logout"
+msgstr "Sair"
+
+msgid "User"
+msgstr "Usuário"
+
+msgid "From"
+msgstr "Enviado por"
+
+msgid "MessageFrom"
+msgstr "De"
+
+msgid "MessageTo"
+msgstr "Para"
+
+msgid "create"
+msgstr "Adicionar"
+
+msgid "read"
+msgstr "Visualizar"
