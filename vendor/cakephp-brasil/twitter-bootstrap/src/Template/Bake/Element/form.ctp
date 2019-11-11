@@ -50,7 +50,7 @@ $fields = collection($fields)
 <div class="<%= $pluralVar %> form col-md-10 columns content">
     <?= $this->Form->create($<%= $singularVar %>) ?>
     <fieldset>
-        <legend><?= '<%= Inflector::humanize($action) %> <%= $singularHumanName %>' ?></legend>
+        <legend><?= __('<%= Inflector::humanize($action) %> {0}', '<%= $singularHumanName %>') ?></legend>
         <?php
 <%
         $first_input = True;

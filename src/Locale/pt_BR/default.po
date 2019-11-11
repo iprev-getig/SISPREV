@@ -7,6 +7,9 @@ msgstr "Editar"
 msgid "New {0}"
 msgstr "Novo(a) {0}"
 
+msgid "Add {0}"
+msgstr "Novo(a) {0}"
+
 msgid "List {0}"
 msgstr "Listar {0}"
 
@@ -97,15 +100,12 @@ msgstr "Erro no campo %s"
 msgid "Submit"
 msgstr "Enviar"
 
-#: View/Helper/FormHelper.php:2573
 msgid "January"
 msgstr "Janeiro"
 
-#: View/Helper/FormHelper.php:2574
 msgid "February"
 msgstr "Fevereiro"
 
-#: View/Helper/FormHelper.php:2575
 msgid "March"
 msgstr "Março"
 
