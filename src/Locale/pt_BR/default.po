@@ -1,0 +1,8 @@
+msgid "Actions"
+msgstr "Ações"
+
+msgid "Edit"
+msgstr "Editar"
+
+msgid "New {0}"
+msgstr "Novo {0}"

@@ -50,7 +50,7 @@ return [
     'App' => [
         'namespace' => 'App',
         'encoding' => env('APP_ENCODING', 'UTF-8'),
-        'defaultLocale' => env('APP_DEFAULT_LOCALE', 'en_US'),
+        'defaultLocale' => env('APP_DEFAULT_LOCALE', 'pt_BR'),
         'defaultTimezone' => env('APP_DEFAULT_TIMEZONE', 'UTC'),
         'base' => false,
         'dir' => 'src',
@@ -258,7 +258,7 @@ return [
             'persistent' => true,
             'host' => 'localhost',
             'username' => 'postgres',
-            'password' => 'root',
+            'password' => 'cliente',
             'database' => 'sagen',
             'schema' => 'public',
             'port' => 5432,
