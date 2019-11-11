@@ -53,6 +53,7 @@ $fields = collection($fields)
         <legend><?= '<%= Inflector::humanize($action) %> <%= $singularHumanName %>' ?></legend>
         <?php
 <%
+        $first_input = True;
         foreach ($fields as $field) {
             if (in_array($field, $primaryKey)) {
                 continue;
@@ -60,28 +61,53 @@ $fields = collection($fields)
             if (isset($keyFields[$field])) {
                 $fieldData = $schema->column($field);
                 if (!empty($fieldData['null'])) {
+                    if ($first_input) {
+%>
+            echo $this->Form->input('<%= $field %>', ['options' => $<%= $keyFields[$field] %>, 'empty' => true, 'autofocus' => 'autofocus']);
+<%
+                    } else {
 %>
             echo $this->Form->input('<%= $field %>', ['options' => $<%= $keyFields[$field] %>, 'empty' => true]);
-<%
+<%                      
+                    }
                 } else {
+                    if ($first_input) {
+%>
+            echo $this->Form->input('<%= $field %>', ['options' => $<%= $keyFields[$field] %>, 'autofocus' => 'autofocus']);
+<%
+                    } else {
 %>
             echo $this->Form->input('<%= $field %>', ['options' => $<%= $keyFields[$field] %>]);
-<%
+<%                      
+                    }
                 }
                 continue;
             }
             if (!in_array($field, ['created', 'modified', 'updated'])) {
                 $fieldData = $schema->column($field);
                 if (($fieldData['type'] === 'date') && (!empty($fieldData['null']))) {
+                    if ($first_input) {
 %>
-            echo $this->Form->input('<%= $field %>', ['empty' => true, 'default' => '']);
+            echo $this->Form->input('<%= $field %>', ['empty' => true, 'default' => '', 'autofocus' => 'autofocus']);
 <%
+                    } else {
+%>
+            echo $this->Form->input('<%= $field %>', ['empty' => true, 'default' => '');
+<%
+                    }
                 } else {
+                    if ($first_input) {
+%>
+            echo $this->Form->input('<%= $field %>', ['autofocus' => 'autofocus']);
+<%
+                    } else {
 %>
             echo $this->Form->input('<%= $field %>');
 <%
+                     }
                 }
             }
+            $first_input = False;
         }
         if (!empty($associations['BelongsToMany'])) {
             foreach ($associations['BelongsToMany'] as $assocName => $assocData) {

@@ -17,7 +17,7 @@
     <fieldset>
         <legend><?= 'Edit Orgao' ?></legend>
         <?php
-            echo $this->Form->input('nome');
+            echo $this->Form->input('nome', ['autofocus' => 'autofocus']);
             echo $this->Form->input('sigla');
         ?>
     </fieldset>
