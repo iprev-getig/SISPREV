@@ -6,3 +6,18 @@ msgstr "Editar"
 
 msgid "New {0}"
 msgstr "Novo {0}"
+
+msgid "List {0}"
+msgstr "Listar {0}"
+
+msgid "Delete"
+msgstr "Deletar"
+
+msgid "View"
+msgstr "Visualizar"
+
+msgid "previous"
+msgstr "Anterior"
+
+msgid "next"
+msgstr "Próximo"
