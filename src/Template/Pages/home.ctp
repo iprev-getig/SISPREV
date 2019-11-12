@@ -42,6 +42,7 @@ $cakeDescription = 'SISPREV: Instituto de Previdência do Estado de Santa Catari
     <?= $this->Html->css('base.css') ?>
     <?= $this->Html->css('style.css') ?>
     <?= $this->Html->css('home.css') ?>
+    <?php echo $this->Html->css('icones'); ?>
     <link href="https://fonts.googleapis.com/css?family=Raleway:500i|Roboto:300,400,700|Roboto+Mono" rel="stylesheet">
 </head>
 <body class="home">
@@ -54,6 +55,26 @@ $cakeDescription = 'SISPREV: Instituto de Previdência do Estado de Santa Catari
 </header>
 
 <div class="row">
+    <div class="dashboard-icon">
+        <?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fas fa-building fa-4x')), array('controller' => 'Orgao', 'action' => 'index'), array('escape'=> false)); ?>
+        <span><?php echo __('SAGEN'); ?></span>
+    </div>
+    <div class="dashboard-icon">
+        <?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fas fa-calculator fa-4x')), array('controller' => 'Orgao', 'action' => 'index'), array('escape'=> false)); ?>
+        <span><?php echo __('SICOP'); ?></span>
+    </div>
+    <div class="dashboard-icon">
+        <?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fas fa-headset fa-4x')), array('controller' => 'Orgao', 'action' => 'index'), array('escape'=> false)); ?>
+        <span><?php echo __('SOS'); ?></span>
+    </div>
+    <div class="dashboard-icon">
+        <?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fas fa-money-check-alt fa-4x')), array('controller' => 'Orgao', 'action' => 'index'), array('escape'=> false)); ?>
+        <span><?php echo __('SAP'); ?></span>
+    </div>
+    <div class="dashboard-icon">
+        <?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fas fa-gavel fa-4x')), array('controller' => 'Orgao', 'action' => 'index'), array('escape'=> false)); ?>
+        <span><?php echo __('Judicial'); ?></span>
+    </div>
     <div class="columns large-12">
         <div class="ctp-warning alert text-center">
             <p>Please be aware that this page will not be shown if you turn off debug mode unless you replace src/Template/Pages/home.ctp with your own version.</p>
@@ -271,6 +292,6 @@ $cakeDescription = 'SISPREV: Instituto de Previdência do Estado de Santa Catari
         </ul>
     </div>
 </div>
-
+<script src="https://kit.fontawesome.com/4e67fa5bd2.js" crossorigin="anonymous"></script>
 </body>
 </html>

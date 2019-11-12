@@ -258,7 +258,7 @@ return [
             'persistent' => true,
             'host' => 'localhost',
             'username' => 'postgres',
-            'password' => 'cliente',
+            'password' => 'root',
             'database' => 'sagen',
             'schema' => 'public',
             'port' => 5432,
