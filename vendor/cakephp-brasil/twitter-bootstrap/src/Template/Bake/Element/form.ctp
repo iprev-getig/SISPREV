@@ -50,7 +50,10 @@ $fields = collection($fields)
 <div class="<%= $pluralVar %> form col-md-10 columns content">
     <?= $this->Form->create($<%= $singularVar %>) ?>
     <fieldset>
-        <legend><?= __('<%= Inflector::humanize($action) %> {0}', '<%= $singularHumanName %>') ?></legend>
+        <legend>
+            <?= $this->Html->tag('i', '', array('class' => 'far fa-edit')) ?>
+            <?= __('<%= Inflector::humanize($action) %> {0}', '<%= $singularHumanName %>') ?>
+        </legend>
         <?php
 <%
         $first_input = True;

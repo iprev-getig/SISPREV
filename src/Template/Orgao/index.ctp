@@ -8,7 +8,10 @@
     </ul>
 </nav>
 <div class="orgao index col-md-10 columns content">
-    <h3>Orgao</h3>
+    <h3>
+        <?= $this->Html->tag('i', '', array('class' => 'fas fa-chevron-right')) ?>
+        Orgao
+    </h3>
     <table class="table table-striped table-hover">
         <thead>
             <tr>
@@ -42,7 +45,7 @@
             </ul>
             <p><?= $this->Paginator->counter(__('Page {{page}} of {{pages}}, showing {{current}} records out of
          {{count}} total, starting on record {{start}}, ending on {{end}}')) ?></p>
-        </div>
-        </center>
+         </center>
+    </div>
 </div>
 </div>

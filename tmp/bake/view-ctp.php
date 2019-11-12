@@ -75,7 +75,10 @@ $pk = "\$$singularVar->{$primaryKey[0]}";
     </ul>
 </nav>
 <div class="<?= $pluralVar ?> view col-lg-10 col-md-9">
-    <h3><CakePHPBakeOpenTag= h($<?= $singularVar ?>-><?= $displayField ?>) CakePHPBakeCloseTag></h3>
+    <h3>
+        <CakePHPBakeOpenTag= $this->Html->tag('i', '', array('class' => 'fas fa-eye')) CakePHPBakeCloseTag>
+        <CakePHPBakeOpenTag= h($<?= $singularVar ?>-><?= $displayField ?>) CakePHPBakeCloseTag>
+    </h3>
     <table class="table table-striped table-hover">
 <?php if ($groupedFields['string']) : ?>
 <?php foreach ($groupedFields['string'] as $field) : ?>

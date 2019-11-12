@@ -75,7 +75,10 @@ $pk = "\$$singularVar->{$primaryKey[0]}";
     </ul>
 </nav>
 <div class="<%= $pluralVar %> view col-lg-10 col-md-9">
-    <h3><?= h($<%= $singularVar %>-><%= $displayField %>) ?></h3>
+    <h3>
+        <?= $this->Html->tag('i', '', array('class' => 'fas fa-eye')) ?>
+        <?= h($<%= $singularVar %>-><%= $displayField %>) ?>
+    </h3>
     <table class="table table-striped table-hover">
 <% if ($groupedFields['string']) : %>
 <% foreach ($groupedFields['string'] as $field) : %>

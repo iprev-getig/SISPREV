@@ -50,7 +50,10 @@ $fields = collection($fields)
 <div class="<?= $pluralVar ?> form col-md-10 columns content">
     <CakePHPBakeOpenTag= $this->Form->create($<?= $singularVar ?>) CakePHPBakeCloseTag>
     <fieldset>
-        <legend><CakePHPBakeOpenTag= __('<?= Inflector::humanize($action) ?> {0}', '<?= $singularHumanName ?>') CakePHPBakeCloseTag></legend>
+        <legend>
+            <CakePHPBakeOpenTag= $this->Html->tag('i', '', array('class' => 'far fa-edit')) CakePHPBakeCloseTag>
+            <CakePHPBakeOpenTag= __('<?= Inflector::humanize($action) ?> {0}', '<?= $singularHumanName ?>') CakePHPBakeCloseTag>
+        </legend>
         <CakePHPBakeOpenTagphp
 <?php
         $first_input = True;

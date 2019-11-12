@@ -9,7 +9,10 @@
 <div class="orgao form col-md-10 columns content">
     <?= $this->Form->create($orgao) ?>
     <fieldset>
-        <legend><?= __('Add {0}', 'Orgao') ?></legend>
+        <legend>
+            <?= $this->Html->tag('i', '', array('class' => 'far fa-edit')) ?>
+            <?= __('Add {0}', 'Orgao') ?>
+        </legend>
         <?php
             echo $this->Form->input('nome', ['autofocus' => 'autofocus']);
             echo $this->Form->input('sigla');

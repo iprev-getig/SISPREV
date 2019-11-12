@@ -10,7 +10,10 @@
     </ul>
 </nav>
 <div class="orgao view col-lg-10 col-md-9">
-    <h3><?= h($orgao->id) ?></h3>
+    <h3>
+        <?= $this->Html->tag('i', '', array('class' => 'fas fa-eye')) ?>
+        <?= h($orgao->id) ?>
+    </h3>
     <table class="table table-striped table-hover">
         <tr>
             <th>Nome</th>

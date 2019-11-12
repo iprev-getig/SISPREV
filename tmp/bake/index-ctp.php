@@ -42,7 +42,11 @@ $fields = collection($fields)
     </ul>
 </nav>
 <div class="<?= $pluralVar ?> index col-md-10 columns content">
-    <h3><?= $pluralHumanName ?></h3>
+    <h3>
+        <CakePHPBakeOpenTag= $this->Html->tag('i', '', array('class' => 'fas fa-chevron-right')) CakePHPBakeCloseTag>
+        <?= $pluralHumanName ?>
+
+    </h3>
     <table class="table table-striped table-hover">
         <thead>
             <tr>
@@ -101,7 +105,7 @@ $fields = collection($fields)
             </ul>
             <p><CakePHPBakeOpenTag= $this->Paginator->counter(__('Page {{page}} of {{pages}}, showing {{current}} records out of
          {{count}} total, starting on record {{start}}, ending on {{end}}')) CakePHPBakeCloseTag></p>
-        </div>
-    </center>
+         </center>
+    </div>
 </div>
 </div>
