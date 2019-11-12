@@ -25,7 +25,7 @@
         $this->request->allowMethod(['post', 'delete']);
         ${{ singularName }} = $this->{{ currentModelName }}->get($id);
         if ($this->{{ currentModelName }}->delete(${{ singularName }})) {
-            $this->Flash->success(__('The {{ singularHumanName|lower }} has been deleted.'));
+            
         } else {
             $this->Flash->error(__('The {{ singularHumanName|lower }} could not be deleted. Please, try again.'));
         }
