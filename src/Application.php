@@ -50,6 +50,10 @@ class Application extends BaseApplication
         }
 
         // Load more plugins here
+        // $this->addPlugin('Ajax')
+        $this->addPlugin('Ajax', ['bootstrap' => true]);
+
+
     }
 
     /**

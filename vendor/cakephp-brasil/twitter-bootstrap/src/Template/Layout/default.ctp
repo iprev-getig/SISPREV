@@ -90,6 +90,38 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="https://kit.fontawesome.com/4e67fa5bd2.js" crossorigin="anonymous"></script>
+
+
+	<?php $this->append('script'); ?>
+	<script>
+		$(document).ready(function() {
+			$('table.list a.ajax-delete').removeAttr('onclick').click(function(e) {
+				e.preventDefault();
+				var form = $(this).prev();
+				var confirmMessage = '<?= __('Are you sure you want to delete?'); ?>';
+				if (confirmMessage && !confirm(confirmMessage)) {
+					return false;
+				}
+				
+				var url = $(form).attr("action");
+				var tr = $(this).closest('tr');
+				url = url + '.json';
+
+				$.post(url).success(function(res) {
+					if (res.error) {
+						alert(res.error);
+						return false;
+					}
+					tr.fadeOut(600);
+				}).error(function() {
+					alert("Error");
+				});
+				return false;
+			});
+		});
+	</script>
+	<?php $this->end(); ?>
+
     <?= $this->fetch('script') ?>
 </body>
 </html>

@@ -977,6 +977,59 @@
         ]
     },
     {
+        "name": "dereuromark/cakephp-ajax",
+        "version": "1.5.0",
+        "version_normalized": "1.5.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/dereuromark/cakephp-ajax.git",
+            "reference": "3accba43fc471e63bffce99450a4c3e8981147f5"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/dereuromark/cakephp-ajax/zipball/3accba43fc471e63bffce99450a4c3e8981147f5",
+            "reference": "3accba43fc471e63bffce99450a4c3e8981147f5",
+            "shasum": ""
+        },
+        "require": {
+            "cakephp/cakephp": "^3.7",
+            "php": ">=5.6"
+        },
+        "require-dev": {
+            "cakephp/cakephp": "^3.7.8",
+            "dereuromark/cakephp-tools": "^1.4",
+            "fig-r/psr2r-sniffer": "dev-master"
+        },
+        "time": "2019-10-31T20:34:51+00:00",
+        "type": "cakephp-plugin",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Ajax\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Mark Scherer",
+                "homepage": "https://www.dereuromark.de",
+                "role": "Author"
+            }
+        ],
+        "description": "A CakePHP plugin that makes working with AJAX a piece of cake.",
+        "homepage": "https://github.com/dereuromark/cakephp-ajax",
+        "keywords": [
+            "ajax",
+            "asynchronous",
+            "cakephp",
+            "plugin",
+            "view"
+        ]
+    },
+    {
         "name": "dnoegel/php-xdg-base-dir",
         "version": "0.1",
         "version_normalized": "0.1.0.0",

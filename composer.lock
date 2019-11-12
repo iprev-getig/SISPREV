@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f6f5948d97a4f55dd43954103f43ef09",
+    "content-hash": "8824a0d102ea6c7d66830fa46dd37c71",
     "packages": [
         {
             "name": "aura/intl",
@@ -322,6 +322,57 @@
             ],
             "description": "A composer installer for CakePHP 3.0+ plugins.",
             "time": "2019-07-25T15:43:38+00:00"
+        },
+        {
+            "name": "dereuromark/cakephp-ajax",
+            "version": "1.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dereuromark/cakephp-ajax.git",
+                "reference": "3accba43fc471e63bffce99450a4c3e8981147f5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dereuromark/cakephp-ajax/zipball/3accba43fc471e63bffce99450a4c3e8981147f5",
+                "reference": "3accba43fc471e63bffce99450a4c3e8981147f5",
+                "shasum": ""
+            },
+            "require": {
+                "cakephp/cakephp": "^3.7",
+                "php": ">=5.6"
+            },
+            "require-dev": {
+                "cakephp/cakephp": "^3.7.8",
+                "dereuromark/cakephp-tools": "^1.4",
+                "fig-r/psr2r-sniffer": "dev-master"
+            },
+            "type": "cakephp-plugin",
+            "autoload": {
+                "psr-4": {
+                    "Ajax\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mark Scherer",
+                    "homepage": "https://www.dereuromark.de",
+                    "role": "Author"
+                }
+            ],
+            "description": "A CakePHP plugin that makes working with AJAX a piece of cake.",
+            "homepage": "https://github.com/dereuromark/cakephp-ajax",
+            "keywords": [
+                "ajax",
+                "asynchronous",
+                "cakephp",
+                "plugin",
+                "view"
+            ],
+            "time": "2019-10-31T20:34:51+00:00"
         },
         {
             "name": "mobiledetect/mobiledetectlib",

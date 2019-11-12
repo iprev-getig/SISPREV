@@ -122,6 +122,7 @@ class ComposerStaticInit2c4ff21a33657794332ec8cada5e8072
             'App\\Test\\' => 9,
             'App\\' => 4,
             'Ajgl\\Twig\\Extension\\' => 20,
+            'Ajax\\' => 5,
         ),
     );
 
@@ -343,6 +344,10 @@ class ComposerStaticInit2c4ff21a33657794332ec8cada5e8072
         'Ajgl\\Twig\\Extension\\' => 
         array (
             0 => __DIR__ . '/..' . '/ajgl/breakpoint-twig-extension/src',
+        ),
+        'Ajax\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/dereuromark/cakephp-ajax/src',
         ),
     );
 
