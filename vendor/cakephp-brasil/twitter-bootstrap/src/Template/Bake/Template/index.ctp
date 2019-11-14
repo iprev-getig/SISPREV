@@ -74,7 +74,15 @@ $fields = collection($fields)
                     }
                 }
                 if ($isKey !== true) {
-                    if (!in_array($schema->columnType($field), ['integer', 'biginteger', 'decimal', 'float'])) {
+                    if (in_array($schema->columnType($field), ['boolean'])) {
+    %>
+                    <td>
+                        <?php echo $<%= $singularVar %>-><%= $field %> 
+                            ? $this->Html->tag('i', '', array('class' => 'far fa-check-square')) 
+                            : $this->Html->tag('i', '', array('class' => 'far fa-square')) ; ?>
+                    </td>
+    <%
+                    } elseif (!in_array($schema->columnType($field), ['integer', 'biginteger', 'decimal', 'float'])) {
     %>
                     <td><?= h($<%= $singularVar %>-><%= $field %>) ?></td>
     <%

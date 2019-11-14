@@ -41,7 +41,11 @@
         </tr>
         <tr>
             <th>Bloqueado</th>
-            <td><?= $cadastro->bloqueado ? __('Yes') : __('No'); ?></td>
+            <td>
+                <?php echo $cadastro->bloqueado 
+                    ? $this->Html->tag('i', '', array('class' => 'far fa-check-square')) 
+                    : $this->Html->tag('i', '', array('class' => 'far fa-square')) ; ?>
+            </td>
          </tr>
     </table>
     <div class="row">

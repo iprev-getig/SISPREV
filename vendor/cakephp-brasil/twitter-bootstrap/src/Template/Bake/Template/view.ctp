@@ -117,7 +117,11 @@ $pk = "\$$singularVar->{$primaryKey[0]}";
 <% foreach ($groupedFields['boolean'] as $field) : %>
         <tr>
             <th><%= Inflector::humanize($field) %></th>
-            <td><?= $<%= $singularVar %>-><%= $field %> ? __('Yes') : __('No'); ?></td>
+            <td>
+                <?php echo $<%= $singularVar %>-><%= $field %> 
+                    ? $this->Html->tag('i', '', array('class' => 'far fa-check-square')) 
+                    : $this->Html->tag('i', '', array('class' => 'far fa-square')) ; ?>
+            </td>
          </tr>
 <% endforeach; %>
 <% endif; %>

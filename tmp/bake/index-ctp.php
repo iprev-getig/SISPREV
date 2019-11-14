@@ -75,7 +75,15 @@ $fields = collection($fields)
                     }
                 }
                 if ($isKey !== true) {
-                    if (!in_array($schema->columnType($field), ['integer', 'biginteger', 'decimal', 'float'])) {
+                    if (in_array($schema->columnType($field), ['boolean'])) {
+    ?>
+                    <td>
+                        <CakePHPBakeOpenTagphp echo $<?= $singularVar ?>-><?= $field ?> 
+                            ? $this->Html->tag('i', '', array('class' => 'far fa-check-square')) 
+                            : $this->Html->tag('i', '', array('class' => 'far fa-square')) ; CakePHPBakeCloseTag>
+                    </td>
+    <?php
+                    } elseif (!in_array($schema->columnType($field), ['integer', 'biginteger', 'decimal', 'float'])) {
     ?>
                     <td><CakePHPBakeOpenTag= h($<?= $singularVar ?>-><?= $field ?>) CakePHPBakeCloseTag></td>
     <?php

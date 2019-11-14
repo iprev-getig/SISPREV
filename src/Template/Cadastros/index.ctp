@@ -32,7 +32,11 @@
                         <td><?= h($cadastro->nome) ?></td>
                         <td><?= h($cadastro->sigla) ?></td>
                         <td><?= $this->Number->format($cadastro->cadastro_id) ?></td>
-                        <td><?= h($cadastro->bloqueado) ?></td>
+                        <td>
+                        <?php echo $cadastro->bloqueado 
+                            ? $this->Html->tag('i', '', array('class' => 'far fa-check-square')) 
+                            : $this->Html->tag('i', '', array('class' => 'far fa-square')) ; ?>
+                    </td>
                         <td><?= h($cadastro->cpf) ?></td>
                         <td><?= h($cadastro->data) ?></td>
                         <td class="actions" style="white-space:nowrap">

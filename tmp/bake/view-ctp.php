@@ -117,7 +117,11 @@ $pk = "\$$singularVar->{$primaryKey[0]}";
 <?php foreach ($groupedFields['boolean'] as $field) : ?>
         <tr>
             <th><?= Inflector::humanize($field) ?></th>
-            <td><CakePHPBakeOpenTag= $<?= $singularVar ?>-><?= $field ?> ? __('Yes') : __('No'); CakePHPBakeCloseTag></td>
+            <td>
+                <CakePHPBakeOpenTagphp echo $<?= $singularVar ?>-><?= $field ?> 
+                    ? $this->Html->tag('i', '', array('class' => 'far fa-check-square')) 
+                    : $this->Html->tag('i', '', array('class' => 'far fa-square')) ; CakePHPBakeCloseTag>
+            </td>
          </tr>
 <?php endforeach; ?>
 <?php endif; ?>
