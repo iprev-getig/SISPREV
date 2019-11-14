@@ -56,23 +56,23 @@ $cakeDescription = 'SISPREV: Instituto de Previdência do Estado de Santa Catari
 
 <div class="row">
     <div class="dashboard-icon">
-        <?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fas fa-building fa-4x')), array('controller' => 'Orgao', 'action' => 'index'), array('escape'=> false)); ?>
+        <?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fas fa-building fa-4x')), array('controller' => 'Cadastros', 'action' => 'index'), array('escape'=> false)); ?>
         <span><?php echo __('SAGEN'); ?></span>
     </div>
     <div class="dashboard-icon">
-        <?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fas fa-calculator fa-4x')), array('controller' => 'Orgao', 'action' => 'index'), array('escape'=> false)); ?>
+        <?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fas fa-calculator fa-4x')), array('controller' => 'Cadastros', 'action' => 'index'), array('escape'=> false)); ?>
         <span><?php echo __('SICOP'); ?></span>
     </div>
     <div class="dashboard-icon">
-        <?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fas fa-headset fa-4x')), array('controller' => 'Orgao', 'action' => 'index'), array('escape'=> false)); ?>
+        <?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fas fa-headset fa-4x')), array('controller' => 'Cadastros', 'action' => 'index'), array('escape'=> false)); ?>
         <span><?php echo __('SOS'); ?></span>
     </div>
     <div class="dashboard-icon">
-        <?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fas fa-money-check-alt fa-4x')), array('controller' => 'Orgao', 'action' => 'index'), array('escape'=> false)); ?>
+        <?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fas fa-money-check-alt fa-4x')), array('controller' => 'Cadastros', 'action' => 'index'), array('escape'=> false)); ?>
         <span><?php echo __('SAP'); ?></span>
     </div>
     <div class="dashboard-icon">
-        <?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fas fa-gavel fa-4x')), array('controller' => 'Orgao', 'action' => 'index'), array('escape'=> false)); ?>
+        <?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fas fa-gavel fa-4x')), array('controller' => 'Cadastros', 'action' => 'index'), array('escape'=> false)); ?>
         <span><?php echo __('Judicial'); ?></span>
     </div>
     <div class="columns large-12">
