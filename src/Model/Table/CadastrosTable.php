@@ -89,10 +89,6 @@ class CadastrosTable extends Table
         $validator
             ->allowEmptyString('foto');
 
-        $validator
-            ->date('data')
-            ->allowEmptyDate('data');
-
         return $validator;
     }
 
