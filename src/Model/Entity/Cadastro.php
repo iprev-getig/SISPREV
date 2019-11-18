@@ -15,6 +15,8 @@ use Cake\ORM\Entity;
  * @property string|null $cpf
  * @property string|resource|null $foto
  * @property \Cake\I18n\FrozenDate|null $data
+ * @property \Cake\I18n\FrozenTime|null $created
+ * @property \Cake\I18n\FrozenTime|null $modified
  *
  * @property \App\Model\Entity\Cadastro[] $cadastros
  */
@@ -38,6 +40,8 @@ class Cadastro extends Entity
         'cpf' => true,
         'foto' => true,
         'data' => true,
+        'created' => true,
+        'modified' => true,
         'cadastros' => true
     ];
 }

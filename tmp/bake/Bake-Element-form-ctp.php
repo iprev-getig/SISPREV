@@ -91,11 +91,11 @@ $fields = collection($fields)
                 if (($fieldData['type'] === 'date') && (!empty($fieldData['null']))) {
                     if ($first_input) {
 ?>
-            echo $this->Form->input('<?= $field ?>', ['empty' => true, 'default' => '', 'autofocus' => 'autofocus']);
+            echo $this->Form->input('<?= $field ?>', ['type' => 'text', 'empty' => true, 'default' => '', 'autofocus' => 'autofocus', 'class' => 'datepicker-start']);
 <?php
                     } else {
 ?>
-            echo $this->Form->input('<?= $field ?>', ['empty' => true, 'default' => '');
+            echo $this->Form->input('<?= $field ?>', ['type' => 'text', 'empty' => true, 'default' => '', 'class' => 'datepicker-start']);
 <?php
                     }
                 } else {

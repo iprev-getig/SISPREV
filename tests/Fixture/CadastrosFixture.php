@@ -24,6 +24,8 @@ class CadastrosFixture extends TestFixture
         'cpf' => ['type' => 'string', 'length' => 15, 'default' => null, 'null' => true, 'collate' => null, 'comment' => null, 'precision' => null, 'fixed' => null],
         'foto' => ['type' => 'binary', 'length' => null, 'default' => null, 'null' => true, 'comment' => null, 'precision' => null],
         'data' => ['type' => 'date', 'length' => null, 'default' => null, 'null' => true, 'comment' => null, 'precision' => null],
+        'created' => ['type' => 'timestamp', 'length' => null, 'default' => null, 'null' => true, 'comment' => null, 'precision' => null],
+        'modified' => ['type' => 'timestamp', 'length' => null, 'default' => null, 'null' => true, 'comment' => null, 'precision' => null],
         '_constraints' => [
             'primary' => ['type' => 'primary', 'columns' => ['id'], 'length' => []],
         ],
@@ -46,7 +48,9 @@ class CadastrosFixture extends TestFixture
                 'descricao' => 'Lorem ipsum dolor sit amet, aliquet feugiat. Convallis morbi fringilla gravida, phasellus feugiat dapibus velit nunc, pulvinar eget sollicitudin venenatis cum nullam, vivamus ut a sed, mollitia lectus. Nulla vestibulum massa neque ut et, id hendrerit sit, feugiat in taciti enim proin nibh, tempor dignissim, rhoncus duis vestibulum nunc mattis convallis.',
                 'cpf' => 'Lorem ipsum d',
                 'foto' => 'Lorem ipsum dolor sit amet',
-                'data' => '2019-11-14'
+                'data' => '2019-11-18',
+                'created' => 1574113214,
+                'modified' => 1574113214
             ],
         ];
         parent::init();

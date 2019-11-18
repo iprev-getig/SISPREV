@@ -54,7 +54,8 @@ class {{ name }}Table extends Table
 {%- if behaviors %}
 
 {% endif %}
-
+        $this->addBehavior('DateFormat');
+        {{- "\n" }}
 {%- for behavior, behaviorData in behaviors %}
         $this->addBehavior('{{ behavior }}'{{ (behaviorData ? (", [" ~ Bake.stringifyList(behaviorData, {'indent': 3, 'quotes': false})|raw ~ ']') : '')|raw }});
 {% endfor %}
