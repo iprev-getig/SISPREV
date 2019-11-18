@@ -32,6 +32,8 @@ class CadastrosTable extends Table
     public function initialize(array $config)
     {
         parent::initialize($config);
+        $this->addBehavior('Timestamp');
+        $this->addBehavior('DateFormat');
 
         $this->setTable('cadastros');
         $this->setDisplayField('id');
@@ -84,9 +86,9 @@ class CadastrosTable extends Table
         $validator
             ->allowEmptyString('foto');
 
-        $validator
-            ->date('data')
-            ->allowEmptyDate('data');
+        // $validator
+        //     ->date('data')
+        //     ->allowEmptyDate('data');
 
         return $validator;
     }

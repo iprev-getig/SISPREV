@@ -14,6 +14,12 @@
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
+	<?= $this->Html->css('icones') ?>
+	<?= $this->Html->css('bootstrap-datetimepicker') ?>
+	<?= $this->Html->css('bootstrap-dialog') ?>
+	<?= $this->Html->css('datepicker') ?>
+	<?= $this->Html->css('datepicker3') ?>
+
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -120,6 +126,18 @@
 			});
 		});
 	</script>
+	<?php 
+		echo $this->Html->script('jquery-2.1.4.min');
+		echo $this->Html->script('bootstrap-datepicker');
+		echo $this->Html->script('bootstrap-datepicker.pt-BR');
+		echo $this->Html->script('bootstrap-datetimepicker');
+		echo $this->Html->script('bootstrap-datetimepicker.pt-BR');
+		echo $this->Html->script('jquery.mask');
+		echo $this->Html->script('jquery.jeditable.mini');
+		echo $this->Html->script('datetimepicker');
+		echo $this->Html->script('datepicker');	
+		echo $this->Html->script('masks');	
+	?>
 	<?php $this->end(); ?>
 
     <?= $this->fetch('script') ?>

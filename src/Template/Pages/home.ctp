@@ -42,7 +42,8 @@ $cakeDescription = 'SISPREV: Instituto de Previdência do Estado de Santa Catari
     <?= $this->Html->css('base.css') ?>
     <?= $this->Html->css('style.css') ?>
     <?= $this->Html->css('home.css') ?>
-    <?php echo $this->Html->css('icones'); ?>
+    <?= $this->Html->css('icones') ?>
+
     <link href="https://fonts.googleapis.com/css?family=Raleway:500i|Roboto:300,400,700|Roboto+Mono" rel="stylesheet">
 </head>
 <body class="home">
@@ -293,5 +294,6 @@ $cakeDescription = 'SISPREV: Instituto de Previdência do Estado de Santa Catari
     </div>
 </div>
 <script src="https://kit.fontawesome.com/4e67fa5bd2.js" crossorigin="anonymous"></script>
+
 </body>
 </html>

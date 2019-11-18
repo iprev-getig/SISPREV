@@ -1,0 +1,11 @@
+$('.datepicker-start').mask('00/00/0000', {reverse: true});
+$('.datepicker-end').mask('00/00/0000', {reverse: true});
+$('.cep').mask('00000-000');
+$('.cnpj').mask('00.000.000/0000-00', {reverse: true});
+$('.cpf').mask('000.000.000-00', {reverse: true});
+$('.currency').mask('#.##0,00', {reverse: true});
+//$('.currency').mask('0000000,00', {reverse: true});
+//$('.money').mask('000.000.000.000.000,00', {reverse: true});
+//$('.money2').mask("#.##0,00", {reverse: true});
+$('.dddphone').mask('(00) 000000000');
+$('.percentage').mask('##0,00%', {reverse: true});

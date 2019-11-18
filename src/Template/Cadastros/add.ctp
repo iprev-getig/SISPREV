@@ -19,8 +19,8 @@
             echo $this->Form->input('cadastro_id');
             echo $this->Form->input('bloqueado');
             echo $this->Form->input('descricao');
-            echo $this->Form->input('cpf');
-            echo $this->Form->input('data', ['empty' => true, 'default' => '']);
+            echo $this->Form->input('cpf', ['class' => 'cpf']);
+            echo $this->Form->input('data', ['type' => 'text', 'empty' => true, 'default' => '', 'class' => 'datepicker-start']);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
