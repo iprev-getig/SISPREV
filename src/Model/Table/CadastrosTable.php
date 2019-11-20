@@ -39,6 +39,20 @@ class CadastrosTable extends Table
         $this->setDisplayField('id');
         $this->setPrimaryKey('id');
 
+        $this->addBehavior('Search.Search');
+
+
+        $this->searchManager()
+        ->add('q', 'Search.Like', [
+            'before' => true,
+            'after' => true,
+            'mode' => 'or',
+            'comparison' => 'LIKE',
+            'wildcardAny' => '*',
+            'wildcardOne' => '?',
+            'field' => ['nome', 'cpf']
+        ]);
+
         $this->addBehavior('DateFormat');
         $this->addBehavior('Timestamp');
 
@@ -50,6 +64,20 @@ class CadastrosTable extends Table
         ]);
     }
 
+
+    /**
+     * Default search Configuration.
+     *
+     * @return search query component
+     */
+    public function searchConfiguration()
+    {
+        $search = new Manager($this);
+
+        $search->like('title');
+
+        return $search;
+    }
     /**
      * Default validation rules.
      *
@@ -88,6 +116,10 @@ class CadastrosTable extends Table
 
         $validator
             ->allowEmptyString('foto');
+
+        $validator
+            ->date('data')
+            ->allowEmptyDate('data');
 
         return $validator;
     }

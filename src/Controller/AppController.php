@@ -50,10 +50,25 @@ class AppController extends Controller
 
         $this->set('project_name', 'SISPREV');
 
+        $this->loadComponent('Search.Prg', [
+            'actions' => ['index', 'lookup']
+        ]);
         /*
          * Enable the following component for recommended CakePHP security settings.
          * see https://book.cakephp.org/3.0/en/controllers/components/security.html
          */
         //$this->loadComponent('Security');
+    }
+
+    /**
+     * getSearch method
+     *
+     * @return \Cake\Http\Response|string
+     */
+    public function getSearch($query)
+    {
+        $q = $query->__debugInfo()['extraOptions']['search'];
+        $q = (count($q) > 0) ? $q['q'] : '';
+        return $q;
     }
 }

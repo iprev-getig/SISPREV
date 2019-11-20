@@ -54,6 +54,20 @@ class {{ name }}Table extends Table
 {%- if behaviors %}
 
 {% endif %}
+        $this->addBehavior('Search.Search');
+        {{- "\n" }}
+
+        $this->searchManager()
+        ->add('q', 'Search.Like', [
+            'before' => true,
+            'after' => true,
+            'mode' => 'or',
+            'comparison' => 'LIKE',
+            'wildcardAny' => '*',
+            'wildcardOne' => '?',
+            'field' => ['adicionar', 'campos', 'string']
+        ]);
+
         $this->addBehavior('DateFormat');
         {{- "\n" }}
 {%- for behavior, behaviorData in behaviors %}
@@ -76,6 +90,20 @@ class {{ name }}Table extends Table
 {% endfor %}
     }
 {{- "\n" }}
+
+    /**
+     * Default search Configuration.
+     *
+     * @return search query component
+     */
+    public function searchConfiguration()
+    {
+        $search = new Manager($this);
+
+        $search->like('title');
+
+        return $search;
+    }
 
 {%- if validation %}
 

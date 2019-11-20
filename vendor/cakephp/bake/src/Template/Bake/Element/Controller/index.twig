@@ -26,7 +26,11 @@
             'contain' => [{{ Bake.stringifyList(belongsTo, {'indent': false})|raw }}]
         ];
 {% endif %}
-        ${{ pluralName }} = $this->paginate($this->{{ currentModelName }});
+        $query = $this->{{ currentModelName }}
+        ->find('search', ['search' => $this->request->query])
+        ->where(['id IS NOT' => null]);
 
-        $this->set(compact('{{ pluralName }}'));
+        $this->set('busca', $this->getSearch($query));
+
+        $this->set('{{ pluralName }}', $this->paginate($query));
     }

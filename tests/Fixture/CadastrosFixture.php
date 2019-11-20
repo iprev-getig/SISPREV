@@ -48,9 +48,9 @@ class CadastrosFixture extends TestFixture
                 'descricao' => 'Lorem ipsum dolor sit amet, aliquet feugiat. Convallis morbi fringilla gravida, phasellus feugiat dapibus velit nunc, pulvinar eget sollicitudin venenatis cum nullam, vivamus ut a sed, mollitia lectus. Nulla vestibulum massa neque ut et, id hendrerit sit, feugiat in taciti enim proin nibh, tempor dignissim, rhoncus duis vestibulum nunc mattis convallis.',
                 'cpf' => 'Lorem ipsum d',
                 'foto' => 'Lorem ipsum dolor sit amet',
-                'data' => '2019-11-18',
-                'created' => 1574113214,
-                'modified' => 1574113214
+                'data' => '2019-11-20',
+                'created' => 1574268372,
+                'modified' => 1574268372
             ],
         ];
         parent::init();
