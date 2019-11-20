@@ -27,7 +27,7 @@ a {
 }
 
 a:hover, a:active {
-    color: #d33d44;
+    color: #404041;
     -webkit-transition: all 0.2s;
     -moz-transition: all 0.2s;
     -ms-transition: all 0.2s;
@@ -48,6 +48,7 @@ header {
     line-height: 1em;
     padding: 0;
     box-shadow: none;
+    background: white;
 }
 
 header.row {
@@ -56,7 +57,6 @@ header.row {
 
 header .header-image {
     text-align: center;
-    padding: 64px 0;
 }
 
 header .header-title {
@@ -92,7 +92,7 @@ h3, h4 {
 
 .more {
     color: #ffffff;
-    background-color: #d33d44;
+    background-color: #404041;
     padding: 15px;
     margin-top: 10px;
 }
