@@ -20,17 +20,17 @@
      */
     public function index()
     {
-{% set belongsTo = Bake.aliasExtractor(modelObj, 'BelongsTo') %}
-{% if belongsTo %}
-        $this->paginate = [
-            'contain' => [{{ Bake.stringifyList(belongsTo, {'indent': false})|raw }}]
-        ];
-{% endif %}
         $query = $this->{{ currentModelName }}
         ->find('search', ['search' => $this->request->query])
+        {% set belongsTo = Bake.aliasExtractor(modelObj, 'BelongsTo') %}
+        {% if belongsTo %}
+->contain([{{ Bake.stringifyList(belongsTo, {'indent': false})|raw }}])
+        {% endif %}
         ->where(['{{ pluralName }}.id IS NOT' => null]);
 
         $this->set('busca', $this->getSearch($query));
 
         $this->set('{{ pluralName }}', $this->paginate($query));
     }
+
+
