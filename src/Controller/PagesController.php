@@ -66,4 +66,14 @@ class PagesController extends AppController
             throw new NotFoundException();
         }
     }
+
+    /**
+     * info method
+     *
+     * @return \Cake\Http\Response|null
+     */
+    public function info()
+    {
+       
+    }
 }
