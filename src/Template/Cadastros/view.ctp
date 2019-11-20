@@ -12,13 +12,9 @@
 <div class="cadastros view col-lg-10 col-md-9">
     <h3>
         <?= $this->Html->tag('i', '', array('class' => 'fas fa-eye')) ?>
-        <?= h($cadastro->id) ?>
+        <?= h($cadastro->nome) ?>
     </h3>
     <table class="table table-striped table-hover">
-        <tr>
-            <th>Nome</th>
-            <td><?= h($cadastro->nome) ?></td>
-        </tr>
         <tr>
             <th>Sigla</th>
             <td><?= h($cadastro->sigla) ?></td>
@@ -28,24 +24,12 @@
             <td><?= h($cadastro->cpf) ?></td>
         </tr>
         <tr>
-            <th>'Id</th>
-            <td><?= $this->Number->format($cadastro->id) ?></td>
-        </tr>
-        <tr>
-            <th>'Cadastro Id</th>
+            <th>Cadastro Id</th>
             <td><?= $this->Number->format($cadastro->cadastro_id) ?></td>
         </tr>
         <tr>
             <th>Data</th>
             <td><?= h($cadastro->data) ?></tr>
-        </tr>
-        <tr>
-            <th>Created</th>
-            <td><?= h($cadastro->created) ?></tr>
-        </tr>
-        <tr>
-            <th>Modified</th>
-            <td><?= h($cadastro->modified) ?></tr>
         </tr>
         <tr>
             <th>Bloqueado</th>
@@ -55,14 +39,19 @@
                     : $this->Html->tag('i', '', array('class' => 'far fa-square')) ; ?>
             </td>
          </tr>
+    <tr>
+        <th>Descricao</th>
+        <td>
+            <?= $this->Text->autoParagraph(h($cadastro->descricao)); ?>
+        </td>
+    </tr>
     </table>
-    <div class="row">
-        <h4>Descricao</h4>
-        <?= $this->Text->autoParagraph(h($cadastro->descricao)); ?>
-    </div>
     <div class="related">
-        <h4><?= __('Related {0}', ['Cadastros']) ?></h4>
         <?php if (!empty($cadastro->cadastros)): ?>
+            <h4>
+                <?= $this->Html->tag('i', '', array('class' => 'fas fa-user')) ?>
+                <?= __('Related {0}', ['Cadastros']) ?>
+            </h4>
         <table class="table table-striped table-hover">
             <tr>
                 <th>Id</th>
@@ -104,4 +93,20 @@
         </table>
     <?php endif; ?>
     </div>
+<table class="table table-striped table-hover">
+<tr>
+    <th><?= __('Created') ?></th>
+    <td>
+    <?= $this->Html->tag('i', '', array('class' => 'far fa-edit')) ?>
+    <?= h($cadastro->created) ?>
+    </tr>
+</tr>
+<tr>
+    <th><?= __('Modified') ?></th>
+    <td>
+    <?= $this->Html->tag('i', '', array('class' => 'fas fa-edit')) ?>
+    <?= h($cadastro->modified) ?>
+    </tr>
+</tr>
+</table>
 </div>

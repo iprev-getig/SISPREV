@@ -90,27 +90,33 @@ $pk = "\$$singularVar->{$primaryKey[0]}";
             <td><?= $<%= $singularVar %>->has('<%= $details['property'] %>') ? $this->Html->link($<%= $singularVar %>-><%= $details['property'] %>-><%= $details['displayField'] %>, ['controller' => '<%= $details['controller'] %>', 'action' => 'view', $<%= $singularVar %>-><%= $details['property'] %>-><%= $details['primaryKey'][0] %>]) : '' ?></td>
         </tr>
 <% else : %>
+<% if ($field != $displayField) : %>
         <tr>
             <th><%= Inflector::humanize($field) %></th>
             <td><?= h($<%= $singularVar %>-><%= $field %>) ?></td>
         </tr>
 <% endif; %>
+<% endif; %>
 <% endforeach; %>
 <% endif; %>
 <% if ($groupedFields['number']) : %>
 <% foreach ($groupedFields['number'] as $field) : %>
+<% if ($field != 'id') : %>
         <tr>
-            <th>'<%= Inflector::humanize($field) %></th>
+            <th><%= Inflector::humanize($field) %></th>
             <td><?= $this->Number->format($<%= $singularVar %>-><%= $field %>) ?></td>
         </tr>
+<% endif; %>
 <% endforeach; %>
 <% endif; %>
 <% if ($groupedFields['date']) : %>
 <% foreach ($groupedFields['date'] as $field) : %>
+<% if ($field != 'modified' && $field != 'created') : %>
         <tr>
             <th><%= Inflector::humanize($field) %></th>
             <td><?= h($<%= $singularVar %>-><%= $field %>) ?></tr>
         </tr>
+<% endif; %>
 <% endforeach; %>
 <% endif; %>
 <% if ($groupedFields['boolean']) : %>
@@ -125,15 +131,17 @@ $pk = "\$$singularVar->{$primaryKey[0]}";
          </tr>
 <% endforeach; %>
 <% endif; %>
-    </table>
 <% if ($groupedFields['text']) : %>
 <% foreach ($groupedFields['text'] as $field) : %>
-    <div class="row">
-        <h4><%= Inflector::humanize($field) %></h4>
-        <?= $this->Text->autoParagraph(h($<%= $singularVar %>-><%= $field %>)); ?>
-    </div>
+    <tr>
+        <th><%= Inflector::humanize($field) %></th>
+        <td>
+            <?= $this->Text->autoParagraph(h($<%= $singularVar %>-><%= $field %>)); ?>
+        </td>
+    </tr>
 <% endforeach; %>
 <% endif; %>
+    </table>
 <%
 $relations = $associations['HasMany'] + $associations['BelongsToMany'];
 foreach ($relations as $alias => $details):
@@ -141,8 +149,11 @@ foreach ($relations as $alias => $details):
     $otherPluralHumanName = Inflector::humanize(Inflector::underscore($details['controller']));
     %>
     <div class="related">
-        <h4><?= __('Related {0}', ['<%= $otherPluralHumanName %>']) ?></h4>
         <?php if (!empty($<%= $singularVar %>-><%= $details['property'] %>)): ?>
+            <h4>
+                <?= $this->Html->tag('i', '', array('class' => 'fas fa-user')) ?>
+                <?= __('Related {0}', ['<%= $otherPluralHumanName %>']) ?>
+            </h4>
         <table class="table table-striped table-hover">
             <tr>
 <% foreach ($details['fields'] as $field): %>
@@ -167,4 +178,20 @@ foreach ($relations as $alias => $details):
     <?php endif; ?>
     </div>
 <% endforeach; %>
+<table class="table table-striped table-hover">
+<tr>
+    <th><?= __('Created') ?></th>
+    <td>
+    <?= $this->Html->tag('i', '', array('class' => 'far fa-edit')) ?>
+    <?= h($<%= $singularVar %>->created) ?>
+    </tr>
+</tr>
+<tr>
+    <th><?= __('Modified') ?></th>
+    <td>
+    <?= $this->Html->tag('i', '', array('class' => 'fas fa-edit')) ?>
+    <?= h($<%= $singularVar %>->modified) ?>
+    </tr>
+</tr>
+</table>
 </div>

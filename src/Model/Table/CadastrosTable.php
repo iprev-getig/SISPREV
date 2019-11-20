@@ -36,7 +36,7 @@ class CadastrosTable extends Table
         parent::initialize($config);
 
         $this->setTable('cadastros');
-        $this->setDisplayField('id');
+        $this->setDisplayField('nome');
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Search.Search');
@@ -116,10 +116,6 @@ class CadastrosTable extends Table
 
         $validator
             ->allowEmptyString('foto');
-
-        $validator
-            ->date('data')
-            ->allowEmptyDate('data');
 
         return $validator;
     }
