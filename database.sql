@@ -14,13 +14,13 @@ insert into sistema (nome, descricao, sigla, icone)
 values ('Sistema de Atendimento nas Agências', '', 'SAGEN', 'fas fa-building');
 
 insert into sistema (nome, descricao, sigla, icone) 
-values ('', '', 'SICOP', 'fas fa-calculator');
+values ('Sistema de Cobrança previdenciária', '', 'SICOP', 'fas fa-calculator');
 
 insert into sistema (nome, descricao, sigla, icone) 
-values ('', '', 'SOS', 'fas fa-headset');
+values ('Sistema de Ordem de Serviço', '', 'SOS', 'fas fa-headset');
 
 insert into sistema (nome, descricao, sigla, icone) 
-values ('', '', 'SAP', 'fas fa-money-check-alt');
+values ('Sistema de Autorização de Pagamento', '', 'SAP', 'fas fa-money-check-alt');
 
 create table tipo_acesso (
 		id serial primary key,
@@ -159,15 +159,17 @@ FOREIGN KEY (cidade_id) REFERENCES cidade (id);
 CREATE SCHEMA sagen
 
 create table sagen.ordem_atendimentos (
-	id serial primary key,
-    inicio timestamp
-    fim timestamp
-	solucao text,
-	conclusao text,
-	tipo_atendimento_id int,
-	usuario_id int,
-	localizacao_id int,
-	pessoa_id int,
+		id serial primary key,
+		inicio timestamp
+		fim timestamp
+		solucao text,
+		conclusao text,
+		tipo_atendimento_id int,
+		usuario_id int,
+		localizacao_id int,
+		pessoa_id int,
+		created timestamp,
+		modified timestamp
 ​	FOREIGN KEY (cidade_id) REFERENCES public.cidade (id),
 	FOREIGN KEY (tipo_atendimento_id) REFERENCES public.tipo_atendimento (id),
 	FOREIGN KEY (usuario_id) REFERENCES public.usuario (id),
