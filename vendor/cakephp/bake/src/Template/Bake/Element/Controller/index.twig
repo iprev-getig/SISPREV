@@ -28,7 +28,7 @@
 {% endif %}
         $query = $this->{{ currentModelName }}
         ->find('search', ['search' => $this->request->query])
-        ->where(['id IS NOT' => null]);
+        ->where(['{{ pluralName }}.id IS NOT' => null]);
 
         $this->set('busca', $this->getSearch($query));
 

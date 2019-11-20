@@ -21,7 +21,7 @@ class CadastrosController extends AppController
     {
         $query = $this->Cadastros
         ->find('search', ['search' => $this->request->query])
-        ->where(['id IS NOT' => null]);
+        ->where(['cadastros.id IS NOT' => null]);
 
         $this->set('busca', $this->getSearch($query));
 
