@@ -61,6 +61,16 @@ class CadastrosTableTest extends TestCase
     }
 
     /**
+     * Test searchConfiguration method
+     *
+     * @return void
+     */
+    public function testSearchConfiguration()
+    {
+        $this->markTestIncomplete('Not implemented yet.');
+    }
+
+    /**
      * Test validationDefault method
      *
      * @return void

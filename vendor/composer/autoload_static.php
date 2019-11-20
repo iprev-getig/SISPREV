@@ -68,6 +68,7 @@ class ComposerStaticInit2c4ff21a33657794332ec8cada5e8072
             'Symfony\\Component\\Config\\' => 25,
             'Seld\\PharUtils\\' => 15,
             'Seld\\JsonLint\\' => 14,
+            'Search\\' => 7,
         ),
         'P' => 
         array (
@@ -212,6 +213,10 @@ class ComposerStaticInit2c4ff21a33657794332ec8cada5e8072
         'Seld\\JsonLint\\' => 
         array (
             0 => __DIR__ . '/..' . '/seld/jsonlint/src/Seld/JsonLint',
+        ),
+        'Search\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/friendsofcake/search/src',
         ),
         'Psy\\' => 
         array (

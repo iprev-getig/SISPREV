@@ -20,6 +20,8 @@ use Cake\Validation\Validator;
  * @method \App\Model\Entity\Cadastro patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
  * @method \App\Model\Entity\Cadastro[] patchEntities($entities, array $data, array $options = [])
  * @method \App\Model\Entity\Cadastro findOrCreate($search, callable $callback = null, $options = [])
+ *
+ * @mixin \Cake\ORM\Behavior\TimestampBehavior
  */
 class CadastrosTable extends Table
 {
@@ -32,12 +34,27 @@ class CadastrosTable extends Table
     public function initialize(array $config)
     {
         parent::initialize($config);
-        $this->addBehavior('Timestamp');
-        $this->addBehavior('DateFormat');
 
         $this->setTable('cadastros');
         $this->setDisplayField('id');
         $this->setPrimaryKey('id');
+
+        $this->addBehavior('Search.Search');
+
+
+        $this->searchManager()
+        ->add('q', 'Search.Like', [
+            'before' => true,
+            'after' => true,
+            'mode' => 'or',
+            'comparison' => 'LIKE',
+            'wildcardAny' => '*',
+            'wildcardOne' => '?',
+            'field' => ['nome', 'cpf']
+        ]);
+
+        $this->addBehavior('DateFormat');
+        $this->addBehavior('Timestamp');
 
         $this->belongsTo('Cadastros', [
             'foreignKey' => 'cadastro_id'
@@ -47,6 +64,20 @@ class CadastrosTable extends Table
         ]);
     }
 
+
+    /**
+     * Default search Configuration.
+     *
+     * @return search query component
+     */
+    public function searchConfiguration()
+    {
+        $search = new Manager($this);
+
+        $search->like('title');
+
+        return $search;
+    }
     /**
      * Default validation rules.
      *
@@ -86,9 +117,9 @@ class CadastrosTable extends Table
         $validator
             ->allowEmptyString('foto');
 
-        // $validator
-        //     ->date('data')
-        //     ->allowEmptyDate('data');
+        $validator
+            ->date('data')
+            ->allowEmptyDate('data');
 
         return $validator;
     }

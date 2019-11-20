@@ -40,6 +40,14 @@
             <td><?= h($cadastro->data) ?></tr>
         </tr>
         <tr>
+            <th>Created</th>
+            <td><?= h($cadastro->created) ?></tr>
+        </tr>
+        <tr>
+            <th>Modified</th>
+            <td><?= h($cadastro->modified) ?></tr>
+        </tr>
+        <tr>
             <th>Bloqueado</th>
             <td>
                 <?php echo $cadastro->bloqueado 
@@ -66,6 +74,8 @@
                 <th>Cpf</th>
                 <th>Foto</th>
                 <th>Data</th>
+                <th>Created</th>
+                <th>Modified</th>
                 <th class="actions"><?= __('Actions') ?></th>
             </tr>
             <?php foreach ($cadastro->cadastros as $cadastros): ?>
@@ -79,6 +89,8 @@
                 <td><?= h($cadastros->cpf) ?></td>
                 <td><?= h($cadastros->foto) ?></td>
                 <td><?= h($cadastros->data) ?></td>
+                <td><?= h($cadastros->created) ?></td>
+                <td><?= h($cadastros->modified) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['controller' => 'Cadastros', 'action' => 'view', $cadastros->id]) ?>
 
