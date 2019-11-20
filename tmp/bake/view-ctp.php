@@ -90,27 +90,33 @@ $pk = "\$$singularVar->{$primaryKey[0]}";
             <td><CakePHPBakeOpenTag= $<?= $singularVar ?>->has('<?= $details['property'] ?>') ? $this->Html->link($<?= $singularVar ?>-><?= $details['property'] ?>-><?= $details['displayField'] ?>, ['controller' => '<?= $details['controller'] ?>', 'action' => 'view', $<?= $singularVar ?>-><?= $details['property'] ?>-><?= $details['primaryKey'][0] ?>]) : '' CakePHPBakeCloseTag></td>
         </tr>
 <?php else : ?>
+<?php if ($field != $displayField) : ?>
         <tr>
             <th><?= Inflector::humanize($field) ?></th>
             <td><CakePHPBakeOpenTag= h($<?= $singularVar ?>-><?= $field ?>) CakePHPBakeCloseTag></td>
         </tr>
 <?php endif; ?>
+<?php endif; ?>
 <?php endforeach; ?>
 <?php endif; ?>
 <?php if ($groupedFields['number']) : ?>
 <?php foreach ($groupedFields['number'] as $field) : ?>
+<?php if ($field != 'id') : ?>
         <tr>
-            <th>'<?= Inflector::humanize($field) ?></th>
+            <th><?= Inflector::humanize($field) ?></th>
             <td><CakePHPBakeOpenTag= $this->Number->format($<?= $singularVar ?>-><?= $field ?>) CakePHPBakeCloseTag></td>
         </tr>
+<?php endif; ?>
 <?php endforeach; ?>
 <?php endif; ?>
 <?php if ($groupedFields['date']) : ?>
 <?php foreach ($groupedFields['date'] as $field) : ?>
+<?php if ($field != 'modified' && $field != 'created') : ?>
         <tr>
             <th><?= Inflector::humanize($field) ?></th>
             <td><CakePHPBakeOpenTag= h($<?= $singularVar ?>-><?= $field ?>) CakePHPBakeCloseTag></tr>
         </tr>
+<?php endif; ?>
 <?php endforeach; ?>
 <?php endif; ?>
 <?php if ($groupedFields['boolean']) : ?>
@@ -125,15 +131,17 @@ $pk = "\$$singularVar->{$primaryKey[0]}";
          </tr>
 <?php endforeach; ?>
 <?php endif; ?>
-    </table>
 <?php if ($groupedFields['text']) : ?>
 <?php foreach ($groupedFields['text'] as $field) : ?>
-    <div class="row">
-        <h4><?= Inflector::humanize($field) ?></h4>
-        <CakePHPBakeOpenTag= $this->Text->autoParagraph(h($<?= $singularVar ?>-><?= $field ?>)); CakePHPBakeCloseTag>
-    </div>
+    <tr>
+        <th><?= Inflector::humanize($field) ?></th>
+        <td>
+            <CakePHPBakeOpenTag= $this->Text->autoParagraph(h($<?= $singularVar ?>-><?= $field ?>)); CakePHPBakeCloseTag>
+        </td>
+    </tr>
 <?php endforeach; ?>
 <?php endif; ?>
+    </table>
 <?php
 $relations = $associations['HasMany'] + $associations['BelongsToMany'];
 foreach ($relations as $alias => $details):
@@ -141,8 +149,11 @@ foreach ($relations as $alias => $details):
     $otherPluralHumanName = Inflector::humanize(Inflector::underscore($details['controller']));
     ?>
     <div class="related">
-        <h4><CakePHPBakeOpenTag= __('Related {0}', ['<?= $otherPluralHumanName ?>']) CakePHPBakeCloseTag></h4>
         <CakePHPBakeOpenTagphp if (!empty($<?= $singularVar ?>-><?= $details['property'] ?>)): CakePHPBakeCloseTag>
+            <h4>
+                <CakePHPBakeOpenTag= $this->Html->tag('i', '', array('class' => 'fas fa-user')) CakePHPBakeCloseTag>
+                <CakePHPBakeOpenTag= __('Related {0}', ['<?= $otherPluralHumanName ?>']) CakePHPBakeCloseTag>
+            </h4>
         <table class="table table-striped table-hover">
             <tr>
 <?php foreach ($details['fields'] as $field): ?>
@@ -170,4 +181,20 @@ foreach ($relations as $alias => $details):
     <CakePHPBakeOpenTagphp endif; CakePHPBakeCloseTag>
     </div>
 <?php endforeach; ?>
+<table class="table table-striped table-hover">
+<tr>
+    <th><CakePHPBakeOpenTag= __('Created') CakePHPBakeCloseTag></th>
+    <td>
+    <CakePHPBakeOpenTag= $this->Html->tag('i', '', array('class' => 'far fa-edit')) CakePHPBakeCloseTag>
+    <CakePHPBakeOpenTag= h($<?= $singularVar ?>->created) CakePHPBakeCloseTag>
+    </tr>
+</tr>
+<tr>
+    <th><CakePHPBakeOpenTag= __('Modified') CakePHPBakeCloseTag></th>
+    <td>
+    <CakePHPBakeOpenTag= $this->Html->tag('i', '', array('class' => 'fas fa-edit')) CakePHPBakeCloseTag>
+    <CakePHPBakeOpenTag= h($<?= $singularVar ?>->modified) CakePHPBakeCloseTag>
+    </tr>
+</tr>
+</table>
 </div>

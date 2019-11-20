@@ -199,3 +199,9 @@ msgstr "Adicionar"
 
 msgid "read"
 msgstr "Visualizar"
+
+msgid "Created"
+msgstr "Criado"
+
+msgid "Modified"
+msgstr "Modificado"
