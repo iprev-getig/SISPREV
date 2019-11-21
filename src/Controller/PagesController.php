@@ -86,7 +86,7 @@ class PagesController extends AppController
      */
     private function sistemas()
     {
-        $sistemas = TableRegistry::get('Sistema');
+        $sistemas = TableRegistry::get('Sistemas');
         $sistemas = $sistemas->find('all');
         return $sistemas;      
     }
