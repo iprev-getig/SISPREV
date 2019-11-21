@@ -10,16 +10,16 @@ create table sistema (
 		modified timestamp
 	);
 
-insert into sistema (nome, descricao, sigla, icone) 
+insert into sistemas (nome, descricao, sigla, icone) 
 values ('Sistema de Atendimento nas Agências', '', 'SAGEN', 'fas fa-building');
 
-insert into sistema (nome, descricao, sigla, icone) 
+insert into sistemas (nome, descricao, sigla, icone) 
 values ('Sistema de Cobrança previdenciária', '', 'SICOP', 'fas fa-calculator');
 
-insert into sistema (nome, descricao, sigla, icone) 
+insert into sistemas (nome, descricao, sigla, icone) 
 values ('Sistema de Ordem de Serviço', '', 'SOS', 'fas fa-headset');
 
-insert into sistema (nome, descricao, sigla, icone) 
+insert into sistemas (nome, descricao, sigla, icone) 
 values ('Sistema de Autorização de Pagamento', '', 'SAP', 'fas fa-money-check-alt');
 
 create table tipo_acesso (
