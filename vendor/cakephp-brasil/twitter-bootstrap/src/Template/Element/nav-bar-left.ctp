@@ -1,5 +1,7 @@
 <ul class="nav navbar-nav">
-	<!-- <li class="active"><a href="#"><span class="sr-only">(current)</span></a></li> -->
+	<li class="active">
+		<?= $this->Html->link($sistema, ['action' => 'index', $sistema]) ?>
+	</li>
 	<li><a href="#"><?= $this->Html->tag('i', '', array('class' => 'fab fa-elementor')); ?> Tela Principal</a></li>
 	<li class="dropdown">
 	  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
