@@ -2,24 +2,24 @@ create database sisprev;
 
 create table sistema (
 		id serial primary key,
+		sigla varchar(10),
 		nome varchar(100),
 		descricao varchar(200),
-		sigla varchar(10),
 		icone varchar(30),
 		created timestamp,
 		modified timestamp
 	);
 
-insert into sistema (nome, descricao, sigla, icone) 
+insert into sistemas (nome, descricao, sigla, icone) 
 values ('Sistema de Atendimento nas Agências', '', 'SAGEN', 'fas fa-building');
 
-insert into sistema (nome, descricao, sigla, icone) 
+insert into sistemas (nome, descricao, sigla, icone) 
 values ('Sistema de Cobrança previdenciária', '', 'SICOP', 'fas fa-calculator');
 
-insert into sistema (nome, descricao, sigla, icone) 
+insert into sistemas (nome, descricao, sigla, icone) 
 values ('Sistema de Ordem de Serviço', '', 'SOS', 'fas fa-headset');
 
-insert into sistema (nome, descricao, sigla, icone) 
+insert into sistemas (nome, descricao, sigla, icone) 
 values ('Sistema de Autorização de Pagamento', '', 'SAP', 'fas fa-money-check-alt');
 
 create table tipo_acesso (
