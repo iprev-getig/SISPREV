@@ -22,23 +22,27 @@ values ('Sistema de Ordem de Serviço', '', 'SOS', 'fas fa-headset');
 insert into sistemas (nome, descricao, sigla, icone) 
 values ('Sistema de Autorização de Pagamento', '', 'SAP', 'fas fa-money-check-alt');
 
-create table tipo_acesso (
+create table tipos_acessos (
 		id serial primary key,
 		descricao varchar(200),
 		created timestamp,
 		modified timestamp
 	);
 
-create table usuario (
+create table usuarios (
 		id serial primary key,
 		nome varchar(250),
 		senha varchar(250),
+		bloqueado boolean,
+		ult_acesso timestamp,
 		setor_id int,
 		created timestamp,
-		modified timestamp
-	);
+		modified timestamp,
+	CONSTRAINT usuario_setor_id
+		FOREIGN KEY (setor_id) REFERENCES setores (id)
+);
 
-create table acesso (
+create table acessos (
 		id serial primary key,
 		index boolean,
 		add boolean,
@@ -49,19 +53,29 @@ create table acesso (
 		usuario_id int,
 		sistema_id int,
 		created timestamp,
-		modified timestamp
+		modified timestamp,
+		CONSTRAINT acesso_tipo_acesso_id
+			FOREIGN KEY (tipo_acesso_id) REFERENCES tipos_acessos (id),
+		CONSTRAINT acesso_usuario_id
+			FOREIGN KEY (usuario_id) REFERENCES usuarios (id),
+		CONSTRAINT acesso_sistema_id
+			FOREIGN KEY (sistema_id) REFERENCES sistemas (id)
 	);
 
-create table coordenadoria (
+create table coordenadorias (
 		id serial primary key,
 		nome varchar(150),
-		operador_id int,
+		usuario_id int,
 		cidade_id int,
 		created timestamp,
-		modified timestamp
+		modified timestamp,
+		CONSTRAINT coordenadoria_usuarios_id
+			FOREIGN KEY (usuario_id) REFERENCES usuarios (id),
+		CONSTRAINT coordenadoria_cidade_id
+			FOREIGN KEY (cidade_id) REFERENCES cidades (id)
 	);
 
-create table estado (
+create table estados (
 		id serial primary key,
 		nome varchar (250),
 		uf varchar(3),
@@ -69,50 +83,61 @@ create table estado (
 		modified timestamp
 	);
 
-create table cidade (
+create table cidades (
 		id serial primary key,
 		nome varchar(150),
 		estado_id int,
 		created timestamp,
-		modified timestamp
+		modified timestamp,
+		CONSTRAINT cidade_estado_id
+			FOREIGN KEY (estado_id) REFERENCES estados (id)	
 	);
 
-create table operador (
+create table operadores (
 		id serial primary key,
 		bloqueado boolean,
 		ult_acesso timestamp,
 		usuario_id int,
 		cidade_id int,
 		created timestamp,
-		modified timestamp
-	);
+		modified timestamp,
+		CONSTRAINT operador_usuario_id
+			FOREIGN KEY (usuario_id) REFERENCES usuarios (id),
+		CONSTRAINT operador_cidade_id
+			FOREIGN KEY (cidade_id) REFERENCES cidades (id)	
+);
 
-create table setor (
+create table setores (
 		id serial primary key,
 		nome varchar(250),
 		sigla varchar(20),
 		cidade_id int,
 		created timestamp,
-		modified timestamp
+		modified timestamp,
+		CONSTRAINT setor_cidade_id
+			FOREIGN KEY (cidade_id) REFERENCES cidades (id)
 	);
 
-create table orgao (
+create table orgaos (
 		id serial primary key,
 		nome varchar(250),
 		sigla varchar(20),
 		codigo int,
+		cidade_id int,
 		created timestamp,
-		modified timestamp
+		modified timestamp,
+		CONSTRAINT orgao_cidade_id
+			FOREIGN KEY (cidade_id) REFERENCES cidades (id)
 	);
 
-create table tipo_atendimento (
+create table tipos_atendimentos (
 		id serial primary key,
 		descricao varchar(250),
 		created timestamp,
 		modified timestamp
 	);
 
-create table pessoa (
+create table pessoas (
 		id serial primary key,
 		nome varchar(250),
 		cpf varchar(20),
@@ -121,40 +146,6 @@ create table pessoa (
 		created timestamp,
 		modified timestamp
 );
-
-
-ALTER TABLE usuario ADD CONSTRAINT usuario_setor_id
-FOREIGN KEY (setor_id) REFERENCES setor (id);
-
-ALTER TABLE acesso ADD CONSTRAINT acesso_tipo_acesso_id
-FOREIGN KEY (tipo_acesso_id) REFERENCES tipo_acesso (id);
-
-ALTER TABLE acesso ADD CONSTRAINT acesso_usuario_id
-FOREIGN KEY (usuario_id) REFERENCES usuario (id);
-
-ALTER TABLE acesso ADD CONSTRAINT acesso_sistema_id
-FOREIGN KEY (sistema_id) REFERENCES sistema (id);
-
-ALTER TABLE coordenadoria ADD CONSTRAINT coordenadoria_operador_id
-FOREIGN KEY (operador_id) REFERENCES operador (id);
-
-ALTER TABLE coordenadoria ADD CONSTRAINT coordenadoria_cidade_id
-FOREIGN KEY (cidade_id) REFERENCES cidade (id);
-
-ALTER TABLE cidade ADD CONSTRAINT cidade_estado_id
-FOREIGN KEY (estado_id) REFERENCES estado (id);
-
-ALTER TABLE operador ADD CONSTRAINT operador_usuario_id
-FOREIGN KEY (usuario_id) REFERENCES usuario (id);
-
-ALTER TABLE operador ADD CONSTRAINT operador_cidade_id
-FOREIGN KEY (cidade_id) REFERENCES cidade (id);
-
-ALTER TABLE setor ADD CONSTRAINT setor_cidade_id
-FOREIGN KEY (cidade_id) REFERENCES cidade (id);
-
-ALTER TABLE orgao ADD CONSTRAINT orgao_cidade_id
-FOREIGN KEY (cidade_id) REFERENCES cidade (id);
 
 CREATE SCHEMA sagen
 
@@ -170,9 +161,9 @@ create table sagen.ordem_atendimentos (
 		pessoa_id int,
 		created timestamp,
 		modified timestamp
-​	FOREIGN KEY (cidade_id) REFERENCES public.cidade (id),
-	FOREIGN KEY (tipo_atendimento_id) REFERENCES public.tipo_atendimento (id),
-	FOREIGN KEY (usuario_id) REFERENCES public.usuario (id),
-	FOREIGN KEY (orgao_id) REFERENCES public.orgao (id),
-	FOREIGN KEY (pessoa_id) REFERENCES public.pessoa (id)
+​	 FOREIGN KEY (cidade_id) REFERENCES public.cidades (id),
+	FOREIGN KEY (tipo_atendimento_id) REFERENCES public.tipo_atendimentos (id),
+	FOREIGN KEY (usuario_id) REFERENCES public.usuarios (id),
+	FOREIGN KEY (orgao_id) REFERENCES public.orgaos (id),
+	FOREIGN KEY (pessoa_id) REFERENCES public.pessoas (id)
 );
