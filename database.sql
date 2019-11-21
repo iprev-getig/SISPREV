@@ -2,9 +2,9 @@ create database sisprev;
 
 create table sistema (
 		id serial primary key,
+		sigla varchar(10),
 		nome varchar(100),
 		descricao varchar(200),
-		sigla varchar(10),
 		icone varchar(30),
 		created timestamp,
 		modified timestamp
