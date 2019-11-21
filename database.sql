@@ -100,8 +100,8 @@ create table orgao (
 		id serial primary key,
 		nome varchar(250),
 		sigla varchar(20),
-		created timestamp,
 		codigo int,
+		created timestamp,
 		modified timestamp
 	);
 
