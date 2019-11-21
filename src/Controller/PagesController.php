@@ -18,6 +18,7 @@ use Cake\Core\Configure;
 use Cake\Http\Exception\ForbiddenException;
 use Cake\Http\Exception\NotFoundException;
 use Cake\View\Exception\MissingTemplateException;
+use Cake\ORM\TableRegistry;
 
 /**
  * Static content controller
@@ -28,7 +29,7 @@ use Cake\View\Exception\MissingTemplateException;
  */
 class PagesController extends AppController
 {
-
+    
     /**
      * Displays a view
      *
@@ -55,7 +56,8 @@ class PagesController extends AppController
         if (!empty($path[1])) {
             $subpage = $path[1];
         }
-        $this->set(compact('page', 'subpage'));
+        $sistemas = $this->sistemas();
+        $this->set(compact('page', 'subpage', 'sistemas'));
 
         try {
             $this->render(implode('/', $path));
@@ -75,5 +77,17 @@ class PagesController extends AppController
     public function info()
     {
        
+    }
+
+    /**
+     * sistemas method
+     *
+     * @return \Cake\Http\Response|null
+     */
+    private function sistemas()
+    {
+        $sistemas = TableRegistry::get('Sistemas');
+        $sistemas = $sistemas->find('all');
+        return $sistemas;      
     }
 }
