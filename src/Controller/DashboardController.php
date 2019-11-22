@@ -15,9 +15,10 @@ class DashboardController extends AppController
      *
      * @return \Cake\Http\Response|null
      */
-    public function index($sistema)
+    public function index($config_sistema)
     {
-        $this->set(compact('sistema'));
+        $this->request->session()->write('config_sistema', $config_sistema);
+        $this->set(compact('config_sistema'));
     }
 
 }

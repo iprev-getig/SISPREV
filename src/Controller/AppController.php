@@ -71,4 +71,16 @@ class AppController extends Controller
         $q = (count($q) > 0) ? $q['q'] : '';
         return $q;
     }
+
+    /**
+     * configSistema method
+     *
+     * @return \Cake\Http\Response|null
+     */
+    public function configSistema()
+    {
+        $this->set('config_sistema', $this->request->session()->read('config_sistema'));
+    }
+
+    
 }
