@@ -88,6 +88,6 @@ class PagesController extends AppController
     {
         $sistemas = TableRegistry::get('Sistemas');
         $sistemas = $sistemas->find('all');
-        return $sistemas;      
+        return $sistemas;
     }
 }
