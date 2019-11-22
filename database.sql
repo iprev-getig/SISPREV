@@ -6,7 +6,6 @@ create table sistemas (
 		nome varchar(100),
 		descricao varchar(200),
 		icone varchar(30),
-		controller varchar(50),
 		created timestamp,
 		modified timestamp
 	);
@@ -25,13 +24,28 @@ values ('Sistema de Autorização de Pagamento', '', 'SAP', 'fas fa-money-check-
 
 create table tipos_acessos (
 		id serial primary key,
-		descricao varchar(200),
+		nome varchar(200),
+		controller varchar(50),
 		created timestamp,
 		modified timestamp
 	);
 
+insert into tipos_acessos (id, nome, controller) value (1, 'Cidades', 'cidades');
+insert into tipos_acessos (id, nome, controller) value (2, 'Estados', 'estados');
+insert into tipos_acessos (id, nome, controller) value (3, 'Orgaos', 'orgaos');
+insert into tipos_acessos (id, nome, controller) value (4, 'Coordenadorias', 'coordenadorias');
+insert into tipos_acessos (id, nome, controller) value (5, 'Setores', 'setores');
+insert into tipos_acessos (id, nome, controller) value (6, 'Tipos de atendimentos', 'tipo_atendimentos');
+insert into tipos_acessos (id, nome, controller) value (7, 'Tipo de acessos', 'tipos_acessos');
+insert into tipos_acessos (id, nome, controller) value (8, 'Sistemas', 'sistemas');
+insert into tipos_acessos (id, nome, controller) value (9, 'Acessos', 'acessos');
+insert into tipos_acessos (id, nome, controller) value (10, 'Pessoas', 'pessoas');
+insert into tipos_acessos (id, nome, controller) value (11, 'Usuários', 'usuarios');
+
 create table usuarios (
 		id serial primary key,
+		login varchar(50),
+		email varchar(100),
 		nome varchar(250),
 		senha varchar(250),
 		bloqueado boolean,
@@ -42,6 +56,8 @@ create table usuarios (
 	CONSTRAINT usuario_setor_id
 		FOREIGN KEY (setor_id) REFERENCES setores (id)
 );
+
+insert into usuarios (id, login, email, nome, senha, bloqueado) value (1, 'admin', 'suporte.getig@iprev.sc.gov.br', 'Usuário Master', '', false);
 
 create table acessos (
 		id serial primary key,
@@ -62,6 +78,29 @@ create table acessos (
 		CONSTRAINT acesso_sistema_id
 			FOREIGN KEY (sistema_id) REFERENCES sistemas (id)
 	);
+
+insert into acessos (id, index, add, edit, del, view, tipo_acesso_id, usuario_id, sistema_id) value
+(1, true, true, true, true,true, 1, 1, 1);
+insert into acessos (id, index, add, edit, del, view, tipo_acesso_id, usuario_id, usuario_id, sistema_id) value
+(2, 'true', 'true', 'true', 'true','true', 2, 1, 1);
+insert into acessos (id, index, add, edit, del, view, tipo_acesso_id, usuario_id, sistema_id) value
+(3, 'true', 'true', 'true', 'true','true', 3, 1, 1);
+insert into acessos (id, index, add, edit, del, view, tipo_acesso_id, usuario_id, sistema_id) value
+(4, 'true', 'true', 'true', 'true','true', 4, 1, 1);
+insert into acessos (id, index, add, edit, del, view, tipo_acesso_id, usuario_id, sistema_id) value
+(5, 'true', 'true', 'true', 'true','true', 5, 1, 1);
+insert into acessos (id, index, add, edit, del, view, tipo_acesso_id, usuario_id, sistema_id) value
+(6, 'true', 'true', 'true', 'true','true', 6, 1, 1);
+insert into acessos (id, index, add, edit, del, view, tipo_acesso_id, usuario_id, sistema_id) value
+(7, 'true', 'true', 'true', 'true','true', 7, 1, 1);
+insert into acessos (id, index, add, edit, del, view, tipo_acesso_id, usuario_id, sistema_id) value
+(8, 'true', 'true', 'true', 'true','true', 8, 1, 1);
+insert into acessos (id, index, add, edit, del, view, tipo_acesso_id, usuario_id, sistema_id) value
+(9, 'true', 'true', 'true', 'true','true', 9, 1, 1);
+insert into acessos (id, index, add, edit, del, view, tipo_acesso_id, usuario_id, sistema_id) value
+(10, 'true', 'true', 'true', 'true','true', 10, 1, 1);
+insert into acessos (id, index, add, edit, del, view, tipo_acesso_id, usuario_id, sistema_id) value
+(11, 'true', 'true', 'true', 'true','true', 11, 1, 1);
 
 create table coordenadorias (
 		id serial primary key,
@@ -94,20 +133,6 @@ create table cidades (
 			FOREIGN KEY (estado_id) REFERENCES estados (id)	
 	);
 
-create table operadores (
-		id serial primary key,
-		bloqueado boolean,
-		ult_acesso timestamp,
-		usuario_id int,
-		cidade_id int,
-		created timestamp,
-		modified timestamp,
-		CONSTRAINT operador_usuario_id
-			FOREIGN KEY (usuario_id) REFERENCES usuarios (id),
-		CONSTRAINT operador_cidade_id
-			FOREIGN KEY (cidade_id) REFERENCES cidades (id)	
-);
-
 create table setores (
 		id serial primary key,
 		nome varchar(250),
@@ -133,7 +158,7 @@ create table orgaos (
 
 create table tipos_atendimentos (
 		id serial primary key,
-		descricao varchar(250),
+		nome varchar(250),
 		created timestamp,
 		modified timestamp
 	);
@@ -161,10 +186,9 @@ create table sagen.ordens_atendimentos (
 		localizacao_id int,
 		pessoa_id int,
 		created timestamp,
-		modified timestamp
-​	 FOREIGN KEY (cidade_id) REFERENCES public.cidades (id),
-	FOREIGN KEY (tipo_atendimento_id) REFERENCES public.tipo_atendimentos (id),
+		modified timestamp,
+​	 FOREIGN KEY (tipo_atendimento_id) REFERENCES public.tipos_atendimentos (id),
 	FOREIGN KEY (usuario_id) REFERENCES public.usuarios (id),
-	FOREIGN KEY (orgao_id) REFERENCES public.orgaos (id),
+	FOREIGN KEY (localizacao_id) REFERENCES public.localizacoes (id),
 	FOREIGN KEY (pessoa_id) REFERENCES public.pessoas (id)
 );
