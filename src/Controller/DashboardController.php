@@ -19,6 +19,7 @@ class DashboardController extends AppController
     {
         $this->request->session()->write('config_sistema', $config_sistema);
         $this->set(compact('config_sistema'));
+        $this->configSistema();
     }
 
 }

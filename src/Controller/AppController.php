@@ -16,6 +16,7 @@ namespace App\Controller;
 
 use Cake\Controller\Controller;
 use Cake\Event\Event;
+use Cake\ORM\TableRegistry;
 
 /**
  * Application Controller
@@ -81,7 +82,36 @@ class AppController extends Controller
     public function configSistema()
     {
         $this->set('config_sistema', $this->request->session()->read('config_sistema'));
+        $this->set('config_menus', $this->menus());
     }
 
+    /**
+     * menus method
+     *
+     * @return \Cake\Http\Response|null
+     */
+    public function menus()
+    {
+        $acessos = TableRegistry::get('Acessos');
+        $acessos = $acessos->find('all', 
+            ['fields' => ['TipoAcesso.descricao', 'TipoAcesso.controller']])
+        ->hydrate(false)
+        ->join([
+            'TipoAcesso'=>  [
+                'table' => 'tipos_acessos',
+                'type' => 'LEFT',
+                'conditions' => 'TipoAcesso.id = acessos.tipo_acesso_id',
+            ]])
+        ->join([
+            'Sistema'=>  [
+                'table' => 'sistemas',
+                'type' => 'LEFT',
+                'conditions' => 'Sistema.id = acessos.sistema_id',
+            ]])
+        // ->where(['acessos.usuario_id' => $id])
+        ->where(['acessos.index' => True])
+        ->where(['Sistema.sigla' => $this->request->session()->read('config_sistema')]);
+        return $acessos;
+    }
     
 }
