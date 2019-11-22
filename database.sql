@@ -1,11 +1,12 @@
 create database sisprev;
 
-create table sistema (
+create table sistemas (
 		id serial primary key,
 		sigla varchar(10),
 		nome varchar(100),
 		descricao varchar(200),
 		icone varchar(30),
+		controller varchar(50),
 		created timestamp,
 		modified timestamp
 	);
@@ -149,7 +150,7 @@ create table pessoas (
 
 CREATE SCHEMA sagen
 
-create table sagen.ordem_atendimentos (
+create table sagen.ordens_atendimentos (
 		id serial primary key,
 		inicio timestamp
 		fim timestamp
