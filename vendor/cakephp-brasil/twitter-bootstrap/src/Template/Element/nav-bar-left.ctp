@@ -1,4 +1,3 @@
-
 <ul class="nav navbar-nav">
 	<li class="active">
 		<?= $this->Html->link($config_sistema, ['controller' => 'dashboard', 'action' => 'index', $config_sistema]) ?>
