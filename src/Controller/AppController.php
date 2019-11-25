@@ -94,7 +94,7 @@ class AppController extends Controller
     {
         $acessos = TableRegistry::get('Acessos');
         $acessos = $acessos->find('all', 
-            ['fields' => ['TipoAcesso.descricao', 'TipoAcesso.controller']])
+            ['fields' => ['TipoAcesso.nome', 'TipoAcesso.controller', 'TipoAcesso.principal']])
         ->hydrate(false)
         ->join([
             'TipoAcesso'=>  [
@@ -110,7 +110,8 @@ class AppController extends Controller
             ]])
         // ->where(['acessos.usuario_id' => $id])
         ->where(['acessos.index' => True])
-        ->where(['Sistema.sigla' => $this->request->session()->read('config_sistema')]);
+        ->where(['Sistema.sigla' => $this->request->session()->read('config_sistema')])
+        ->order(['TipoAcesso.nome']);
         return $acessos;
     }
     
