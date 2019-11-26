@@ -52,7 +52,13 @@ $fields = collection($fields)
         <div class="row">
             <CakePHPBakeOpenTagphp echo $this->Form->create(); CakePHPBakeCloseTag>
             <div class="col-md-11">
-                <CakePHPBakeOpenTagphp echo $this->Form->input('q', ['autofocus' => 'autofocus', 'value' => $busca, 'label' => False, 'placeholder' => 'Pesquisar por: COLOCAR AQUI CAMPOS STRING']); CakePHPBakeCloseTag>
+                <?php $search = []; ?>
+                <?php foreach ($fields as $field): ?>
+                    <?php if (in_array($schema->columnType($field), ['string', 'varchar', 'char'])) {
+                        $search[] = $field;
+                    } ?>
+                <?php endforeach; ?>
+                <CakePHPBakeOpenTagphp echo $this->Form->input('q', ['autofocus' => 'autofocus', 'value' => $busca, 'label' => False, 'placeholder' => 'Pesquisar por: <?= implode(", ", $search) ?>']); CakePHPBakeCloseTag>
             </div>
             <div class="col-md-1">
                 <CakePHPBakeOpenTagphp echo $this->Form->button($this->Html->tag('i', '', array('class' => 'fas fa-filter')), ['type' => 'submit']); CakePHPBakeCloseTag>
