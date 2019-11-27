@@ -181,8 +181,8 @@ CREATE SCHEMA sagen;
 
 create table sagen.atendimentos (
 		id serial primary key,
-		inicio timestamp
-		fim timestamp
+		inicio timestamp,
+		fim timestamp,
 		solucao text,
 		conclusao text,
 		tipo_atendimento_id int,
@@ -191,8 +191,13 @@ create table sagen.atendimentos (
 		pessoa_id int,
 		created timestamp,
 		modified timestamp,
-​	 FOREIGN KEY (tipo_atendimento_id) REFERENCES public.tipos_atendimentos (id),
-	FOREIGN KEY (usuario_id) REFERENCES public.usuarios (id),
-	FOREIGN KEY (localizacao_id) REFERENCES public.localizacoes (id),
-	FOREIGN KEY (pessoa_id) REFERENCES public.pessoas (id)
+		CONSTRAINT atendimento_tipo_id
+            FOREIGN KEY (tipo_atendimento_id) REFERENCES public.tipos_atendimentos (id),
+		CONSTRAINT atendimento_usuario_id
+            FOREIGN KEY (usuario_id) REFERENCES public.usuarios (id),
+	 	CONSTRAINT atendimento_localizacao_id
+            FOREIGN KEY (localizacao_id) REFERENCES public.localizacoes (id),
+		CONSTRAINT atendimento_pessoa_id
+            FOREIGN KEY (pessoa_id) REFERENCES public.pessoas (id)
 );
+
