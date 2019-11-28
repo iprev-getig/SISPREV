@@ -127,6 +127,17 @@ create table estados (
 		modified timestamp
 	);
 
+insert into estados (id, nome, uf) values
+(1, 'SANTA CATARINA', 'SC');
+insert into estados (id, nome, uf) values
+(2, 'RIO GRANDE DO SUL', 'RS');
+insert into estados (id, nome, uf) values
+(3, 'PARANA', 'PR');
+insert into estados (id, nome, uf) values
+(4, 'SAO PAULO', 'SP');	
+insert into estados (id, nome, uf) values
+(5, 'RIO DE JANEIRO', 'RJ');
+
 create table cidades (
 		id serial primary key,
 		nome varchar(150),
@@ -136,6 +147,17 @@ create table cidades (
 		CONSTRAINT cidade_estado_id
 			FOREIGN KEY (estado_id) REFERENCES estados (id)	
 	);
+insert into cidades (id, nome, estado_id) values
+(1, 'FLORIANOPOLIS', 1);
+insert into cidades (id, nome, estado_id) values
+(2, 'PORTO ALEGRE', 2);
+insert into cidades (id, nome, estado_id) values
+(3, 'CURITIBA', 3);
+insert into cidades (id, nome, estado_id) values
+(4, 'SAO PAULO', 4);	
+insert into cidades (id, nome, estado_id) values
+(5, 'RIO DE JANEIRO', 5);
+
 
 create table setores (
 		id serial primary key,
