@@ -177,10 +177,21 @@ create table orgaos (
 		codigo int,
 		cidade_id int,
 		created timestamp,
-		modified timestamp,
+		modified timestamp, 
 		CONSTRAINT orgao_cidade_id
 			FOREIGN KEY (cidade_id) REFERENCES cidades (id)
 	);
+insert into orgaos (id, nome, sigla, codigo, cidade_id) values
+(1, 'INSTITUTO DE PREVIDENCIA DO ESTADO DE SANTA CATARINA', 'IPREV', 1111, 1);
+insert into orgaos (id, nome, sigla, codigo, cidade_id) values
+(2, 'INSTITUTO DE METROLOGIA DO ESTADO DE SANTA CATARINA', 'IMETRO', 2222, 1);
+insert into orgaos (id, nome, sigla, codigo, cidade_id) values
+(3, 'SECRETARIA DE SEGURANÇ PUBLICA', 'SSP-SC', 3333, 1);
+insert into orgaos (id, nome, sigla, codigo, cidade_id) values
+(4, 'SECRETARIA DE ADMINISTRAÇÃO', 'SEA', 4444, 1);	
+insert into orgaos (id, nome, sigla, codigo, cidade_id) values
+(5, 'ASSEMBLEI LEGISLATIVA DE SANTA CATARINA', 'ALESC', 5555, 1);
+
 
 create table tipos_atendimentos (
 		id serial primary key,
@@ -188,6 +199,17 @@ create table tipos_atendimentos (
 		created timestamp,
 		modified timestamp
 	);
+insert into tipos_atendimentos (id, nome) values
+(1, 'ATENDIMENTO POR TELEFONE');
+insert into tipos_atendimentos (id, nome) values
+(2, 'ANALISE DE PROCESSO DE APOSENTADORIA');
+insert into tipos_atendimentos (id, nome) values
+(3, 'ANALISE DE PROCESSO DE AVERBAÇÃO');
+insert into tipos_atendimentos (id, nome) values
+(4, 'ANALISE DE PROCESSO D PENSÃO');	
+insert into tipos_atendimentos (id, nome) values
+(5, 'VISITAS DOMICILIAR');
+
 
 create table pessoas (
 		id serial primary key,
