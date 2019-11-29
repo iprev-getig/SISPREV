@@ -81,7 +81,11 @@ class AppController extends Controller
      */
     public function configSistema()
     {
-        $this->set('config_sistema', $this->request->session()->read('config_sistema'));
+        $config_sistema = $this->request->session()->read('config_sistema');
+        if ($config_sistema == null) {
+            $this->redirect(['controller' => 'pages', 'action' => 'home']);    
+        }
+        $this->set('config_sistema', $config_sistema);
         $this->set('config_menus', $this->menus());
     }
 
