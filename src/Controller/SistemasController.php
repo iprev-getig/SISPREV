@@ -27,7 +27,6 @@ class SistemasController extends AppController
 
         $this->set('sistemas', $this->paginate($query));
 
-        $this->configSistema();
     }
 
 

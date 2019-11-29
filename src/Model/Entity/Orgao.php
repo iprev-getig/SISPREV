@@ -10,6 +10,9 @@ use Cake\ORM\Entity;
  * @property string|null $nome
  * @property string|null $sigla
  * @property int|null $codigo
+ * @property int|null $cidade_id
+ * @property \Cake\I18n\FrozenTime|null $created
+ * @property \Cake\I18n\FrozenTime|null $modified
  */
 class Orgao extends Entity
 {
@@ -25,6 +28,9 @@ class Orgao extends Entity
     protected $_accessible = [
         'nome' => true,
         'sigla' => true,
-        'codigo' => true
+        'codigo' => true,
+        'cidade_id' => true,
+        'created' => true,
+        'modified' => true
     ];
 }

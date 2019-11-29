@@ -11,7 +11,6 @@ use Cake\ORM\Entity;
  * @property string|null $nome
  * @property string|null $descricao
  * @property string|null $icone
- * @property string|null $controller
  * @property \Cake\I18n\FrozenTime|null $created
  * @property \Cake\I18n\FrozenTime|null $modified
  *
@@ -33,7 +32,6 @@ class Sistema extends Entity
         'nome' => true,
         'descricao' => true,
         'icone' => true,
-        'controller' => true,
         'created' => true,
         'modified' => true,
         'acessos' => true

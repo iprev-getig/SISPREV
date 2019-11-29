@@ -31,18 +31,18 @@ create table tipos_acessos (
 		modified timestamp
 	);
 
-insert into tipos_acessos (id, nome, controller) values (1, 'Cidades', 'cidades');
-insert into tipos_acessos (id, nome, controller) values (2, 'Estados', 'estados');
-insert into tipos_acessos (id, nome, controller) values (3, 'Orgaos', 'orgaos');
-insert into tipos_acessos (id, nome, controller) values (4, 'Coordenadorias', 'coordenadorias');
-insert into tipos_acessos (id, nome, controller) values (5, 'Setores', 'setores');
-insert into tipos_acessos (id, nome, controller) values (6, 'Tipos de atendimentos', 'tipo_atendimentos');
-insert into tipos_acessos (id, nome, controller) values (7, 'Tipo de acessos', 'tipos_acessos');
-insert into tipos_acessos (id, nome, controller) values (8, 'Sistemas', 'sistemas');
-insert into tipos_acessos (id, nome, controller) values (9, 'Acessos', 'acessos');
-insert into tipos_acessos (id, nome, controller) values (10, 'Pessoas', 'pessoas');
-insert into tipos_acessos (id, nome, controller) values (11, 'Usuários', 'usuarios');
-insert into tipos_acessos (id, nome, controller, principal) values (12, 'Atendimentos', 'atendimentos', true);
+insert into tipos_acessos (nome, controller) values ('Cidades', 'cidades');
+insert into tipos_acessos (nome, controller) values ('Estados', 'estados');
+insert into tipos_acessos (nome, controller) values ('Orgaos', 'orgaos');
+insert into tipos_acessos (nome, controller) values ('Coordenadorias', 'coordenadorias');
+insert into tipos_acessos (nome, controller) values ('Setores', 'setores');
+insert into tipos_acessos (nome, controller) values ('Tipos de atendimentos', 'tipos_atendimentos');
+insert into tipos_acessos (nome, controller) values ('Tipo de acessos', 'tipos_acessos');
+insert into tipos_acessos (nome, controller) values ('Sistemas', 'sistemas');
+insert into tipos_acessos (nome, controller) values ('Acessos', 'acessos');
+insert into tipos_acessos (nome, controller) values ('Pessoas', 'pessoas');
+insert into tipos_acessos (nome, controller) values ('Usuários', 'usuarios');
+insert into tipos_acessos (nome, controller, principal) values ('Atendimentos', 'atendimentos', true);
 
 create table usuarios (
 		id serial primary key,
@@ -199,16 +199,16 @@ create table tipos_atendimentos (
 		created timestamp,
 		modified timestamp
 	);
-insert into tipos_atendimentos (id, nome) values
-(1, 'ATENDIMENTO POR TELEFONE');
-insert into tipos_atendimentos (id, nome) values
-(2, 'ANALISE DE PROCESSO DE APOSENTADORIA');
-insert into tipos_atendimentos (id, nome) values
-(3, 'ANALISE DE PROCESSO DE AVERBAÇÃO');
-insert into tipos_atendimentos (id, nome) values
-(4, 'ANALISE DE PROCESSO D PENSÃO');	
-insert into tipos_atendimentos (id, nome) values
-(5, 'VISITAS DOMICILIAR');
+insert into tipos_atendimentos (nome) values
+('ATENDIMENTO POR TELEFONE');
+insert into tipos_atendimentos (nome) values
+('ANALISE DE PROCESSO DE APOSENTADORIA');
+insert into tipos_atendimentos (nome) values
+('ANALISE DE PROCESSO DE AVERBAÇÃO');
+insert into tipos_atendimentos (nome) values
+('ANALISE DE PROCESSO DE PENSÃO');	
+insert into tipos_atendimentos (nome) values
+('VISITAS DOMICILIAR');
 
 
 create table pessoas (

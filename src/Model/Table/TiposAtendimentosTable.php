@@ -7,22 +7,20 @@ use Cake\ORM\Table;
 use Cake\Validation\Validator;
 
 /**
- * Orgaos Model
+ * TiposAtendimentos Model
  *
- * @property &\Cake\ORM\Association\BelongsTo $Cidades
- *
- * @method \App\Model\Entity\Orgao get($primaryKey, $options = [])
- * @method \App\Model\Entity\Orgao newEntity($data = null, array $options = [])
- * @method \App\Model\Entity\Orgao[] newEntities(array $data, array $options = [])
- * @method \App\Model\Entity\Orgao|false save(\Cake\Datasource\EntityInterface $entity, $options = [])
- * @method \App\Model\Entity\Orgao saveOrFail(\Cake\Datasource\EntityInterface $entity, $options = [])
- * @method \App\Model\Entity\Orgao patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
- * @method \App\Model\Entity\Orgao[] patchEntities($entities, array $data, array $options = [])
- * @method \App\Model\Entity\Orgao findOrCreate($search, callable $callback = null, $options = [])
+ * @method \App\Model\Entity\TiposAtendimento get($primaryKey, $options = [])
+ * @method \App\Model\Entity\TiposAtendimento newEntity($data = null, array $options = [])
+ * @method \App\Model\Entity\TiposAtendimento[] newEntities(array $data, array $options = [])
+ * @method \App\Model\Entity\TiposAtendimento|false save(\Cake\Datasource\EntityInterface $entity, $options = [])
+ * @method \App\Model\Entity\TiposAtendimento saveOrFail(\Cake\Datasource\EntityInterface $entity, $options = [])
+ * @method \App\Model\Entity\TiposAtendimento patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
+ * @method \App\Model\Entity\TiposAtendimento[] patchEntities($entities, array $data, array $options = [])
+ * @method \App\Model\Entity\TiposAtendimento findOrCreate($search, callable $callback = null, $options = [])
  *
  * @mixin \Cake\ORM\Behavior\TimestampBehavior
  */
-class OrgaosTable extends Table
+class TiposAtendimentosTable extends Table
 {
     /**
      * Initialize method
@@ -34,7 +32,7 @@ class OrgaosTable extends Table
     {
         parent::initialize($config);
 
-        $this->setTable('orgaos');
+        $this->setTable('tipos_atendimentos');
         $this->setDisplayField('id');
         $this->setPrimaryKey('id');
 
@@ -50,17 +48,12 @@ class OrgaosTable extends Table
             'wildcardAny' => '*',
             'wildcardOne' => '?',
             'field' => [
-        'nome',
-        'sigla'
+        'nome'
     ]
         ]);
 
         $this->addBehavior('DateFormat');
         $this->addBehavior('Timestamp');
-
-        $this->belongsTo('Cidades', [
-            'foreignKey' => 'cidade_id'
-        ]);
     }
 
 
@@ -94,29 +87,6 @@ class OrgaosTable extends Table
             ->maxLength('nome', 250)
             ->allowEmptyString('nome');
 
-        $validator
-            ->scalar('sigla')
-            ->maxLength('sigla', 20)
-            ->allowEmptyString('sigla');
-
-        $validator
-            ->integer('codigo')
-            ->allowEmptyString('codigo');
-
         return $validator;
-    }
-
-    /**
-     * Returns a rules checker object that will be used for validating
-     * application integrity.
-     *
-     * @param \Cake\ORM\RulesChecker $rules The rules object to be modified.
-     * @return \Cake\ORM\RulesChecker
-     */
-    public function buildRules(RulesChecker $rules)
-    {
-        $rules->add($rules->existsIn(['cidade_id'], 'Cidades'));
-
-        return $rules;
     }
 }

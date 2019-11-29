@@ -7,22 +7,18 @@ use Cake\ORM\Table;
 use Cake\Validation\Validator;
 
 /**
- * Sistemas Model
+ * Pessoas Model
  *
- * @property \App\Model\Table\AcessosTable&\Cake\ORM\Association\HasMany $Acessos
- *
- * @method \App\Model\Entity\Sistema get($primaryKey, $options = [])
- * @method \App\Model\Entity\Sistema newEntity($data = null, array $options = [])
- * @method \App\Model\Entity\Sistema[] newEntities(array $data, array $options = [])
- * @method \App\Model\Entity\Sistema|false save(\Cake\Datasource\EntityInterface $entity, $options = [])
- * @method \App\Model\Entity\Sistema saveOrFail(\Cake\Datasource\EntityInterface $entity, $options = [])
- * @method \App\Model\Entity\Sistema patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
- * @method \App\Model\Entity\Sistema[] patchEntities($entities, array $data, array $options = [])
- * @method \App\Model\Entity\Sistema findOrCreate($search, callable $callback = null, $options = [])
- *
- * @mixin \Cake\ORM\Behavior\TimestampBehavior
+ * @method \App\Model\Entity\Pessoa get($primaryKey, $options = [])
+ * @method \App\Model\Entity\Pessoa newEntity($data = null, array $options = [])
+ * @method \App\Model\Entity\Pessoa[] newEntities(array $data, array $options = [])
+ * @method \App\Model\Entity\Pessoa|false save(\Cake\Datasource\EntityInterface $entity, $options = [])
+ * @method \App\Model\Entity\Pessoa saveOrFail(\Cake\Datasource\EntityInterface $entity, $options = [])
+ * @method \App\Model\Entity\Pessoa patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
+ * @method \App\Model\Entity\Pessoa[] patchEntities($entities, array $data, array $options = [])
+ * @method \App\Model\Entity\Pessoa findOrCreate($search, callable $callback = null, $options = [])
  */
-class SistemasTable extends Table
+class PessoasTable extends Table
 {
     /**
      * Initialize method
@@ -34,10 +30,9 @@ class SistemasTable extends Table
     {
         parent::initialize($config);
 
-        $this->setTable('sistemas');
+        $this->setTable('pessoas');
         $this->setDisplayField('id');
         $this->setPrimaryKey('id');
-
         $this->addBehavior('Search.Search');
 
 
@@ -50,19 +45,13 @@ class SistemasTable extends Table
             'wildcardAny' => '*',
             'wildcardOne' => '?',
             'field' => [
-        'sigla',
         'nome',
-        'descricao',
-        'icone'
+        'cpf',
+        'matricula'
     ]
         ]);
 
         $this->addBehavior('DateFormat');
-        $this->addBehavior('Timestamp');
-
-        $this->hasMany('Acessos', [
-            'foreignKey' => 'sistema_id'
-        ]);
     }
 
 
@@ -92,24 +81,23 @@ class SistemasTable extends Table
             ->allowEmptyString('id', null, 'create');
 
         $validator
-            ->scalar('sigla')
-            ->maxLength('sigla', 10)
-            ->allowEmptyString('sigla');
-
-        $validator
             ->scalar('nome')
-            ->maxLength('nome', 100)
+            ->maxLength('nome', 250)
             ->allowEmptyString('nome');
 
         $validator
-            ->scalar('descricao')
-            ->maxLength('descricao', 200)
-            ->allowEmptyString('descricao');
+            ->scalar('cpf')
+            ->maxLength('cpf', 20)
+            ->allowEmptyString('cpf');
 
         $validator
-            ->scalar('icone')
-            ->maxLength('icone', 30)
-            ->allowEmptyString('icone');
+            ->scalar('matricula')
+            ->maxLength('matricula', 20)
+            ->allowEmptyString('matricula');
+
+        $validator
+            ->date('data_nasc')
+            ->allowEmptyDate('data_nasc');
 
         return $validator;
     }

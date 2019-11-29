@@ -4,19 +4,14 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * Cidade Entity
+ * TiposAtendimento Entity
  *
  * @property int $id
  * @property string|null $nome
- * @property int|null $estado_id
  * @property \Cake\I18n\FrozenTime|null $created
  * @property \Cake\I18n\FrozenTime|null $modified
- *
- * @property \App\Model\Entity\Estado $estado
- * @property \App\Model\Entity\Coordenadoria[] $coordenadorias
- * @property \App\Model\Entity\Setore[] $setores
  */
-class Cidade extends Entity
+class TiposAtendimento extends Entity
 {
     /**
      * Fields that can be mass assigned using newEntity() or patchEntity().
@@ -29,11 +24,7 @@ class Cidade extends Entity
      */
     protected $_accessible = [
         'nome' => true,
-        'estado_id' => true,
         'created' => true,
-        'modified' => true,
-        'estado' => true,
-        'coordenadorias' => true,
-        'setores' => true
+        'modified' => true
     ];
 }

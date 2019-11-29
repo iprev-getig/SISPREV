@@ -31,10 +31,6 @@
             <th>Icone</th>
             <td><?= h($sistema->icone) ?></td>
         </tr>
-        <tr>
-            <th>Controller</th>
-            <td><?= h($sistema->controller) ?></td>
-        </tr>
     </table>
     <div class="related">
         <?php if (!empty($sistema->acessos)): ?>

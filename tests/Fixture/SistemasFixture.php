@@ -20,7 +20,6 @@ class SistemasFixture extends TestFixture
         'nome' => ['type' => 'string', 'length' => 100, 'default' => null, 'null' => true, 'collate' => null, 'comment' => null, 'precision' => null, 'fixed' => null],
         'descricao' => ['type' => 'string', 'length' => 200, 'default' => null, 'null' => true, 'collate' => null, 'comment' => null, 'precision' => null, 'fixed' => null],
         'icone' => ['type' => 'string', 'length' => 30, 'default' => null, 'null' => true, 'collate' => null, 'comment' => null, 'precision' => null, 'fixed' => null],
-        'controller' => ['type' => 'string', 'length' => 50, 'default' => null, 'null' => true, 'collate' => null, 'comment' => null, 'precision' => null, 'fixed' => null],
         'created' => ['type' => 'timestamp', 'length' => null, 'default' => null, 'null' => true, 'comment' => null, 'precision' => null],
         'modified' => ['type' => 'timestamp', 'length' => null, 'default' => null, 'null' => true, 'comment' => null, 'precision' => null],
         '_constraints' => [
@@ -42,9 +41,8 @@ class SistemasFixture extends TestFixture
                 'nome' => 'Lorem ipsum dolor sit amet',
                 'descricao' => 'Lorem ipsum dolor sit amet',
                 'icone' => 'Lorem ipsum dolor sit amet',
-                'controller' => 'Lorem ipsum dolor sit amet',
-                'created' => 1574449375,
-                'modified' => 1574449375
+                'created' => 1575045420,
+                'modified' => 1575045420
             ],
         ];
         parent::init();

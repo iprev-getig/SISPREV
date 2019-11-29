@@ -25,6 +25,10 @@
             <th>Codigo</th>
             <td><?= $this->Number->format($orgao->codigo) ?></td>
         </tr>
+        <tr>
+            <th>Cidade Id</th>
+            <td><?= $this->Number->format($orgao->cidade_id) ?></td>
+        </tr>
     </table>
 <table class="table table-striped table-hover">
 <tr>

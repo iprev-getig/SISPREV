@@ -28,7 +28,6 @@ class CidadesController extends AppController
 
         $this->set('cidades', $this->paginate($query));
 
-        $this->configSistema();
     }
 
 

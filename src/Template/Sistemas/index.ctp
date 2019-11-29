@@ -17,7 +17,7 @@
         <div class="row">
             <?php echo $this->Form->create(); ?>
             <div class="col-md-11">
-                <?php echo $this->Form->input('q', ['autofocus' => 'autofocus', 'value' => $busca, 'label' => False, 'placeholder' => 'Pesquisar por: COLOCAR AQUI CAMPOS STRING']); ?>
+                                                                                                                                                                                                                                                                                                            <?php echo $this->Form->input('q', ['autofocus' => 'autofocus', 'value' => $busca, 'label' => False, 'placeholder' => 'Pesquisar por: sigla, nome, descricao, icone']); ?>
             </div>
             <div class="col-md-1">
                 <?php echo $this->Form->button($this->Html->tag('i', '', array('class' => 'fas fa-filter')), ['type' => 'submit']); ?>
@@ -32,8 +32,8 @@
                         <th><?= $this->Paginator->sort('nome') ?></th>
                         <th><?= $this->Paginator->sort('descricao') ?></th>
                         <th><?= $this->Paginator->sort('icone') ?></th>
-                        <th><?= $this->Paginator->sort('controller') ?></th>
                         <th><?= $this->Paginator->sort('created') ?></th>
+                        <th><?= $this->Paginator->sort('modified') ?></th>
                         <th class="actions"><?= __('Actions') ?></th>
                 </tr>
             </thead>
@@ -45,8 +45,8 @@
                         <td><?= h($sistema->nome) ?></td>
                         <td><?= h($sistema->descricao) ?></td>
                         <td><?= h($sistema->icone) ?></td>
-                        <td><?= h($sistema->controller) ?></td>
                         <td><?= h($sistema->created) ?></td>
+                        <td><?= h($sistema->modified) ?></td>
                         <td class="actions" style="white-space:nowrap">
                         <?= $this->Html->link(__('View'), ['action' => 'view', $sistema->id], ['class'=>'btn btn-default btn-xs']) ?>
                         <?= $this->Html->link(__('Edit'), ['action' => 'edit', $sistema->id], ['class'=>'btn btn-primary btn-xs']) ?>

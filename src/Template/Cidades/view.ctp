@@ -73,6 +73,8 @@
                 <th>Nome</th>
                 <th>Sigla</th>
                 <th>Cidade Id</th>
+                <th>Created</th>
+                <th>Modified</th>
                 <th class="actions"><?= __('Actions') ?></th>
             </tr>
             <?php foreach ($cidade->setores as $setores): ?>
@@ -81,6 +83,8 @@
                 <td><?= h($setores->nome) ?></td>
                 <td><?= h($setores->sigla) ?></td>
                 <td><?= h($setores->cidade_id) ?></td>
+                <td><?= h($setores->created) ?></td>
+                <td><?= h($setores->modified) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['controller' => 'Setores', 'action' => 'view', $setores->id]) ?>
 

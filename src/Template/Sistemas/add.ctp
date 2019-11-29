@@ -18,7 +18,6 @@
             echo $this->Form->input('nome');
             echo $this->Form->input('descricao');
             echo $this->Form->input('icone');
-            echo $this->Form->input('controller');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

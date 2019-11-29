@@ -11,6 +11,7 @@ use Cake\Validation\Validator;
  *
  * @property \App\Model\Table\EstadosTable&\Cake\ORM\Association\BelongsTo $Estados
  * @property \App\Model\Table\CoordenadoriasTable&\Cake\ORM\Association\HasMany $Coordenadorias
+ * @property &\Cake\ORM\Association\HasMany $Orgaos
  * @property \App\Model\Table\SetoresTable&\Cake\ORM\Association\HasMany $Setores
  *
  * @method \App\Model\Entity\Cidade get($primaryKey, $options = [])
@@ -21,6 +22,8 @@ use Cake\Validation\Validator;
  * @method \App\Model\Entity\Cidade patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
  * @method \App\Model\Entity\Cidade[] patchEntities($entities, array $data, array $options = [])
  * @method \App\Model\Entity\Cidade findOrCreate($search, callable $callback = null, $options = [])
+ *
+ * @mixin \Cake\ORM\Behavior\TimestampBehavior
  */
 class CidadesTable extends Table
 {
@@ -37,6 +40,7 @@ class CidadesTable extends Table
         $this->setTable('cidades');
         $this->setDisplayField('nome');
         $this->setPrimaryKey('id');
+
         $this->addBehavior('Search.Search');
 
 
@@ -48,15 +52,21 @@ class CidadesTable extends Table
             'comparison' => 'LIKE',
             'wildcardAny' => '*',
             'wildcardOne' => '?',
-            'field' => ['adicionar', 'campos', 'string']
+            'field' => [
+        'nome'
+    ]
         ]);
 
         $this->addBehavior('DateFormat');
+        $this->addBehavior('Timestamp');
 
         $this->belongsTo('Estados', [
             'foreignKey' => 'estado_id'
         ]);
         $this->hasMany('Coordenadorias', [
+            'foreignKey' => 'cidade_id'
+        ]);
+        $this->hasMany('Orgaos', [
             'foreignKey' => 'cidade_id'
         ]);
         $this->hasMany('Setores', [

@@ -4,13 +4,13 @@ namespace App\Controller;
 use App\Controller\AppController;
 
 /**
- * Orgaos Controller
+ * Pessoas Controller
  *
- * @property \App\Model\Table\OrgaosTable $Orgaos
+ * @property \App\Model\Table\PessoasTable $Pessoas
  *
- * @method \App\Model\Entity\Orgao[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
+ * @method \App\Model\Entity\Pessoa[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
  */
-class OrgaosController extends AppController
+class PessoasController extends AppController
 {
     /**
      * Index method
@@ -19,13 +19,13 @@ class OrgaosController extends AppController
      */
     public function index()
     {
-        $query = $this->Orgaos
+        $query = $this->Pessoas
         ->find('search', ['search' => $this->request->query])
-                        ->where(['orgaos.id IS NOT' => null]);
+                        ->where(['pessoas.id IS NOT' => null]);
 
         $this->set('busca', $this->getSearch($query));
 
-        $this->set('orgaos', $this->paginate($query));
+        $this->set('pessoas', $this->paginate($query));
 
     }
 
@@ -34,17 +34,17 @@ class OrgaosController extends AppController
     /**
      * View method
      *
-     * @param string|null $id Orgao id.
+     * @param string|null $id Pessoa id.
      * @return \Cake\Http\Response|null
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
     public function view($id = null)
     {
-        $orgao = $this->Orgaos->get($id, [
+        $pessoa = $this->Pessoas->get($id, [
             'contain' => []
         ]);
 
-        $this->set('orgao', $orgao);
+        $this->set('pessoa', $pessoa);
     }
 
     /**
@@ -54,58 +54,58 @@ class OrgaosController extends AppController
      */
     public function add()
     {
-        $orgao = $this->Orgaos->newEntity();
+        $pessoa = $this->Pessoas->newEntity();
         if ($this->request->is('post')) {
-            $orgao = $this->Orgaos->patchEntity($orgao, $this->request->getData());
-            if ($this->Orgaos->save($orgao)) {
-                $this->Flash->success(__('The orgao has been saved.'));
+            $pessoa = $this->Pessoas->patchEntity($pessoa, $this->request->getData());
+            if ($this->Pessoas->save($pessoa)) {
+                $this->Flash->success(__('The pessoa has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The orgao could not be saved. Please, try again.'));
+            $this->Flash->error(__('The pessoa could not be saved. Please, try again.'));
         }
-        $this->set(compact('orgao'));
+        $this->set(compact('pessoa'));
     }
 
     /**
      * Edit method
      *
-     * @param string|null $id Orgao id.
+     * @param string|null $id Pessoa id.
      * @return \Cake\Http\Response|null Redirects on successful edit, renders view otherwise.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
     public function edit($id = null)
     {
-        $orgao = $this->Orgaos->get($id, [
+        $pessoa = $this->Pessoas->get($id, [
             'contain' => []
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
-            $orgao = $this->Orgaos->patchEntity($orgao, $this->request->getData());
-            if ($this->Orgaos->save($orgao)) {
-                $this->Flash->success(__('The orgao has been saved.'));
+            $pessoa = $this->Pessoas->patchEntity($pessoa, $this->request->getData());
+            if ($this->Pessoas->save($pessoa)) {
+                $this->Flash->success(__('The pessoa has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The orgao could not be saved. Please, try again.'));
+            $this->Flash->error(__('The pessoa could not be saved. Please, try again.'));
         }
-        $this->set(compact('orgao'));
+        $this->set(compact('pessoa'));
     }
 
     /**
      * Delete method
      *
-     * @param string|null $id Orgao id.
+     * @param string|null $id Pessoa id.
      * @return \Cake\Http\Response|null Redirects to index.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
     public function delete($id = null)
     {
         $this->request->allowMethod(['post', 'delete']);
-        $orgao = $this->Orgaos->get($id);
-        if ($this->Orgaos->delete($orgao)) {
+        $pessoa = $this->Pessoas->get($id);
+        if ($this->Pessoas->delete($pessoa)) {
             
         } else {
-            $this->Flash->error(__('The orgao could not be deleted. Please, try again.'));
+            $this->Flash->error(__('The pessoa could not be deleted. Please, try again.'));
         }
 
         return $this->redirect(['action' => 'index']);

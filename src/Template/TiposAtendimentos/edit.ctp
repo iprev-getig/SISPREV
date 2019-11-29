@@ -3,25 +3,22 @@
         <li class="active"><a><?= __('Actions') ?></a></li>
         <li><?= $this->Form->postLink(
                 __('Delete'),
-                ['action' => 'delete', $orgao->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $orgao->id)]
+                ['action' => 'delete', $tiposAtendimento->id],
+                ['confirm' => __('Are you sure you want to delete # {0}?', $tiposAtendimento->id)]
             )
         ?></li>
-        <li><?= $this->Html->link(__('List {0}', 'Orgaos'), ['action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('List {0}', 'Tipos Atendimentos'), ['action' => 'index']) ?></li>
     </ul>
 </nav>
-<div class="orgaos form col-md-10 columns content">
-    <?= $this->Form->create($orgao) ?>
+<div class="tiposAtendimentos form col-md-10 columns content">
+    <?= $this->Form->create($tiposAtendimento) ?>
     <fieldset>
         <legend>
             <?= $this->Html->tag('i', '', array('class' => 'far fa-edit')) ?>
-            <?= __('Edit {0}', 'Orgao') ?>
+            <?= __('Edit {0}', 'Tipos Atendimento') ?>
         </legend>
         <?php
             echo $this->Form->input('nome', ['autofocus' => 'autofocus']);
-            echo $this->Form->input('sigla');
-            echo $this->Form->input('codigo');
-            echo $this->Form->input('cidade_id');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
