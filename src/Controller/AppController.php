@@ -42,7 +42,8 @@ class AppController extends Controller
         parent::initialize();
 
         $this->loadComponent('RequestHandler', [
-            'enableBeforeRedirect' => false,
+            'enableBeforeRedirect' => false,            
+            'viewClassmap' => ['xlsx' => 'CakeExcel.Excel']
         ]);
         $this->loadComponent('Flash');
 

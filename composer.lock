@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "621ce1f35f752c420cffa55d02893406",
+    "content-hash": "c7ce9464b87f0c3230d670d2364abf9a",
     "packages": [
         {
             "name": "aura/intl",
@@ -324,6 +324,54 @@
             "time": "2019-07-25T15:43:38+00:00"
         },
         {
+            "name": "dakota/cake-excel",
+            "version": "v2.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dakota/CakeExcel.git",
+                "reference": "2d6f947e731802738a66c170b0fd78d0fe5d0ab0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dakota/CakeExcel/zipball/2d6f947e731802738a66c170b0fd78d0fe5d0ab0",
+                "reference": "2d6f947e731802738a66c170b0fd78d0fe5d0ab0",
+                "shasum": ""
+            },
+            "require": {
+                "cakephp/cakephp": "~3.1",
+                "php": ">=5.4.16",
+                "phpoffice/phpexcel": "~1.8"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.1.*"
+            },
+            "type": "cakephp-plugin",
+            "autoload": {
+                "psr-4": {
+                    "CakeExcel\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Walther Lalk",
+                    "email": "emailme@waltherlalk.com"
+                }
+            ],
+            "description": "CakePHP excel generator",
+            "homepage": "https://github.com/dakota/CakeExcel",
+            "keywords": [
+                "PHPExcel",
+                "cakephp",
+                "dakota",
+                "excel"
+            ],
+            "time": "2016-07-18T08:37:03+00:00"
+        },
+        {
             "name": "dereuromark/cakephp-ajax",
             "version": "1.5.0",
             "source": {
@@ -481,6 +529,69 @@
                 "php mobile detect"
             ],
             "time": "2019-09-18T18:44:20+00:00"
+        },
+        {
+            "name": "phpoffice/phpexcel",
+            "version": "1.8.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/PHPOffice/PHPExcel.git",
+                "reference": "1441011fb7ecdd8cc689878f54f8b58a6805f870"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/PHPOffice/PHPExcel/zipball/1441011fb7ecdd8cc689878f54f8b58a6805f870",
+                "reference": "1441011fb7ecdd8cc689878f54f8b58a6805f870",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "ext-xml": "*",
+                "ext-xmlwriter": "*",
+                "php": "^5.2|^7.0"
+            },
+            "require-dev": {
+                "squizlabs/php_codesniffer": "2.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "PHPExcel": "Classes/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-2.1"
+            ],
+            "authors": [
+                {
+                    "name": "Maarten Balliauw",
+                    "homepage": "http://blog.maartenballiauw.be"
+                },
+                {
+                    "name": "Erik Tilt"
+                },
+                {
+                    "name": "Franck Lefevre",
+                    "homepage": "http://rootslabs.net"
+                },
+                {
+                    "name": "Mark Baker",
+                    "homepage": "http://markbakeruk.net"
+                }
+            ],
+            "description": "PHPExcel - OpenXML - Read, Create and Write Spreadsheet documents in PHP - Spreadsheet engine",
+            "homepage": "https://github.com/PHPOffice/PHPExcel",
+            "keywords": [
+                "OpenXML",
+                "excel",
+                "php",
+                "spreadsheet",
+                "xls",
+                "xlsx"
+            ],
+            "abandoned": "phpoffice/phpspreadsheet",
+            "time": "2018-11-22T23:07:24+00:00"
         },
         {
             "name": "psr/container",
