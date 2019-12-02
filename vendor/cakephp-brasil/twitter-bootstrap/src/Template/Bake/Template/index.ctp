@@ -51,7 +51,13 @@ $fields = collection($fields)
         <div class="row">
             <?php echo $this->Form->create(); ?>
             <div class="col-md-11">
-                <?php echo $this->Form->input('q', ['autofocus' => 'autofocus', 'value' => $busca, 'label' => False, 'placeholder' => 'Pesquisar por: COLOCAR AQUI CAMPOS STRING']); ?>
+                <% $search = []; %>
+                <% foreach ($fields as $field): %>
+                    <% if (in_array($schema->columnType($field), ['string', 'varchar', 'char'])) {
+                        $search[] = $field;
+                    } %>
+                <% endforeach; %>
+                <?php echo $this->Form->input('q', ['autofocus' => 'autofocus', 'value' => $busca, 'label' => False, 'placeholder' => 'Pesquisar por: <%= implode(", ", $search) %>']); ?>
             </div>
             <div class="col-md-1">
                 <?php echo $this->Form->button($this->Html->tag('i', '', array('class' => 'fas fa-filter')), ['type' => 'submit']); ?>

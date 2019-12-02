@@ -65,7 +65,7 @@ class {{ name }}Table extends Table
             'comparison' => 'LIKE',
             'wildcardAny' => '*',
             'wildcardOne' => '?',
-            'field' => ['adicionar', 'campos', 'string']
+            'field' => [{{ Bake.stringifyList(searchs, {'quotes': true})|raw }}]
         ]);
 
         $this->addBehavior('DateFormat');

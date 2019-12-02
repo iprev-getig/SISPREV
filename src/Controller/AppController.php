@@ -16,6 +16,7 @@ namespace App\Controller;
 
 use Cake\Controller\Controller;
 use Cake\Event\Event;
+use Cake\ORM\TableRegistry;
 
 /**
  * Application Controller
@@ -59,6 +60,7 @@ class AppController extends Controller
          * see https://book.cakephp.org/3.0/en/controllers/components/security.html
          */
         //$this->loadComponent('Security');
+        $this->configSistema();
     }
 
     /**
@@ -72,4 +74,52 @@ class AppController extends Controller
         $q = (count($q) > 0) ? $q['q'] : '';
         return $q;
     }
+
+    /**
+     * configSistema method
+     *
+     * @return \Cake\Http\Response|null
+     */
+    public function configSistema()
+    {
+        $config_sistema = $this->request->session()->read('config_sistema');
+        if ($config_sistema == null) {
+            if (! $this->referer() == '/') {
+                $this->redirect(['controller' => 'pages', 'action' => 'home']);
+            }
+        }
+        $this->set('config_sistema', $config_sistema);
+        $this->set('config_menus', $this->menus());
+    }
+
+    /**
+     * menus method
+     *
+     * @return \Cake\Http\Response|null
+     */
+    public function menus()
+    {
+        $acessos = TableRegistry::get('Acessos');
+        $acessos = $acessos->find('all', 
+            ['fields' => ['TipoAcesso.nome', 'TipoAcesso.controller', 'TipoAcesso.principal']])
+        ->hydrate(false)
+        ->join([
+            'TipoAcesso'=>  [
+                'table' => 'tipos_acessos',
+                'type' => 'LEFT',
+                'conditions' => 'TipoAcesso.id = acessos.tipo_acesso_id',
+            ]])
+        ->join([
+            'Sistema'=>  [
+                'table' => 'sistemas',
+                'type' => 'LEFT',
+                'conditions' => 'Sistema.id = acessos.sistema_id',
+            ]])
+        // ->where(['acessos.usuario_id' => $id])
+        ->where(['acessos.index' => True])
+        ->where(['Sistema.sigla' => $this->request->session()->read('config_sistema')])
+        ->order(['TipoAcesso.nome']);
+        return $acessos;
+    }
+    
 }

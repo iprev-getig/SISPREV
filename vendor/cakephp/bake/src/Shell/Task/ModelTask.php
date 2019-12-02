@@ -142,6 +142,14 @@ class ModelTask extends BakeTask
         $connection = $this->connection;
         $hidden = $this->getHiddenFields($tableObject);
 
+        $searchs = array();
+        foreach ($fields as $field) {
+            $schema = $tableObject->getSchema();
+            if (in_array($schema->columnType($field), ['string', 'varchar', 'char'])) {
+                $searchs[] = $field;
+            }
+        }
+
         return compact(
             'associations',
             'associationInfo',
@@ -154,7 +162,8 @@ class ModelTask extends BakeTask
             'rulesChecker',
             'behaviors',
             'connection',
-            'hidden'
+            'hidden',
+            'searchs'
         );
     }
 
