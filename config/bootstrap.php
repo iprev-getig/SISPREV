@@ -155,6 +155,7 @@ Log::setConfig(Configure::consume('Log'));
 Security::setSalt(Configure::consume('Security.salt'));
 Plugin::load('TwitterBootstrap');
 Plugin::load('Search');
+Plugin::load('CakeExcel', ['bootstrap' => true, 'routes' => true]);
 
 /*
  * The default crypto extension in 3.0 is OpenSSL.
