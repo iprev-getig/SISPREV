@@ -20,6 +20,7 @@
         <?php
             echo $this->Form->input('nome', ['autofocus' => 'autofocus']);
             echo $this->Form->input('controller');
+            echo $this->Form->input('principal');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

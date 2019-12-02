@@ -47,7 +47,10 @@ class TiposAcessosTable extends Table
             'comparison' => 'LIKE',
             'wildcardAny' => '*',
             'wildcardOne' => '?',
-            'field' => ['adicionar', 'campos', 'string']
+            'field' => [
+        'nome',
+        'controller'
+    ]
         ]);
 
         $this->addBehavior('DateFormat');
@@ -89,6 +92,10 @@ class TiposAcessosTable extends Table
             ->scalar('controller')
             ->maxLength('controller', 50)
             ->allowEmptyString('controller');
+
+        $validator
+            ->boolean('principal')
+            ->allowEmptyString('principal');
 
         return $validator;
     }

@@ -9,6 +9,7 @@ use Cake\ORM\Entity;
  * @property int $id
  * @property string|null $nome
  * @property string|null $controller
+ * @property bool|null $principal
  * @property \Cake\I18n\FrozenTime|null $created
  * @property \Cake\I18n\FrozenTime|null $modified
  */
@@ -26,6 +27,7 @@ class TiposAcesso extends Entity
     protected $_accessible = [
         'nome' => true,
         'controller' => true,
+        'principal' => true,
         'created' => true,
         'modified' => true
     ];
