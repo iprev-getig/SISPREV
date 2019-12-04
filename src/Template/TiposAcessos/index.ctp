@@ -15,7 +15,7 @@
         <div class="row">
             <?php echo $this->Form->create(); ?>
             <div class="col-md-11">
-                <?php echo $this->Form->input('q', ['autofocus' => 'autofocus', 'value' => $busca, 'label' => False, 'placeholder' => 'Pesquisar por: COLOCAR AQUI CAMPOS STRING']); ?>
+                                                                                                                                                                                                                                                                        <?php echo $this->Form->input('q', ['autofocus' => 'autofocus', 'value' => $busca, 'label' => False, 'placeholder' => 'Pesquisar por: nome, controller']); ?>
             </div>
             <div class="col-md-1">
                 <?php echo $this->Form->button($this->Html->tag('i', '', array('class' => 'fas fa-filter')), ['type' => 'submit']); ?>
@@ -28,6 +28,7 @@
                         <th><?= $this->Paginator->sort('id') ?></th>
                         <th><?= $this->Paginator->sort('nome') ?></th>
                         <th><?= $this->Paginator->sort('controller') ?></th>
+                        <th><?= $this->Paginator->sort('principal') ?></th>
                         <th><?= $this->Paginator->sort('created') ?></th>
                         <th><?= $this->Paginator->sort('modified') ?></th>
                         <th class="actions"><?= __('Actions') ?></th>
@@ -39,6 +40,11 @@
                         <td><?= $this->Number->format($tiposAcesso->id) ?></td>
                         <td><?= h($tiposAcesso->nome) ?></td>
                         <td><?= h($tiposAcesso->controller) ?></td>
+                        <td>
+                        <?php echo $tiposAcesso->principal 
+                            ? $this->Html->tag('i', '', array('class' => 'far fa-check-square')) 
+                            : $this->Html->tag('i', '', array('class' => 'far fa-square')) ; ?>
+                    </td>
                         <td><?= h($tiposAcesso->created) ?></td>
                         <td><?= h($tiposAcesso->modified) ?></td>
                         <td class="actions" style="white-space:nowrap">

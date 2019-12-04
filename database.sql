@@ -59,7 +59,7 @@ create table usuarios (
 		FOREIGN KEY (setor_id) REFERENCES setores (id)
 );
 
-insert into usuarios (id, login, email, nome, senha, bloqueado) values (1, 'admin', 'suporte.getig@iprev.sc.gov.br', 'Usuário Master', '', false);
+insert into usuarios (login, email, nome, senha, bloqueado) values ('admin', 'suporte.getig@iprev.sc.gov.br', 'Usuário Master', '', false);
 
 create table acessos (
 		id serial primary key,
@@ -81,30 +81,30 @@ create table acessos (
 			FOREIGN KEY (sistema_id) REFERENCES sistemas (id)
 	);
 
-insert into acessos (id, index, add, edit, del, view, tipo_acesso_id, usuario_id, sistema_id) values
-(1, true, true, true, true, true, 1, 1, 1);
-insert into acessos (id, index, add, edit, del, view, tipo_acesso_id, usuario_id, sistema_id) values
-(2, true, true, true, true, true, 2, 1, 1);
-insert into acessos (id, index, add, edit, del, view, tipo_acesso_id, usuario_id, sistema_id) values
-(3, true, true, true, true, true, 3, 1, 1);
-insert into acessos (id, index, add, edit, del, view, tipo_acesso_id, usuario_id, sistema_id) values
-(4, true, true, true, true, true, 4, 1, 1);
-insert into acessos (id, index, add, edit, del, view, tipo_acesso_id, usuario_id, sistema_id) values
-(5, true, true, true, true, true, 5, 1, 1);
-insert into acessos (id, index, add, edit, del, view, tipo_acesso_id, usuario_id, sistema_id) values
-(6, true, true, true, true, true, 6, 1, 1);
-insert into acessos (id, index, add, edit, del, view, tipo_acesso_id, usuario_id, sistema_id) values
-(7, true, true, true, true, true, 7, 1, 1);
-insert into acessos (id, index, add, edit, del, view, tipo_acesso_id, usuario_id, sistema_id) values
-(8, true, true, true, true, true, 8, 1, 1);
-insert into acessos (id, index, add, edit, del, view, tipo_acesso_id, usuario_id, sistema_id) values
-(9, true, true, true, true, true, 9, 1, 1);
-insert into acessos (id, index, add, edit, del, view, tipo_acesso_id, usuario_id, sistema_id) values
-(10, true, true, true, true, true, 10, 1, 1);
-insert into acessos (id, index, add, edit, del, view, tipo_acesso_id, usuario_id, sistema_id) values
-(11, true, true, true, true, true, 11, 1, 1);
-insert into acessos (id, index, add, edit, del, view, tipo_acesso_id, usuario_id, sistema_id) values
-(12, true, true, true, true, true, 12, 1, 1);
+insert into acessos (index, add, edit, del, view, tipo_acesso_id, usuario_id, sistema_id) values
+(true, true, true, true, true, 1, 1, 1);
+insert into acessos (index, add, edit, del, view, tipo_acesso_id, usuario_id, sistema_id) values
+(true, true, true, true, true, 2, 1, 1);
+insert into acessos (index, add, edit, del, view, tipo_acesso_id, usuario_id, sistema_id) values
+(true, true, true, true, true, 3, 1, 1);
+insert into acessos (index, add, edit, del, view, tipo_acesso_id, usuario_id, sistema_id) values
+(true, true, true, true, true, 4, 1, 1);
+insert into acessos (index, add, edit, del, view, tipo_acesso_id, usuario_id, sistema_id) values
+(true, true, true, true, true, 5, 1, 1);
+insert into acessos (index, add, edit, del, view, tipo_acesso_id, usuario_id, sistema_id) values
+(true, true, true, true, true, 6, 1, 1);
+insert into acessos (index, add, edit, del, view, tipo_acesso_id, usuario_id, sistema_id) values
+(true, true, true, true, true, 7, 1, 1);
+insert into acessos (index, add, edit, del, view, tipo_acesso_id, usuario_id, sistema_id) values
+(true, true, true, true, true, 8, 1, 1);
+insert into acessos (index, add, edit, del, view, tipo_acesso_id, usuario_id, sistema_id) values
+(true, true, true, true, true, 9, 1, 1);
+insert into acessos (index, add, edit, del, view, tipo_acesso_id, usuario_id, sistema_id) values
+(true, true, true, true, true, 10, 1, 1);
+insert into acessos (index, add, edit, del, view, tipo_acesso_id, usuario_id, sistema_id) values
+(true, true, true, true, true, 11, 1, 1);
+insert into acessos (index, add, edit, del, view, tipo_acesso_id, usuario_id, sistema_id) values
+(true, true, true, true, true, 12, 1, 1);
 
 create table coordenadorias (
 		id serial primary key,
@@ -127,16 +127,16 @@ create table estados (
 		modified timestamp
 	);
 
-insert into estados (id, nome, uf) values
-(1, 'SANTA CATARINA', 'SC');
-insert into estados (id, nome, uf) values
-(2, 'RIO GRANDE DO SUL', 'RS');
-insert into estados (id, nome, uf) values
-(3, 'PARANA', 'PR');
-insert into estados (id, nome, uf) values
-(4, 'SAO PAULO', 'SP');	
-insert into estados (id, nome, uf) values
-(5, 'RIO DE JANEIRO', 'RJ');
+insert into estados (nome, uf) values
+('SANTA CATARINA', 'SC');
+insert into estados (nome, uf) values
+('RIO GRANDE DO SUL', 'RS');
+insert into estados (nome, uf) values
+('PARANA', 'PR');
+insert into estados (nome, uf) values
+('SAO PAULO', 'SP');	
+insert into estados (nome, uf) values
+('RIO DE JANEIRO', 'RJ');
 
 create table cidades (
 		id serial primary key,
@@ -147,16 +147,16 @@ create table cidades (
 		CONSTRAINT cidade_estado_id
 			FOREIGN KEY (estado_id) REFERENCES estados (id)	
 	);
-insert into cidades (id, nome, estado_id) values
-(1, 'FLORIANOPOLIS', 1);
-insert into cidades (id, nome, estado_id) values
-(2, 'PORTO ALEGRE', 2);
-insert into cidades (id, nome, estado_id) values
-(3, 'CURITIBA', 3);
-insert into cidades (id, nome, estado_id) values
-(4, 'SAO PAULO', 4);	
-insert into cidades (id, nome, estado_id) values
-(5, 'RIO DE JANEIRO', 5);
+insert into cidades (nome, estado_id) values
+('FLORIANOPOLIS', 1);
+insert into cidades (nome, estado_id) values
+('PORTO ALEGRE', 2);
+insert into cidades (nome, estado_id) values
+('CURITIBA', 3);
+insert into cidades (nome, estado_id) values
+('SAO PAULO', 4);	
+insert into cidades (nome, estado_id) values
+('RIO DE JANEIRO', 5);
 
 
 create table setores (

@@ -21,6 +21,14 @@
             <th>Controller</th>
             <td><?= h($tiposAcesso->controller) ?></td>
         </tr>
+        <tr>
+            <th>Principal</th>
+            <td>
+                <?php echo $tiposAcesso->principal 
+                    ? $this->Html->tag('i', '', array('class' => 'far fa-check-square')) 
+                    : $this->Html->tag('i', '', array('class' => 'far fa-square')) ; ?>
+            </td>
+         </tr>
     </table>
 <table class="table table-striped table-hover">
 <tr>
