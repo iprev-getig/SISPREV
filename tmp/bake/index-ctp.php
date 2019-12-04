@@ -39,6 +39,7 @@ $fields = collection($fields)
         endforeach;
     endforeach;
 ?>
+        <li><CakePHPBakeOpenTag= $this->Html->link(__('Export'), ['_ext' => 'xlsx'], ['class'=>'add']) CakePHPBakeCloseTag></li>
     </ul>
 </nav>
 

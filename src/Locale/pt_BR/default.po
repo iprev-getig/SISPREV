@@ -205,3 +205,6 @@ msgstr "Criado"
 
 msgid "Modified"
 msgstr "Modificado"
+
+msgid "Export"
+msgstr "Exportar"
