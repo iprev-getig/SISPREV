@@ -39,6 +39,7 @@ $fields = collection($fields)
         endforeach;
     endforeach;
 %>
+        <li><?= $this->Html->link(__('Export'), ['_ext' => 'xlsx'], ['class'=>'add']) ?></li>
     </ul>
 </nav>
 

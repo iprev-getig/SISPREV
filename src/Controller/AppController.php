@@ -61,6 +61,8 @@ class AppController extends Controller
          */
         //$this->loadComponent('Security');
         $this->configSistema();
+
+        ini_set('memory_limit', '-1');
     }
 
     /**
@@ -84,7 +86,11 @@ class AppController extends Controller
     {
         $config_sistema = $this->request->session()->read('config_sistema');
         if ($config_sistema == null) {
-            if (! $this->referer() == '/') {
+            if (($this->request->here != '/SISPREV/') 
+            && ($this->request->here != '/SISPREV/pages/home')
+            && (strpos($this->request->here, '/SISPREV/dashboard/index/') === false)) {
+                $this->log($this->request->here, 'debug');
+                //debug($this->request->here);
                 $this->redirect(['controller' => 'pages', 'action' => 'home']);
             }
         }

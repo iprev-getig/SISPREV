@@ -350,6 +350,13 @@ class TemplateTask extends BakeTask
         }
         $this->out("\n" . sprintf('Baking `%s` view template file...', $outputFile), 1, Shell::QUIET);
         $path = $this->getPath();
+
+        if ($outputFile == 'index') {
+            $contentXlsx = '<?php echo $this->element(\'xlsx\', ["rows" => $rows]); ?>';
+            $filename = $path . DS . 'xlsx' . DS . Inflector::underscore($outputFile) . '.ctp';
+            $this->createFile($filename, $contentXlsx);
+        }
+
         $filename = $path . Inflector::underscore($outputFile) . '.ctp';
         $this->createFile($filename, $content);
 
