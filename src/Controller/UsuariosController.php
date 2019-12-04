@@ -19,15 +19,20 @@ class UsuariosController extends AppController
      */
     public function index()
     {
-        $query = $this->Usuarios
-        ->find('search', ['search' => $this->request->query])
-                ->contain(['Setores'])
-                ->where(['usuarios.id IS NOT' => null]);
+        $_ext = $this->request->params['_ext'];
+        if (!$_ext == 'xlsx') {
+            $query = $this->Usuarios
+            ->find('search', ['search' => $this->request->query])
+                            ->contain(['Setores'])
+                        ->where(['usuarios.id IS NOT' => null]);
 
-        $this->set('busca', $this->getSearch($query));
+            $this->set('busca', $this->getSearch($query));
 
-        $this->set('usuarios', $this->paginate($query));
-
+            $this->set('usuarios', $this->paginate($query));
+        } else {
+            $rows = $this->Usuarios->find('all');
+            $this->set('rows', $rows);
+        }
     }
 
 
@@ -42,7 +47,7 @@ class UsuariosController extends AppController
     public function view($id = null)
     {
         $usuario = $this->Usuarios->get($id, [
-            'contain' => ['Setores', 'Acessos']
+            'contain' => ['Setores', 'Acessos', 'Coordenadorias']
         ]);
 
         $this->set('usuario', $usuario);

@@ -7,8 +7,11 @@
         <li><?= $this->Html->link(__('New {0}', ['Estado']), ['controller' => 'Estados', 'action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List {0}', ['Coordenadorias']), ['controller' => 'Coordenadorias', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New {0}', ['Coordenadoria']), ['controller' => 'Coordenadorias', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List {0}', ['Orgaos']), ['controller' => 'Orgaos', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New {0}', ['Orgao']), ['controller' => 'Orgaos', 'action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List {0}', ['Setores']), ['controller' => 'Setores', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New {0}', ['Setore']), ['controller' => 'Setores', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('Export'), ['_ext' => 'xlsx'], ['class'=>'add']) ?></li>
     </ul>
 </nav>
 

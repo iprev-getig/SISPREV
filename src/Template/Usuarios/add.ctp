@@ -6,6 +6,8 @@
         <li><?= $this->Html->link(__('New {0}', 'Setore'), ['controller' => 'Setores', 'action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List {0}', 'Acessos'), ['controller' => 'Acessos', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New {0}', 'Acesso'), ['controller' => 'Acessos', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List {0}', 'Coordenadorias'), ['controller' => 'Coordenadorias', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New {0}', 'Coordenadoria'), ['controller' => 'Coordenadorias', 'action' => 'add']) ?></li>
     </ul>
 </nav>
 <div class="usuarios form col-md-10 columns content">
@@ -16,7 +18,9 @@
             <?= __('Add {0}', 'Usuario') ?>
         </legend>
         <?php
-            echo $this->Form->input('nome', ['autofocus' => 'autofocus']);
+            echo $this->Form->input('login', ['autofocus' => 'autofocus']);
+            echo $this->Form->input('email');
+            echo $this->Form->input('nome');
             echo $this->Form->input('senha');
             echo $this->Form->input('bloqueado');
             echo $this->Form->input('ult_acesso');

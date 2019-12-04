@@ -9,17 +9,23 @@
         <li><?= $this->Html->link(__('New {0}', ['Setore']), ['controller' => 'Setores', 'action' => 'add']) ?> </li>
         <li><?= $this->Html->link(__('List {0}', ['Acessos']), ['controller' => 'Acessos', 'action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New {0}', ['Acesso']), ['controller' => 'Acessos', 'action' => 'add']) ?> </li>
+        <li><?= $this->Html->link(__('List {0}', ['Coordenadorias']), ['controller' => 'Coordenadorias', 'action' => 'index']) ?> </li>
+        <li><?= $this->Html->link(__('New {0}', ['Coordenadoria']), ['controller' => 'Coordenadorias', 'action' => 'add']) ?> </li>
     </ul>
 </nav>
 <div class="usuarios view col-lg-10 col-md-9">
     <h3>
         <?= $this->Html->tag('i', '', array('class' => 'fas fa-eye')) ?>
-        <?= h($usuario->id) ?>
+        <?= h($usuario->nome) ?>
     </h3>
     <table class="table table-striped table-hover">
         <tr>
-            <th>Nome</th>
-            <td><?= h($usuario->nome) ?></td>
+            <th>Login</th>
+            <td><?= h($usuario->login) ?></td>
+        </tr>
+        <tr>
+            <th>Email</th>
+            <td><?= h($usuario->email) ?></td>
         </tr>
         <tr>
             <th>Senha</th>
@@ -27,7 +33,7 @@
         </tr>
         <tr>
             <th>Setore</th>
-            <td><?= $usuario->has('setore') ? $this->Html->link($usuario->setore->id, ['controller' => 'Setores', 'action' => 'view', $usuario->setore->id]) : '' ?></td>
+            <td><?= $usuario->has('setore') ? $this->Html->link($usuario->setore->nome, ['controller' => 'Setores', 'action' => 'view', $usuario->setore->id]) : '' ?></td>
         </tr>
         <tr>
             <th>Ult Acesso</th>
@@ -59,6 +65,8 @@
                 <th>Tipo Acesso Id</th>
                 <th>Usuario Id</th>
                 <th>Sistema Id</th>
+                <th>Created</th>
+                <th>Modified</th>
                 <th class="actions"><?= __('Actions') ?></th>
             </tr>
             <?php foreach ($usuario->acessos as $acessos): ?>
@@ -72,12 +80,47 @@
                 <td><?= h($acessos->tipo_acesso_id) ?></td>
                 <td><?= h($acessos->usuario_id) ?></td>
                 <td><?= h($acessos->sistema_id) ?></td>
+                <td><?= h($acessos->created) ?></td>
+                <td><?= h($acessos->modified) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['controller' => 'Acessos', 'action' => 'view', $acessos->id]) ?>
+                    <?= $this->Html->link(__('View'), ['controller' => 'Acessos', 'action' => 'view', $acessos->id], ['class'=>'btn btn-default btn-xs']) ?>
 
-                    <?= $this->Html->link(__('Edit'), ['controller' => 'Acessos', 'action' => 'edit', $acessos->id]) ?>
+                    <?= $this->Html->link(__('Edit'), ['controller' => 'Acessos', 'action' => 'edit', $acessos->id], ['class'=>'btn btn-primary btn-xs']) ?>
 
-                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Acessos', 'action' => 'delete', $acessos->id], ['confirm' => __('Are you sure you want to delete # {0}?', $acessos->id)]) ?>
+                </td>
+            </tr>
+            <?php endforeach; ?>
+        </table>
+    <?php endif; ?>
+    </div>
+    <div class="related">
+        <?php if (!empty($usuario->coordenadorias)): ?>
+            <h4>
+                <?= $this->Html->tag('i', '', array('class' => 'fas fa-user')) ?>
+                <?= __('Related {0}', ['Coordenadorias']) ?>
+            </h4>
+        <table class="table table-striped table-hover">
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Usuario Id</th>
+                <th>Cidade Id</th>
+                <th>Created</th>
+                <th>Modified</th>
+                <th class="actions"><?= __('Actions') ?></th>
+            </tr>
+            <?php foreach ($usuario->coordenadorias as $coordenadorias): ?>
+            <tr>
+                <td><?= h($coordenadorias->id) ?></td>
+                <td><?= h($coordenadorias->nome) ?></td>
+                <td><?= h($coordenadorias->usuario_id) ?></td>
+                <td><?= h($coordenadorias->cidade_id) ?></td>
+                <td><?= h($coordenadorias->created) ?></td>
+                <td><?= h($coordenadorias->modified) ?></td>
+                <td class="actions">
+                    <?= $this->Html->link(__('View'), ['controller' => 'Coordenadorias', 'action' => 'view', $coordenadorias->id], ['class'=>'btn btn-default btn-xs']) ?>
+
+                    <?= $this->Html->link(__('Edit'), ['controller' => 'Coordenadorias', 'action' => 'edit', $coordenadorias->id], ['class'=>'btn btn-primary btn-xs']) ?>
 
                 </td>
             </tr>

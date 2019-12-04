@@ -7,6 +7,9 @@
         <li><?= $this->Html->link(__('New {0}', ['Setore']), ['controller' => 'Setores', 'action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List {0}', ['Acessos']), ['controller' => 'Acessos', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New {0}', ['Acesso']), ['controller' => 'Acessos', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List {0}', ['Coordenadorias']), ['controller' => 'Coordenadorias', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New {0}', ['Coordenadoria']), ['controller' => 'Coordenadorias', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('Export'), ['_ext' => 'xlsx'], ['class'=>'add']) ?></li>
     </ul>
 </nav>
 
@@ -19,7 +22,7 @@
         <div class="row">
             <?php echo $this->Form->create(); ?>
             <div class="col-md-11">
-                <?php echo $this->Form->input('q', ['autofocus' => 'autofocus', 'value' => $busca, 'label' => False, 'placeholder' => 'Pesquisar por: COLOCAR AQUI CAMPOS STRING']); ?>
+                                                                                                                                                                                                                                                                                                            <?php echo $this->Form->input('q', ['autofocus' => 'autofocus', 'value' => $busca, 'label' => False, 'placeholder' => 'Pesquisar por: login, email, nome, senha']); ?>
             </div>
             <div class="col-md-1">
                 <?php echo $this->Form->button($this->Html->tag('i', '', array('class' => 'fas fa-filter')), ['type' => 'submit']); ?>
@@ -30,12 +33,12 @@
             <thead>
                 <tr>
                         <th><?= $this->Paginator->sort('id') ?></th>
+                        <th><?= $this->Paginator->sort('login') ?></th>
+                        <th><?= $this->Paginator->sort('email') ?></th>
                         <th><?= $this->Paginator->sort('nome') ?></th>
                         <th><?= $this->Paginator->sort('senha') ?></th>
                         <th><?= $this->Paginator->sort('bloqueado') ?></th>
                         <th><?= $this->Paginator->sort('ult_acesso') ?></th>
-                        <th><?= $this->Paginator->sort('setor_id') ?></th>
-                        <th><?= $this->Paginator->sort('created') ?></th>
                         <th class="actions"><?= __('Actions') ?></th>
                 </tr>
             </thead>
@@ -43,6 +46,8 @@
                 <?php foreach ($usuarios as $usuario): ?>
                 <tr>
                         <td><?= $this->Number->format($usuario->id) ?></td>
+                        <td><?= h($usuario->login) ?></td>
+                        <td><?= h($usuario->email) ?></td>
                         <td><?= h($usuario->nome) ?></td>
                         <td><?= h($usuario->senha) ?></td>
                         <td>
@@ -51,8 +56,6 @@
                             : $this->Html->tag('i', '', array('class' => 'far fa-square')) ; ?>
                     </td>
                         <td><?= h($usuario->ult_acesso) ?></td>
-                        <td><?= $usuario->has('setore') ? $this->Html->link($usuario->setore->id, ['controller' => 'Setores', 'action' => 'view', $usuario->setore->id]) : '' ?></td>
-                        <td><?= h($usuario->created) ?></td>
                         <td class="actions" style="white-space:nowrap">
                         <?= $this->Html->link(__('View'), ['action' => 'view', $usuario->id], ['class'=>'btn btn-default btn-xs']) ?>
                         <?= $this->Html->link(__('Edit'), ['action' => 'edit', $usuario->id], ['class'=>'btn btn-primary btn-xs']) ?>

@@ -31,6 +31,8 @@
                 <th>Id</th>
                 <th>Nome</th>
                 <th>Estado Id</th>
+                <th>Created</th>
+                <th>Modified</th>
                 <th class="actions"><?= __('Actions') ?></th>
             </tr>
             <?php foreach ($estado->cidades as $cidades): ?>
@@ -38,12 +40,12 @@
                 <td><?= h($cidades->id) ?></td>
                 <td><?= h($cidades->nome) ?></td>
                 <td><?= h($cidades->estado_id) ?></td>
+                <td><?= h($cidades->created) ?></td>
+                <td><?= h($cidades->modified) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['controller' => 'Cidades', 'action' => 'view', $cidades->id]) ?>
+                    <?= $this->Html->link(__('View'), ['controller' => 'Cidades', 'action' => 'view', $cidades->id], ['class'=>'btn btn-default btn-xs']) ?>
 
-                    <?= $this->Html->link(__('Edit'), ['controller' => 'Cidades', 'action' => 'edit', $cidades->id]) ?>
-
-                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Cidades', 'action' => 'delete', $cidades->id], ['confirm' => __('Are you sure you want to delete # {0}?', $cidades->id)]) ?>
+                    <?= $this->Html->link(__('Edit'), ['controller' => 'Cidades', 'action' => 'edit', $cidades->id], ['class'=>'btn btn-primary btn-xs']) ?>
 
                 </td>
             </tr>
