@@ -741,14 +741,14 @@ class ModelTask extends BakeTask
             }
         } elseif ($metaData['type'] === 'boolean') {
             $rules['boolean'] = [];
-        } elseif ($metaData['type'] === 'date') {
-            $rules['date'] = [];
-        } elseif ($metaData['type'] === 'time') {
-            $rules['time'] = [];
-        } elseif ($metaData['type'] === 'datetime') {
-            $rules['dateTime'] = [];
-        } elseif ($metaData['type'] === 'timestamp') {
-            $rules['dateTime'] = [];
+        // } elseif ($metaData['type'] === 'date') {
+        //     $rules['date'] = [];
+        // } elseif ($metaData['type'] === 'time') {
+        //     $rules['time'] = [];
+        // } elseif ($metaData['type'] === 'datetime') {
+        //     $rules['dateTime'] = [];
+        // } elseif ($metaData['type'] === 'timestamp') {
+        //     $rules['dateTime'] = [];
         } elseif ($metaData['type'] === 'inet') {
             $rules['ip'] = [];
         } elseif ($metaData['type'] === 'string' || $metaData['type'] === 'text') {
@@ -814,17 +814,17 @@ class ModelTask extends BakeTask
      */
     protected function getEmptyMethod($fieldName, array $metaData, $prefix = 'allow')
     {
-        switch ($metaData['type']) {
-            case 'date':
-                return $prefix . 'EmptyDate';
+        // switch ($metaData['type']) {
+        //     case 'date':
+        //         return $prefix . 'EmptyDate';
 
-            case 'time':
-                return $prefix . 'EmptyTime';
+        //     case 'time':
+        //         return $prefix . 'EmptyTime';
 
-            case 'datetime':
-            case 'timestamp':
-                return $prefix . 'EmptyDateTime';
-        }
+        //     case 'datetime':
+        //     case 'timestamp':
+        //         return $prefix . 'EmptyDateTime';
+        // }
 
         if (preg_match('/file|image/', $fieldName)) {
             return $prefix . 'EmptyFile';
