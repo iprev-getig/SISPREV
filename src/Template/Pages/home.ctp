@@ -43,7 +43,6 @@ $cakeDescription = 'SISPREV: Instituto de Previdência do Estado de Santa Catari
     <?= $this->Html->css('style.css') ?>
     <?= $this->Html->css('home.css') ?>
     <?= $this->Html->css('icones') ?>
-
     <link href="https://fonts.googleapis.com/css?family=Raleway:500i|Roboto:300,400,700|Roboto+Mono" rel="stylesheet">
 </head>
 <body class="home">
@@ -54,7 +53,7 @@ $cakeDescription = 'SISPREV: Instituto de Previdência do Estado de Santa Catari
         <h1>Instituto de Previdência do Estado de Santa Catarina</h1>
     </div>
 </header>
-
+<?php echo $this->Flash->render(); ?>
 <div class="row">
     <?php foreach ($sistemas as $sistema): ?>
             <div class="dashboard-icon">
@@ -78,6 +77,10 @@ $cakeDescription = 'SISPREV: Instituto de Previdência do Estado de Santa Catari
 </div>
 
 <script src="https://kit.fontawesome.com/4e67fa5bd2.js" crossorigin="anonymous"></script>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
 </body>
 </html>

@@ -90,7 +90,7 @@ class AppController extends Controller
             && ($this->request->here != '/SISPREV/pages/home')
             && (strpos($this->request->here, '/SISPREV/dashboard/index/') === false)) {
                 $this->log($this->request->here, 'debug');
-                //debug($this->request->here);
+                $this->Flash->error(__('Sua sessão expirou, selecione o sistema para continuar.'));
                 $this->redirect(['controller' => 'pages', 'action' => 'home']);
             }
         }
