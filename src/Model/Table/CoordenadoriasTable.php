@@ -36,7 +36,7 @@ class CoordenadoriasTable extends Table
         parent::initialize($config);
 
         $this->setTable('coordenadorias');
-        $this->setDisplayField('id');
+        $this->setDisplayField('nome');
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Search.Search');
@@ -50,7 +50,9 @@ class CoordenadoriasTable extends Table
             'comparison' => 'LIKE',
             'wildcardAny' => '*',
             'wildcardOne' => '?',
-            'field' => ['adicionar', 'campos', 'string']
+            'field' => [
+        'nome'
+    ]
         ]);
 
         $this->addBehavior('DateFormat');

@@ -3,6 +3,8 @@
     <ul class="nav nav-pills nav-stacked">
         <li class="active"><a><?= __('Actions') ?></a></li>
         <li><?= $this->Html->link(__('New {0}', ['Orgao']), ['action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List {0}', ['Cidades']), ['controller' => 'Cidades', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New {0}', ['Cidade']), ['controller' => 'Cidades', 'action' => 'add']) ?></li>
     </ul>
 </nav>
 
@@ -42,7 +44,7 @@
                         <td><?= h($orgao->nome) ?></td>
                         <td><?= h($orgao->sigla) ?></td>
                         <td><?= $this->Number->format($orgao->codigo) ?></td>
-                        <td><?= $this->Number->format($orgao->cidade_id) ?></td>
+                        <td><?= $orgao->has('cidade') ? $this->Html->link($orgao->cidade->nome, ['controller' => 'Cidades', 'action' => 'view', $orgao->cidade->id]) : '' ?></td>
                         <td><?= h($orgao->created) ?></td>
                         <td><?= h($orgao->modified) ?></td>
                         <td class="actions" style="white-space:nowrap">

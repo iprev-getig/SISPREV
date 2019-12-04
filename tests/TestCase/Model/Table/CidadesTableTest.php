@@ -26,6 +26,7 @@ class CidadesTableTest extends TestCase
         'app.Cidades',
         'app.Estados',
         'app.Coordenadorias',
+        'app.Orgaos',
         'app.Setores'
     ];
 

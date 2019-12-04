@@ -70,7 +70,7 @@
                             ? $this->Html->tag('i', '', array('class' => 'far fa-check-square')) 
                             : $this->Html->tag('i', '', array('class' => 'far fa-square')) ; ?>
                     </td>
-                        <td><?= $acesso->has('tipos_acesso') ? $this->Html->link($acesso->tipos_acesso->id, ['controller' => 'TiposAcessos', 'action' => 'view', $acesso->tipos_acesso->id]) : '' ?></td>
+                        <td><?= $acesso->has('tipos_acesso') ? $this->Html->link($acesso->tipos_acesso->nome, ['controller' => 'TiposAcessos', 'action' => 'view', $acesso->tipos_acesso->id]) : '' ?></td>
                         <td class="actions" style="white-space:nowrap">
                         <?= $this->Html->link(__('View'), ['action' => 'view', $acesso->id], ['class'=>'btn btn-default btn-xs']) ?>
                         <?= $this->Html->link(__('Edit'), ['action' => 'edit', $acesso->id], ['class'=>'btn btn-primary btn-xs']) ?>

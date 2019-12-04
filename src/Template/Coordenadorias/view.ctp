@@ -14,20 +14,16 @@
 <div class="coordenadorias view col-lg-10 col-md-9">
     <h3>
         <?= $this->Html->tag('i', '', array('class' => 'fas fa-eye')) ?>
-        <?= h($coordenadoria->id) ?>
+        <?= h($coordenadoria->nome) ?>
     </h3>
     <table class="table table-striped table-hover">
         <tr>
-            <th>Nome</th>
-            <td><?= h($coordenadoria->nome) ?></td>
-        </tr>
-        <tr>
             <th>Usuario</th>
-            <td><?= $coordenadoria->has('usuario') ? $this->Html->link($coordenadoria->usuario->id, ['controller' => 'Usuarios', 'action' => 'view', $coordenadoria->usuario->id]) : '' ?></td>
+            <td><?= $coordenadoria->has('usuario') ? $this->Html->link($coordenadoria->usuario->nome, ['controller' => 'Usuarios', 'action' => 'view', $coordenadoria->usuario->id]) : '' ?></td>
         </tr>
         <tr>
             <th>Cidade</th>
-            <td><?= $coordenadoria->has('cidade') ? $this->Html->link($coordenadoria->cidade->id, ['controller' => 'Cidades', 'action' => 'view', $coordenadoria->cidade->id]) : '' ?></td>
+            <td><?= $coordenadoria->has('cidade') ? $this->Html->link($coordenadoria->cidade->nome, ['controller' => 'Cidades', 'action' => 'view', $coordenadoria->cidade->id]) : '' ?></td>
         </tr>
     </table>
 <table class="table table-striped table-hover">

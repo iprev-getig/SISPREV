@@ -41,8 +41,8 @@ class SistemasFixture extends TestFixture
                 'nome' => 'Lorem ipsum dolor sit amet',
                 'descricao' => 'Lorem ipsum dolor sit amet',
                 'icone' => 'Lorem ipsum dolor sit amet',
-                'created' => 1575045420,
-                'modified' => 1575045420
+                'created' => 1575477605,
+                'modified' => 1575477605
             ],
         ];
         parent::init();

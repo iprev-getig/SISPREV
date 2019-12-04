@@ -20,7 +20,8 @@ class OrgaosControllerTest extends TestCase
      * @var array
      */
     public $fixtures = [
-        'app.Orgaos'
+        'app.Orgaos',
+        'app.Cidades'
     ];
 
     /**

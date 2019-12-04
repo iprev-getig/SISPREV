@@ -27,6 +27,7 @@ class UsuariosController extends AppController
         $this->set('busca', $this->getSearch($query));
 
         $this->set('usuarios', $this->paginate($query));
+
     }
 
 

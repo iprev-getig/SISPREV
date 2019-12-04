@@ -39,8 +39,8 @@ class TiposAcessosFixture extends TestFixture
                 'nome' => 'Lorem ipsum dolor sit amet',
                 'controller' => 'Lorem ipsum dolor sit amet',
                 'principal' => 1,
-                'created' => 1575305567,
-                'modified' => 1575305567
+                'created' => 1575477527,
+                'modified' => 1575477527
             ],
         ];
         parent::init();

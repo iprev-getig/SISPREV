@@ -95,10 +95,6 @@ class PessoasTable extends Table
             ->maxLength('matricula', 20)
             ->allowEmptyString('matricula');
 
-        $validator
-            ->date('data_nasc')
-            ->allowEmptyDate('data_nasc');
-
         return $validator;
     }
 }

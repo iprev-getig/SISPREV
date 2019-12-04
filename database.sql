@@ -181,16 +181,16 @@ create table orgaos (
 		CONSTRAINT orgao_cidade_id
 			FOREIGN KEY (cidade_id) REFERENCES cidades (id)
 	);
-insert into orgaos (id, nome, sigla, codigo, cidade_id) values
-(1, 'INSTITUTO DE PREVIDENCIA DO ESTADO DE SANTA CATARINA', 'IPREV', 1111, 1);
-insert into orgaos (id, nome, sigla, codigo, cidade_id) values
-(2, 'INSTITUTO DE METROLOGIA DO ESTADO DE SANTA CATARINA', 'IMETRO', 2222, 1);
-insert into orgaos (id, nome, sigla, codigo, cidade_id) values
-(3, 'SECRETARIA DE SEGURANÇ PUBLICA', 'SSP-SC', 3333, 1);
-insert into orgaos (id, nome, sigla, codigo, cidade_id) values
-(4, 'SECRETARIA DE ADMINISTRAÇÃO', 'SEA', 4444, 1);	
-insert into orgaos (id, nome, sigla, codigo, cidade_id) values
-(5, 'ASSEMBLEI LEGISLATIVA DE SANTA CATARINA', 'ALESC', 5555, 1);
+insert into orgaos (nome, sigla, codigo, cidade_id) values
+('INSTITUTO DE PREVIDENCIA DO ESTADO DE SANTA CATARINA', 'IPREV', 1111, 1);
+insert into orgaos (nome, sigla, codigo, cidade_id) values
+('INSTITUTO DE METROLOGIA DO ESTADO DE SANTA CATARINA', 'IMETRO', 2222, 1);
+insert into orgaos (nome, sigla, codigo, cidade_id) values
+('SECRETARIA DE SEGURANÇ PUBLICA', 'SSP-SC', 3333, 1);
+insert into orgaos (nome, sigla, codigo, cidade_id) values
+('SECRETARIA DE ADMINISTRAÇÃO', 'SEA', 4444, 1);	
+insert into orgaos (nome, sigla, codigo, cidade_id) values
+('ASSEMBLEI LEGISLATIVA DE SANTA CATARINA', 'ALESC', 5555, 1);
 
 
 create table tipos_atendimentos (

@@ -28,7 +28,6 @@ class CoordenadoriasController extends AppController
 
         $this->set('coordenadorias', $this->paginate($query));
 
-        $this->configSistema();
     }
 
 
