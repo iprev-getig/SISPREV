@@ -73,7 +73,7 @@ class AppController extends Controller
     public function getSearch($query)
     {
         $q = $query->__debugInfo()['extraOptions']['search'];
-        $q = (count($q) > 0) ? $q['q'] : '';
+        $q = ((count($q) > 0) && (array_key_exists('q', $q))) ? $q['q'] : '';
         return $q;
     }
 
