@@ -1,21 +1,21 @@
 <?php
 namespace App\Test\TestCase\Model\Table;
 
-use App\Model\Table\OrgaosTable;
+use App\Model\Table\AcessosTable;
 use Cake\ORM\TableRegistry;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Model\Table\OrgaosTable Test Case
+ * App\Model\Table\AcessosTable Test Case
  */
-class OrgaosTableTest extends TestCase
+class AcessosTableTest extends TestCase
 {
     /**
      * Test subject
      *
-     * @var \App\Model\Table\OrgaosTable
+     * @var \App\Model\Table\AcessosTable
      */
-    public $Orgaos;
+    public $Acessos;
 
     /**
      * Fixtures
@@ -23,8 +23,10 @@ class OrgaosTableTest extends TestCase
      * @var array
      */
     public $fixtures = [
-        'app.Orgaos',
-        'app.Cidades'
+        'app.Acessos',
+        'app.TiposAcessos',
+        'app.Usuarios',
+        'app.Sistemas'
     ];
 
     /**
@@ -35,8 +37,8 @@ class OrgaosTableTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $config = TableRegistry::getTableLocator()->exists('Orgaos') ? [] : ['className' => OrgaosTable::class];
-        $this->Orgaos = TableRegistry::getTableLocator()->get('Orgaos', $config);
+        $config = TableRegistry::getTableLocator()->exists('Acessos') ? [] : ['className' => AcessosTable::class];
+        $this->Acessos = TableRegistry::getTableLocator()->get('Acessos', $config);
     }
 
     /**
@@ -46,7 +48,7 @@ class OrgaosTableTest extends TestCase
      */
     public function tearDown()
     {
-        unset($this->Orgaos);
+        unset($this->Acessos);
 
         parent::tearDown();
     }

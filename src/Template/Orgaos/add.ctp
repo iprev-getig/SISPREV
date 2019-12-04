@@ -2,6 +2,8 @@
     <ul class="nav nav-pills nav-stacked">
         <li class="active"><a><?= __('Actions') ?></a></li>
         <li><?= $this->Html->link(__('List {0}', 'Orgaos'), ['action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('List {0}', 'Cidades'), ['controller' => 'Cidades', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New {0}', 'Cidade'), ['controller' => 'Cidades', 'action' => 'add']) ?></li>
     </ul>
 </nav>
 <div class="orgaos form col-md-10 columns content">
@@ -15,7 +17,7 @@
             echo $this->Form->input('nome', ['autofocus' => 'autofocus']);
             echo $this->Form->input('sigla');
             echo $this->Form->input('codigo');
-            echo $this->Form->input('cidade_id');
+            echo $this->Form->input('cidade_id', ['options' => $cidades, 'empty' => true]);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

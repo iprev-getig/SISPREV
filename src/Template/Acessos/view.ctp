@@ -21,7 +21,7 @@
     <table class="table table-striped table-hover">
         <tr>
             <th>Tipos Acesso</th>
-            <td><?= $acesso->has('tipos_acesso') ? $this->Html->link($acesso->tipos_acesso->id, ['controller' => 'TiposAcessos', 'action' => 'view', $acesso->tipos_acesso->id]) : '' ?></td>
+            <td><?= $acesso->has('tipos_acesso') ? $this->Html->link($acesso->tipos_acesso->nome, ['controller' => 'TiposAcessos', 'action' => 'view', $acesso->tipos_acesso->id]) : '' ?></td>
         </tr>
         <tr>
             <th>Usuario</th>
@@ -29,7 +29,7 @@
         </tr>
         <tr>
             <th>Sistema</th>
-            <td><?= $acesso->has('sistema') ? $this->Html->link($acesso->sistema->id, ['controller' => 'Sistemas', 'action' => 'view', $acesso->sistema->id]) : '' ?></td>
+            <td><?= $acesso->has('sistema') ? $this->Html->link($acesso->sistema->nome, ['controller' => 'Sistemas', 'action' => 'view', $acesso->sistema->id]) : '' ?></td>
         </tr>
         <tr>
             <th>Index</th>

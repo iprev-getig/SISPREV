@@ -13,6 +13,8 @@ use Cake\ORM\Entity;
  * @property int|null $cidade_id
  * @property \Cake\I18n\FrozenTime|null $created
  * @property \Cake\I18n\FrozenTime|null $modified
+ *
+ * @property \App\Model\Entity\Cidade $cidade
  */
 class Orgao extends Entity
 {
@@ -31,6 +33,7 @@ class Orgao extends Entity
         'codigo' => true,
         'cidade_id' => true,
         'created' => true,
-        'modified' => true
+        'modified' => true,
+        'cidade' => true
     ];
 }

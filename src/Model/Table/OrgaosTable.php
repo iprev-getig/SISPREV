@@ -9,7 +9,7 @@ use Cake\Validation\Validator;
 /**
  * Orgaos Model
  *
- * @property &\Cake\ORM\Association\BelongsTo $Cidades
+ * @property \App\Model\Table\CidadesTable&\Cake\ORM\Association\BelongsTo $Cidades
  *
  * @method \App\Model\Entity\Orgao get($primaryKey, $options = [])
  * @method \App\Model\Entity\Orgao newEntity($data = null, array $options = [])
@@ -35,7 +35,7 @@ class OrgaosTable extends Table
         parent::initialize($config);
 
         $this->setTable('orgaos');
-        $this->setDisplayField('id');
+        $this->setDisplayField('nome');
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Search.Search');

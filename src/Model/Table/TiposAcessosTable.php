@@ -33,7 +33,7 @@ class TiposAcessosTable extends Table
         parent::initialize($config);
 
         $this->setTable('tipos_acessos');
-        $this->setDisplayField('id');
+        $this->setDisplayField('nome');
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Search.Search');

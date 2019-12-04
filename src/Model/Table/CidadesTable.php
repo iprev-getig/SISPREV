@@ -11,7 +11,7 @@ use Cake\Validation\Validator;
  *
  * @property \App\Model\Table\EstadosTable&\Cake\ORM\Association\BelongsTo $Estados
  * @property \App\Model\Table\CoordenadoriasTable&\Cake\ORM\Association\HasMany $Coordenadorias
- * @property &\Cake\ORM\Association\HasMany $Orgaos
+ * @property \App\Model\Table\OrgaosTable&\Cake\ORM\Association\HasMany $Orgaos
  * @property \App\Model\Table\SetoresTable&\Cake\ORM\Association\HasMany $Setores
  *
  * @method \App\Model\Entity\Cidade get($primaryKey, $options = [])

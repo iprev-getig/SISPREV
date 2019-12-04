@@ -19,7 +19,7 @@
         <div class="row">
             <?php echo $this->Form->create(); ?>
             <div class="col-md-11">
-                <?php echo $this->Form->input('q', ['autofocus' => 'autofocus', 'value' => $busca, 'label' => False, 'placeholder' => 'Pesquisar por: COLOCAR AQUI CAMPOS STRING']); ?>
+                                                                                                                                                                                                                                                                        <?php echo $this->Form->input('q', ['autofocus' => 'autofocus', 'value' => $busca, 'label' => False, 'placeholder' => 'Pesquisar por: nome']); ?>
             </div>
             <div class="col-md-1">
                 <?php echo $this->Form->button($this->Html->tag('i', '', array('class' => 'fas fa-filter')), ['type' => 'submit']); ?>
@@ -43,8 +43,8 @@
                 <tr>
                         <td><?= $this->Number->format($coordenadoria->id) ?></td>
                         <td><?= h($coordenadoria->nome) ?></td>
-                        <td><?= $coordenadoria->has('usuario') ? $this->Html->link($coordenadoria->usuario->id, ['controller' => 'Usuarios', 'action' => 'view', $coordenadoria->usuario->id]) : '' ?></td>
-                        <td><?= $coordenadoria->has('cidade') ? $this->Html->link($coordenadoria->cidade->id, ['controller' => 'Cidades', 'action' => 'view', $coordenadoria->cidade->id]) : '' ?></td>
+                        <td><?= $coordenadoria->has('usuario') ? $this->Html->link($coordenadoria->usuario->nome, ['controller' => 'Usuarios', 'action' => 'view', $coordenadoria->usuario->id]) : '' ?></td>
+                        <td><?= $coordenadoria->has('cidade') ? $this->Html->link($coordenadoria->cidade->nome, ['controller' => 'Cidades', 'action' => 'view', $coordenadoria->cidade->id]) : '' ?></td>
                         <td><?= h($coordenadoria->created) ?></td>
                         <td><?= h($coordenadoria->modified) ?></td>
                         <td class="actions" style="white-space:nowrap">

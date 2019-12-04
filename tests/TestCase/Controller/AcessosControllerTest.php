@@ -21,7 +21,7 @@ class AcessosControllerTest extends TestCase
      */
     public $fixtures = [
         'app.Acessos',
-        'app.TipoAcessos',
+        'app.TiposAcessos',
         'app.Usuarios',
         'app.Sistemas'
     ];

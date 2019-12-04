@@ -14,6 +14,7 @@ use Cake\ORM\Entity;
  *
  * @property \App\Model\Entity\Estado $estado
  * @property \App\Model\Entity\Coordenadoria[] $coordenadorias
+ * @property \App\Model\Entity\Orgao[] $orgaos
  * @property \App\Model\Entity\Setore[] $setores
  */
 class Cidade extends Entity
@@ -34,6 +35,7 @@ class Cidade extends Entity
         'modified' => true,
         'estado' => true,
         'coordenadorias' => true,
+        'orgaos' => true,
         'setores' => true
     ];
 }

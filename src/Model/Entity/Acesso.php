@@ -18,7 +18,7 @@ use Cake\ORM\Entity;
  * @property \Cake\I18n\FrozenTime|null $created
  * @property \Cake\I18n\FrozenTime|null $modified
  *
- * @property \App\Model\Entity\TipoAcesso $tipo_acesso
+ * @property \App\Model\Entity\TiposAcesso $tipos_acesso
  * @property \App\Model\Entity\Usuario $usuario
  * @property \App\Model\Entity\Sistema $sistema
  */
@@ -44,7 +44,7 @@ class Acesso extends Entity
         'sistema_id' => true,
         'created' => true,
         'modified' => true,
-        'tipo_acesso' => true,
+        'tipos_acesso' => true,
         'usuario' => true,
         'sistema' => true
     ];

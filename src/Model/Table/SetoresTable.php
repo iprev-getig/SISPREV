@@ -19,6 +19,8 @@ use Cake\Validation\Validator;
  * @method \App\Model\Entity\Setore patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
  * @method \App\Model\Entity\Setore[] patchEntities($entities, array $data, array $options = [])
  * @method \App\Model\Entity\Setore findOrCreate($search, callable $callback = null, $options = [])
+ *
+ * @mixin \Cake\ORM\Behavior\TimestampBehavior
  */
 class SetoresTable extends Table
 {
@@ -33,8 +35,9 @@ class SetoresTable extends Table
         parent::initialize($config);
 
         $this->setTable('setores');
-        $this->setDisplayField('id');
+        $this->setDisplayField('nome');
         $this->setPrimaryKey('id');
+
         $this->addBehavior('Search.Search');
 
 
@@ -46,10 +49,14 @@ class SetoresTable extends Table
             'comparison' => 'LIKE',
             'wildcardAny' => '*',
             'wildcardOne' => '?',
-            'field' => ['adicionar', 'campos', 'string']
+            'field' => [
+        'nome',
+        'sigla'
+    ]
         ]);
 
         $this->addBehavior('DateFormat');
+        $this->addBehavior('Timestamp');
 
         $this->belongsTo('Cidades', [
             'foreignKey' => 'cidade_id'

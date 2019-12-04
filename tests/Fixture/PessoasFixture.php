@@ -38,7 +38,7 @@ class PessoasFixture extends TestFixture
                 'nome' => 'Lorem ipsum dolor sit amet',
                 'cpf' => 'Lorem ipsum dolor ',
                 'matricula' => 'Lorem ipsum dolor ',
-                'data_nasc' => '2019-11-29'
+                'data_nasc' => '2019-12-04'
             ],
         ];
         parent::init();

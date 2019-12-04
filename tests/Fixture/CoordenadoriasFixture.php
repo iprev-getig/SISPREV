@@ -23,7 +23,6 @@ class CoordenadoriasFixture extends TestFixture
         'modified' => ['type' => 'timestamp', 'length' => null, 'default' => null, 'null' => true, 'comment' => null, 'precision' => null],
         '_constraints' => [
             'primary' => ['type' => 'primary', 'columns' => ['id'], 'length' => []],
-            'coordenadoria_usuarios_id' => ['type' => 'foreign', 'columns' => ['usuario_id'], 'references' => ['usuarios', 'id'], 'update' => 'noAction', 'delete' => 'noAction', 'length' => []],
         ],
     ];
     // @codingStandardsIgnoreEnd
@@ -40,8 +39,8 @@ class CoordenadoriasFixture extends TestFixture
                 'nome' => 'Lorem ipsum dolor sit amet',
                 'usuario_id' => 1,
                 'cidade_id' => 1,
-                'created' => 1574440329,
-                'modified' => 1574440329
+                'created' => 1575481416,
+                'modified' => 1575481416
             ],
         ];
         parent::init();

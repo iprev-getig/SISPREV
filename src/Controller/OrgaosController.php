@@ -21,7 +21,8 @@ class OrgaosController extends AppController
     {
         $query = $this->Orgaos
         ->find('search', ['search' => $this->request->query])
-                        ->where(['orgaos.id IS NOT' => null]);
+                ->contain(['Cidades'])
+                ->where(['orgaos.id IS NOT' => null]);
 
         $this->set('busca', $this->getSearch($query));
 
@@ -41,7 +42,7 @@ class OrgaosController extends AppController
     public function view($id = null)
     {
         $orgao = $this->Orgaos->get($id, [
-            'contain' => []
+            'contain' => ['Cidades']
         ]);
 
         $this->set('orgao', $orgao);
@@ -64,7 +65,8 @@ class OrgaosController extends AppController
             }
             $this->Flash->error(__('The orgao could not be saved. Please, try again.'));
         }
-        $this->set(compact('orgao'));
+        $cidades = $this->Orgaos->Cidades->find('list', ['limit' => 200]);
+        $this->set(compact('orgao', 'cidades'));
     }
 
     /**
@@ -88,7 +90,8 @@ class OrgaosController extends AppController
             }
             $this->Flash->error(__('The orgao could not be saved. Please, try again.'));
         }
-        $this->set(compact('orgao'));
+        $cidades = $this->Orgaos->Cidades->find('list', ['limit' => 200]);
+        $this->set(compact('orgao', 'cidades'));
     }
 
     /**

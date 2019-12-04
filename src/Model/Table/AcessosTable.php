@@ -9,7 +9,7 @@ use Cake\Validation\Validator;
 /**
  * Acessos Model
  *
- * @property \App\Model\Table\TipoAcessosTable&\Cake\ORM\Association\BelongsTo $TipoAcessos
+ * @property \App\Model\Table\TiposAcessosTable&\Cake\ORM\Association\BelongsTo $TiposAcessos
  * @property \App\Model\Table\UsuariosTable&\Cake\ORM\Association\BelongsTo $Usuarios
  * @property \App\Model\Table\SistemasTable&\Cake\ORM\Association\BelongsTo $Sistemas
  *

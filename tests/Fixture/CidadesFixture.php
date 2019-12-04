@@ -22,7 +22,6 @@ class CidadesFixture extends TestFixture
         'modified' => ['type' => 'timestamp', 'length' => null, 'default' => null, 'null' => true, 'comment' => null, 'precision' => null],
         '_constraints' => [
             'primary' => ['type' => 'primary', 'columns' => ['id'], 'length' => []],
-            'cidade_estado_id' => ['type' => 'foreign', 'columns' => ['estado_id'], 'references' => ['estados', 'id'], 'update' => 'noAction', 'delete' => 'noAction', 'length' => []],
         ],
     ];
     // @codingStandardsIgnoreEnd
@@ -38,8 +37,8 @@ class CidadesFixture extends TestFixture
                 'id' => 1,
                 'nome' => 'Lorem ipsum dolor sit amet',
                 'estado_id' => 1,
-                'created' => 1574974993,
-                'modified' => 1574974993
+                'created' => 1575476490,
+                'modified' => 1575476490
             ],
         ];
         parent::init();
