@@ -22,13 +22,15 @@
     {
         $_ext = $this->request->params['_ext'];
         if (!$_ext == 'xlsx') {
+            $this->makeSearch($this->request->query, $search, $where, $value);
+
             $query = $this->{{ currentModelName }}
-            ->find('search', ['search' => $this->request->query])
+            ->find('search', ['search' => $search])
             {% set belongsTo = Bake.aliasExtractor(modelObj, 'BelongsTo') %}
             {% if belongsTo %}
     ->contain([{{ Bake.stringifyList(belongsTo, {'indent': false})|raw }}])
             {% endif %}
-            ->where(['{{ pluralName }}.id IS NOT' => null]);
+            ->where(['{{ pluralName }}.id ' . $where => $value]);
 
             $this->set('busca', $this->getSearch($query));
 

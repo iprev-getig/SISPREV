@@ -66,14 +66,36 @@ class AppController extends Controller
     }
 
     /**
+     * makeSearch method
+     * @param array $q request->query
+     * @param array &$search|null
+     * @param array &$where|null
+     * @param array &$value|null
+     * @return \Cake\Http\Response|null
+     */
+    public function makeSearch($q, &$search, &$where, &$value) {
+        $numeric = (gettype($q == 'array') && (is_array($q)) && 
+            (array_key_exists('q', $q)) && (is_numeric($q['q'])));
+        
+        $search = ($numeric) ? 'all' : $q;
+        $where = ($numeric) ? '' : ' IS NOT ';
+        $value = ($numeric) ? $q['q'] : null;
+    }
+
+    /**
      * getSearch method
      *
      * @return \Cake\Http\Response|string
      */
     public function getSearch($query)
     {
+        // debug($query->__debugInfo());
         $q = $query->__debugInfo()['extraOptions']['search'];
-        $q = ((count($q) > 0) && (array_key_exists('q', $q))) ? $q['q'] : '';
+        if (gettype($q) != 'string') {
+            $q = ((count($q) > 0) && (array_key_exists('q', $q))) ? $q['q'] : '';
+        } else {
+            $q = '';
+        }
         return $q;
     }
 
