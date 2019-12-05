@@ -12,20 +12,16 @@
 <div class="setores view col-lg-10 col-md-9">
     <h3>
         <?= $this->Html->tag('i', '', array('class' => 'fas fa-eye')) ?>
-        <?= h($setore->id) ?>
+        <?= h($setore->nome) ?>
     </h3>
     <table class="table table-striped table-hover">
-        <tr>
-            <th>Nome</th>
-            <td><?= h($setore->nome) ?></td>
-        </tr>
         <tr>
             <th>Sigla</th>
             <td><?= h($setore->sigla) ?></td>
         </tr>
         <tr>
             <th>Cidade</th>
-            <td><?= $setore->has('cidade') ? $this->Html->link($setore->cidade->id, ['controller' => 'Cidades', 'action' => 'view', $setore->cidade->id]) : '' ?></td>
+            <td><?= $setore->has('cidade') ? $this->Html->link($setore->cidade->nome, ['controller' => 'Cidades', 'action' => 'view', $setore->cidade->id]) : '' ?></td>
         </tr>
     </table>
 <table class="table table-striped table-hover">

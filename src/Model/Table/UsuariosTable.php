@@ -11,6 +11,7 @@ use Cake\Validation\Validator;
  *
  * @property \App\Model\Table\SetoresTable&\Cake\ORM\Association\BelongsTo $Setores
  * @property \App\Model\Table\AcessosTable&\Cake\ORM\Association\HasMany $Acessos
+ * @property \App\Model\Table\CoordenadoriasTable&\Cake\ORM\Association\HasMany $Coordenadorias
  *
  * @method \App\Model\Entity\Usuario get($primaryKey, $options = [])
  * @method \App\Model\Entity\Usuario newEntity($data = null, array $options = [])
@@ -50,7 +51,12 @@ class UsuariosTable extends Table
             'comparison' => 'LIKE',
             'wildcardAny' => '*',
             'wildcardOne' => '?',
-            'field' => ['adicionar', 'campos', 'string']
+            'field' => [
+        'login',
+        'email',
+        'nome',
+        'senha'
+    ]
         ]);
 
         $this->addBehavior('DateFormat');
@@ -60,6 +66,9 @@ class UsuariosTable extends Table
             'foreignKey' => 'setor_id'
         ]);
         $this->hasMany('Acessos', [
+            'foreignKey' => 'usuario_id'
+        ]);
+        $this->hasMany('Coordenadorias', [
             'foreignKey' => 'usuario_id'
         ]);
     }
@@ -91,6 +100,15 @@ class UsuariosTable extends Table
             ->allowEmptyString('id', null, 'create');
 
         $validator
+            ->scalar('login')
+            ->maxLength('login', 50)
+            ->allowEmptyString('login');
+
+        $validator
+            ->email('email')
+            ->allowEmptyString('email');
+
+        $validator
             ->scalar('nome')
             ->maxLength('nome', 250)
             ->allowEmptyString('nome');
@@ -120,6 +138,8 @@ class UsuariosTable extends Table
      */
     public function buildRules(RulesChecker $rules)
     {
+        $rules->add($rules->isUnique(['login']));
+        $rules->add($rules->isUnique(['email']));
         $rules->add($rules->existsIn(['setor_id'], 'Setores'));
 
         return $rules;

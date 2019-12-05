@@ -9,6 +9,8 @@ use Cake\ORM\Entity;
  * @property int $id
  * @property string|null $nome
  * @property string|null $uf
+ * @property \Cake\I18n\FrozenTime|null $created
+ * @property \Cake\I18n\FrozenTime|null $modified
  *
  * @property \App\Model\Entity\Cidade[] $cidades
  */
@@ -26,6 +28,8 @@ class Estado extends Entity
     protected $_accessible = [
         'nome' => true,
         'uf' => true,
+        'created' => true,
+        'modified' => true,
         'cidades' => true
     ];
 }

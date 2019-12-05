@@ -7,6 +7,8 @@ use Cake\ORM\Entity;
  * Usuario Entity
  *
  * @property int $id
+ * @property string|null $login
+ * @property string|null $email
  * @property string|null $nome
  * @property string|null $senha
  * @property bool|null $bloqueado
@@ -17,6 +19,7 @@ use Cake\ORM\Entity;
  *
  * @property \App\Model\Entity\Setore $setore
  * @property \App\Model\Entity\Acesso[] $acessos
+ * @property \App\Model\Entity\Coordenadoria[] $coordenadorias
  */
 class Usuario extends Entity
 {
@@ -30,6 +33,8 @@ class Usuario extends Entity
      * @var array
      */
     protected $_accessible = [
+        'login' => true,
+        'email' => true,
         'nome' => true,
         'senha' => true,
         'bloqueado' => true,
@@ -38,6 +43,7 @@ class Usuario extends Entity
         'created' => true,
         'modified' => true,
         'setore' => true,
-        'acessos' => true
+        'acessos' => true,
+        'coordenadorias' => true
     ];
 }

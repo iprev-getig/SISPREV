@@ -19,6 +19,8 @@ use Cake\Validation\Validator;
  * @method \App\Model\Entity\Estado patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
  * @method \App\Model\Entity\Estado[] patchEntities($entities, array $data, array $options = [])
  * @method \App\Model\Entity\Estado findOrCreate($search, callable $callback = null, $options = [])
+ *
+ * @mixin \Cake\ORM\Behavior\TimestampBehavior
  */
 class EstadosTable extends Table
 {
@@ -35,6 +37,7 @@ class EstadosTable extends Table
         $this->setTable('estados');
         $this->setDisplayField('nome');
         $this->setPrimaryKey('id');
+
         $this->addBehavior('Search.Search');
 
 
@@ -46,10 +49,14 @@ class EstadosTable extends Table
             'comparison' => 'LIKE',
             'wildcardAny' => '*',
             'wildcardOne' => '?',
-            'field' => ['adicionar', 'campos', 'string']
+            'field' => [
+        'nome',
+        'uf'
+    ]
         ]);
 
         $this->addBehavior('DateFormat');
+        $this->addBehavior('Timestamp');
 
         $this->hasMany('Cidades', [
             'foreignKey' => 'estado_id'
