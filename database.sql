@@ -231,7 +231,7 @@ create table sagen.atendimentos (
 		conclusao text,
 		tipo_atendimento_id int,
 		usuario_id int,
-		localizacao_id int,
+		cidades_id int,
 		pessoa_id int,
 		created timestamp,
 		modified timestamp,
@@ -239,8 +239,8 @@ create table sagen.atendimentos (
             FOREIGN KEY (tipo_atendimento_id) REFERENCES public.tipos_atendimentos (id),
 		CONSTRAINT atendimento_usuario_id
             FOREIGN KEY (usuario_id) REFERENCES public.usuarios (id),
-	 	CONSTRAINT atendimento_localizacao_id
-            FOREIGN KEY (localizacao_id) REFERENCES public.localizacoes (id),
+	 	CONSTRAINT atendimento_cidades_id
+            FOREIGN KEY (localizacao_id) REFERENCES public.cidades (id),
 		CONSTRAINT atendimento_pessoa_id
             FOREIGN KEY (pessoa_id) REFERENCES public.pessoas (id)
 );
