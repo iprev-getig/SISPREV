@@ -54,6 +54,7 @@ $fields = collection($fields)
             <CakePHPBakeOpenTagphp echo $this->Form->create(); CakePHPBakeCloseTag>
             <div class="col-md-11">
                 <?php $search = []; ?>
+                <?php $search[] = 'id'; ?>
                 <?php foreach ($fields as $field): ?>
                     <?php if (in_array($schema->columnType($field), ['string', 'varchar', 'char'])) {
                         $search[] = $field;

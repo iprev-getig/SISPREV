@@ -53,6 +53,7 @@ $fields = collection($fields)
             <?php echo $this->Form->create(); ?>
             <div class="col-md-11">
                 <% $search = []; %>
+                <% $search[] = 'id'; %>
                 <% foreach ($fields as $field): %>
                     <% if (in_array($schema->columnType($field), ['string', 'varchar', 'char'])) {
                         $search[] = $field;
