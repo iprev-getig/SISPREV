@@ -5,6 +5,7 @@
         <li><?= $this->Html->link(__('New {0}', ['Sistema']), ['action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List {0}', ['Acessos']), ['controller' => 'Acessos', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New {0}', ['Acesso']), ['controller' => 'Acessos', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('Export'), ['_ext' => 'xlsx'], ['class'=>'add']) ?></li>
     </ul>
 </nav>
 
@@ -17,7 +18,7 @@
         <div class="row">
             <?php echo $this->Form->create(); ?>
             <div class="col-md-11">
-                                                                                                                                                                                                                                                                                                            <?php echo $this->Form->input('q', ['autofocus' => 'autofocus', 'value' => $busca, 'label' => False, 'placeholder' => 'Pesquisar por: sigla, nome, descricao, icone']); ?>
+                                                                                                                                                                                                                                                                                                                            <?php echo $this->Form->input('q', ['autofocus' => 'autofocus', 'value' => $busca, 'label' => False, 'placeholder' => 'Pesquisar por: id, sigla, nome, descricao, icone']); ?>
             </div>
             <div class="col-md-1">
                 <?php echo $this->Form->button($this->Html->tag('i', '', array('class' => 'fas fa-filter')), ['type' => 'submit']); ?>

@@ -19,15 +19,22 @@ class CoordenadoriasController extends AppController
      */
     public function index()
     {
-        $query = $this->Coordenadorias
-        ->find('search', ['search' => $this->request->query])
-                ->contain(['Usuarios', 'Cidades'])
-                ->where(['coordenadorias.id IS NOT' => null]);
+        $_ext = $this->request->params['_ext'];
+        if (!$_ext == 'xlsx') {
+            $this->makeSearch($this->request->query, $search, $where, $value);
 
-        $this->set('busca', $this->getSearch($query));
+            $query = $this->Coordenadorias
+            ->find('search', ['search' => $search])
+                            ->contain(['Usuarios', 'Cidades'])
+                        ->where(['coordenadorias.id ' . $where => $value]);
 
-        $this->set('coordenadorias', $this->paginate($query));
+            $this->set('busca', $this->getSearch($query));
 
+            $this->set('coordenadorias', $this->paginate($query));
+        } else {
+            $rows = $this->Coordenadorias->find('all');
+            $this->set('rows', $rows);
+        }
     }
 
 

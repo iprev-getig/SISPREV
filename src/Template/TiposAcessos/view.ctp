@@ -10,13 +10,9 @@
 <div class="tiposAcessos view col-lg-10 col-md-9">
     <h3>
         <?= $this->Html->tag('i', '', array('class' => 'fas fa-eye')) ?>
-        <?= h($tiposAcesso->id) ?>
+        <?= h($tiposAcesso->nome) ?>
     </h3>
     <table class="table table-striped table-hover">
-        <tr>
-            <th>Nome</th>
-            <td><?= h($tiposAcesso->nome) ?></td>
-        </tr>
         <tr>
             <th>Controller</th>
             <td><?= h($tiposAcesso->controller) ?></td>

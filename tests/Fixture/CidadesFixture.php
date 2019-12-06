@@ -37,8 +37,8 @@ class CidadesFixture extends TestFixture
                 'id' => 1,
                 'nome' => 'Lorem ipsum dolor sit amet',
                 'estado_id' => 1,
-                'created' => 1575486945,
-                'modified' => 1575486945
+                'created' => 1575655606,
+                'modified' => 1575655606
             ],
         ];
         parent::init();

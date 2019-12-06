@@ -46,10 +46,10 @@ class UsuariosFixture extends TestFixture
                 'nome' => 'Lorem ipsum dolor sit amet',
                 'senha' => 'Lorem ipsum dolor sit amet',
                 'bloqueado' => 1,
-                'ult_acesso' => 1575486157,
+                'ult_acesso' => 1575655790,
                 'setor_id' => 1,
-                'created' => 1575486157,
-                'modified' => 1575486157
+                'created' => 1575655790,
+                'modified' => 1575655790
             ],
         ];
         parent::init();

@@ -43,21 +43,27 @@ class UsuariosTable extends Table
         $this->addBehavior('Search.Search');
 
 
-        $this->searchManager()
-        ->add('q', 'Search.Like', [
+        $array_search = [
             'before' => true,
             'after' => true,
             'mode' => 'or',
             'comparison' => 'LIKE',
             'wildcardAny' => '*',
-            'wildcardOne' => '?',
-            'field' => [
+            'wildcardOne' => '?'
+        ];
+        
+        $field = [
         'login',
         'email',
         'nome',
         'senha'
-    ]
-        ]);
+    ];
+        if (count($field) > 0) {
+            $array_search['field'] = $field;
+        }
+
+        $this->searchManager()
+        ->add('q', 'Search.Like', $array_search);
 
         $this->addBehavior('DateFormat');
         $this->addBehavior('Timestamp');
@@ -123,8 +129,7 @@ class UsuariosTable extends Table
             ->allowEmptyString('bloqueado');
 
         $validator
-            ->dateTime('ult_acesso')
-            ->allowEmptyDateTime('ult_acesso');
+            ->allowEmptyString('ult_acesso');
 
         return $validator;
     }

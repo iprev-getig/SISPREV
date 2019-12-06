@@ -12,16 +12,12 @@
 <div class="sistemas view col-lg-10 col-md-9">
     <h3>
         <?= $this->Html->tag('i', '', array('class' => 'fas fa-eye')) ?>
-        <?= h($sistema->id) ?>
+        <?= h($sistema->nome) ?>
     </h3>
     <table class="table table-striped table-hover">
         <tr>
             <th>Sigla</th>
             <td><?= h($sistema->sigla) ?></td>
-        </tr>
-        <tr>
-            <th>Nome</th>
-            <td><?= h($sistema->nome) ?></td>
         </tr>
         <tr>
             <th>Descricao</th>
@@ -67,11 +63,9 @@
                 <td><?= h($acessos->created) ?></td>
                 <td><?= h($acessos->modified) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['controller' => 'Acessos', 'action' => 'view', $acessos->id]) ?>
+                    <?= $this->Html->link(__('View'), ['controller' => 'Acessos', 'action' => 'view', $acessos->id], ['class'=>'btn btn-default btn-xs']) ?>
 
-                    <?= $this->Html->link(__('Edit'), ['controller' => 'Acessos', 'action' => 'edit', $acessos->id]) ?>
-
-                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Acessos', 'action' => 'delete', $acessos->id], ['confirm' => __('Are you sure you want to delete # {0}?', $acessos->id)]) ?>
+                    <?= $this->Html->link(__('Edit'), ['controller' => 'Acessos', 'action' => 'edit', $acessos->id], ['class'=>'btn btn-primary btn-xs']) ?>
 
                 </td>
             </tr>

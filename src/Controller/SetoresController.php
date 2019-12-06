@@ -21,10 +21,12 @@ class SetoresController extends AppController
     {
         $_ext = $this->request->params['_ext'];
         if (!$_ext == 'xlsx') {
+            $this->makeSearch($this->request->query, $search, $where, $value);
+
             $query = $this->Setores
-            ->find('search', ['search' => $this->request->query])
+            ->find('search', ['search' => $search])
                             ->contain(['Cidades'])
-                        ->where(['setores.id IS NOT' => null]);
+                        ->where(['setores.id ' . $where => $value]);
 
             $this->set('busca', $this->getSearch($query));
 

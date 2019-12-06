@@ -42,8 +42,8 @@ class OrgaosFixture extends TestFixture
                 'sigla' => 'Lorem ipsum dolor ',
                 'codigo' => 1,
                 'cidade_id' => 1,
-                'created' => 1575476409,
-                'modified' => 1575476409
+                'created' => 1575655671,
+                'modified' => 1575655671
             ],
         ];
         parent::init();

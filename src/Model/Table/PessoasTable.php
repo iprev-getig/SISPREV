@@ -36,20 +36,26 @@ class PessoasTable extends Table
         $this->addBehavior('Search.Search');
 
 
-        $this->searchManager()
-        ->add('q', 'Search.Like', [
+        $array_search = [
             'before' => true,
             'after' => true,
             'mode' => 'or',
             'comparison' => 'LIKE',
             'wildcardAny' => '*',
-            'wildcardOne' => '?',
-            'field' => [
+            'wildcardOne' => '?'
+        ];
+        
+        $field = [
         'nome',
         'cpf',
         'matricula'
-    ]
-        ]);
+    ];
+        if (count($field) > 0) {
+            $array_search['field'] = $field;
+        }
+
+        $this->searchManager()
+        ->add('q', 'Search.Like', $array_search);
 
         $this->addBehavior('DateFormat');
     }
@@ -94,6 +100,9 @@ class PessoasTable extends Table
             ->scalar('matricula')
             ->maxLength('matricula', 20)
             ->allowEmptyString('matricula');
+
+        $validator
+            ->allowEmptyString('data_nasc');
 
         return $validator;
     }

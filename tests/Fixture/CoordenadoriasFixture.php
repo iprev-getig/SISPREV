@@ -39,8 +39,8 @@ class CoordenadoriasFixture extends TestFixture
                 'nome' => 'Lorem ipsum dolor sit amet',
                 'usuario_id' => 1,
                 'cidade_id' => 1,
-                'created' => 1575481416,
-                'modified' => 1575481416
+                'created' => 1575655630,
+                'modified' => 1575655630
             ],
         ];
         parent::init();

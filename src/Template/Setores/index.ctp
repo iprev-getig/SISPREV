@@ -18,7 +18,7 @@
         <div class="row">
             <?php echo $this->Form->create(); ?>
             <div class="col-md-11">
-                                                                                                                                                                                                                                                                        <?php echo $this->Form->input('q', ['autofocus' => 'autofocus', 'value' => $busca, 'label' => False, 'placeholder' => 'Pesquisar por: nome, sigla']); ?>
+                                                                                                                                                                                                                                                                                        <?php echo $this->Form->input('q', ['autofocus' => 'autofocus', 'value' => $busca, 'label' => False, 'placeholder' => 'Pesquisar por: id, nome, sigla']); ?>
             </div>
             <div class="col-md-1">
                 <?php echo $this->Form->button($this->Html->tag('i', '', array('class' => 'fas fa-filter')), ['type' => 'submit']); ?>

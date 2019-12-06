@@ -3,6 +3,7 @@
     <ul class="nav nav-pills nav-stacked">
         <li class="active"><a><?= __('Actions') ?></a></li>
         <li><?= $this->Html->link(__('New {0}', ['Pessoa']), ['action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('Export'), ['_ext' => 'xlsx'], ['class'=>'add']) ?></li>
     </ul>
 </nav>
 
@@ -15,7 +16,7 @@
         <div class="row">
             <?php echo $this->Form->create(); ?>
             <div class="col-md-11">
-                                                                                                                                                                                                                                    <?php echo $this->Form->input('q', ['autofocus' => 'autofocus', 'value' => $busca, 'label' => False, 'placeholder' => 'Pesquisar por: nome, cpf, matricula']); ?>
+                                                                                                                                                                                                                                                    <?php echo $this->Form->input('q', ['autofocus' => 'autofocus', 'value' => $busca, 'label' => False, 'placeholder' => 'Pesquisar por: id, nome, cpf, matricula']); ?>
             </div>
             <div class="col-md-1">
                 <?php echo $this->Form->button($this->Html->tag('i', '', array('class' => 'fas fa-filter')), ['type' => 'submit']); ?>

@@ -43,16 +43,22 @@ class AcessosTable extends Table
         $this->addBehavior('Search.Search');
 
 
-        $this->searchManager()
-        ->add('q', 'Search.Like', [
+        $array_search = [
             'before' => true,
             'after' => true,
             'mode' => 'or',
             'comparison' => 'LIKE',
             'wildcardAny' => '*',
-            'wildcardOne' => '?',
-            'field' => ['id']
-        ]);
+            'wildcardOne' => '?'
+        ];
+        
+        $field = [];
+        if (count($field) > 0) {
+            $array_search['field'] = $field;
+        }
+
+        $this->searchManager()
+        ->add('q', 'Search.Like', $array_search);
 
         $this->addBehavior('DateFormat');
         $this->addBehavior('Timestamp');

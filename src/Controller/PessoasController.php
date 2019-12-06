@@ -19,14 +19,21 @@ class PessoasController extends AppController
      */
     public function index()
     {
-        $query = $this->Pessoas
-        ->find('search', ['search' => $this->request->query])
-                        ->where(['pessoas.id IS NOT' => null]);
+        $_ext = $this->request->params['_ext'];
+        if (!$_ext == 'xlsx') {
+            $this->makeSearch($this->request->query, $search, $where, $value);
 
-        $this->set('busca', $this->getSearch($query));
+            $query = $this->Pessoas
+            ->find('search', ['search' => $search])
+                                    ->where(['pessoas.id ' . $where => $value]);
 
-        $this->set('pessoas', $this->paginate($query));
+            $this->set('busca', $this->getSearch($query));
 
+            $this->set('pessoas', $this->paginate($query));
+        } else {
+            $rows = $this->Pessoas->find('all');
+            $this->set('rows', $rows);
+        }
     }
 
 

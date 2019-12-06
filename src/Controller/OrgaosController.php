@@ -19,15 +19,22 @@ class OrgaosController extends AppController
      */
     public function index()
     {
-        $query = $this->Orgaos
-        ->find('search', ['search' => $this->request->query])
-                ->contain(['Cidades'])
-                ->where(['orgaos.id IS NOT' => null]);
+        $_ext = $this->request->params['_ext'];
+        if (!$_ext == 'xlsx') {
+            $this->makeSearch($this->request->query, $search, $where, $value);
 
-        $this->set('busca', $this->getSearch($query));
+            $query = $this->Orgaos
+            ->find('search', ['search' => $search])
+                            ->contain(['Cidades'])
+                        ->where(['orgaos.id ' . $where => $value]);
 
-        $this->set('orgaos', $this->paginate($query));
+            $this->set('busca', $this->getSearch($query));
 
+            $this->set('orgaos', $this->paginate($query));
+        } else {
+            $rows = $this->Orgaos->find('all');
+            $this->set('rows', $rows);
+        }
     }
 
 

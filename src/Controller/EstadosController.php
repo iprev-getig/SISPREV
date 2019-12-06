@@ -21,9 +21,11 @@ class EstadosController extends AppController
     {
         $_ext = $this->request->params['_ext'];
         if (!$_ext == 'xlsx') {
+            $this->makeSearch($this->request->query, $search, $where, $value);
+
             $query = $this->Estados
-            ->find('search', ['search' => $this->request->query])
-                                    ->where(['estados.id IS NOT' => null]);
+            ->find('search', ['search' => $search])
+                                    ->where(['estados.id ' . $where => $value]);
 
             $this->set('busca', $this->getSearch($query));
 

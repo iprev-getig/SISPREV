@@ -21,10 +21,12 @@ class UsuariosController extends AppController
     {
         $_ext = $this->request->params['_ext'];
         if (!$_ext == 'xlsx') {
+            $this->makeSearch($this->request->query, $search, $where, $value);
+
             $query = $this->Usuarios
-            ->find('search', ['search' => $this->request->query])
+            ->find('search', ['search' => $search])
                             ->contain(['Setores'])
-                        ->where(['usuarios.id IS NOT' => null]);
+                        ->where(['usuarios.id ' . $where => $value]);
 
             $this->set('busca', $this->getSearch($query));
 

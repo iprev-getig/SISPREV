@@ -19,14 +19,21 @@ class TiposAcessosController extends AppController
      */
     public function index()
     {
-        $query = $this->TiposAcessos
-        ->find('search', ['search' => $this->request->query])
-                        ->where(['tiposAcessos.id IS NOT' => null]);
+        $_ext = $this->request->params['_ext'];
+        if (!$_ext == 'xlsx') {
+            $this->makeSearch($this->request->query, $search, $where, $value);
 
-        $this->set('busca', $this->getSearch($query));
+            $query = $this->TiposAcessos
+            ->find('search', ['search' => $search])
+                                    ->where(['tiposAcessos.id ' . $where => $value]);
 
-        $this->set('tiposAcessos', $this->paginate($query));
+            $this->set('busca', $this->getSearch($query));
 
+            $this->set('tiposAcessos', $this->paginate($query));
+        } else {
+            $rows = $this->TiposAcessos->find('all');
+            $this->set('rows', $rows);
+        }
     }
 
 

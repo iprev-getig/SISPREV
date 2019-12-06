@@ -19,14 +19,21 @@ class SistemasController extends AppController
      */
     public function index()
     {
-        $query = $this->Sistemas
-        ->find('search', ['search' => $this->request->query])
-                        ->where(['sistemas.id IS NOT' => null]);
+        $_ext = $this->request->params['_ext'];
+        if (!$_ext == 'xlsx') {
+            $this->makeSearch($this->request->query, $search, $where, $value);
 
-        $this->set('busca', $this->getSearch($query));
+            $query = $this->Sistemas
+            ->find('search', ['search' => $search])
+                                    ->where(['sistemas.id ' . $where => $value]);
 
-        $this->set('sistemas', $this->paginate($query));
+            $this->set('busca', $this->getSearch($query));
 
+            $this->set('sistemas', $this->paginate($query));
+        } else {
+            $rows = $this->Sistemas->find('all');
+            $this->set('rows', $rows);
+        }
     }
 
 

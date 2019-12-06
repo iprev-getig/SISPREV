@@ -19,14 +19,21 @@ class TiposAtendimentosController extends AppController
      */
     public function index()
     {
-        $query = $this->TiposAtendimentos
-        ->find('search', ['search' => $this->request->query])
-                        ->where(['tiposAtendimentos.id IS NOT' => null]);
+        $_ext = $this->request->params['_ext'];
+        if (!$_ext == 'xlsx') {
+            $this->makeSearch($this->request->query, $search, $where, $value);
 
-        $this->set('busca', $this->getSearch($query));
+            $query = $this->TiposAtendimentos
+            ->find('search', ['search' => $search])
+                                    ->where(['tiposAtendimentos.id ' . $where => $value]);
 
-        $this->set('tiposAtendimentos', $this->paginate($query));
+            $this->set('busca', $this->getSearch($query));
 
+            $this->set('tiposAtendimentos', $this->paginate($query));
+        } else {
+            $rows = $this->TiposAtendimentos->find('all');
+            $this->set('rows', $rows);
+        }
     }
 
 
