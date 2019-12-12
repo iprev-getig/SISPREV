@@ -39,7 +39,7 @@ class AtendimentosTable extends Table
     {
         parent::initialize($config);
 
-        $this->setTable('atendimentos');
+        $this->setTable('sagen.atendimentos');
         $this->setDisplayField('agencia');
         $this->setPrimaryKey('id');
 

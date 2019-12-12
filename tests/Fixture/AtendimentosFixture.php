@@ -9,6 +9,12 @@ use Cake\TestSuite\Fixture\TestFixture;
 class AtendimentosFixture extends TestFixture
 {
     /**
+     * Table name
+     *
+     * @var string
+     */
+    public $table = 'sagen.atendimentos';
+    /**
      * Fields
      *
      * @var array
@@ -48,7 +54,7 @@ class AtendimentosFixture extends TestFixture
         $this->records = [
             [
                 'id' => 1,
-                'inicio' => 1575665403,
+                'inicio' => 1576171013,
                 'usuario_id' => 1,
                 'cidade_id' => 1,
                 'tipo_atendimento_id' => 1,
@@ -57,9 +63,9 @@ class AtendimentosFixture extends TestFixture
                 'orgao_id' => 1,
                 'solucao' => 'Lorem ipsum dolor sit amet, aliquet feugiat. Convallis morbi fringilla gravida, phasellus feugiat dapibus velit nunc, pulvinar eget sollicitudin venenatis cum nullam, vivamus ut a sed, mollitia lectus. Nulla vestibulum massa neque ut et, id hendrerit sit, feugiat in taciti enim proin nibh, tempor dignissim, rhoncus duis vestibulum nunc mattis convallis.',
                 'conclusao' => 'Lorem ipsum dolor sit amet, aliquet feugiat. Convallis morbi fringilla gravida, phasellus feugiat dapibus velit nunc, pulvinar eget sollicitudin venenatis cum nullam, vivamus ut a sed, mollitia lectus. Nulla vestibulum massa neque ut et, id hendrerit sit, feugiat in taciti enim proin nibh, tempor dignissim, rhoncus duis vestibulum nunc mattis convallis.',
-                'fim' => 1575665403,
-                'created' => 1575665403,
-                'modified' => 1575665403
+                'fim' => 1576171013,
+                'created' => 1576171013,
+                'modified' => 1576171013
             ],
         ];
         parent::init();
