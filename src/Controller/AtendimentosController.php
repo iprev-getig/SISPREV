@@ -25,7 +25,7 @@ class AtendimentosController extends AppController
 
             $query = $this->Atendimentos
             ->find('search', ['search' => $search])
-                            ->contain(['usuarios', 'cidades', 'tiposAtendimentos', 'pessoas', 'Orgaos'])
+                            ->contain(['Usuarios', 'Cidades', 'TiposAtendimentos', 'Pessoas', 'Orgaos'])
                         ->where(['atendimentos.id ' . $where => $value]);
 
             $this->set('busca', $this->getSearch($query));
@@ -49,7 +49,7 @@ class AtendimentosController extends AppController
     public function view($id = null)
     {
         $atendimento = $this->Atendimentos->get($id, [
-            'contain' => ['usuarios', 'cidades', 'tiposAtendimentos', 'pessoas', 'Orgaos']
+            'contain' => ['Usuarios', 'Cidades', 'TiposAtendimentos', 'Pessoas', 'Orgaos']
         ]);
 
         $this->set('atendimento', $atendimento);
@@ -72,10 +72,10 @@ class AtendimentosController extends AppController
             }
             $this->Flash->error(__('The atendimento could not be saved. Please, try again.'));
         }
-        $usuarios = $this->Atendimentos->usuarios->find('list', ['limit' => 200]);
-        $cidades = $this->Atendimentos->cidades->find('list', ['limit' => 200]);
-        $tiposAtendimentos = $this->Atendimentos->tiposAtendimentos->find('list', ['limit' => 200]);
-        $pessoas = $this->Atendimentos->pessoas->find('list', ['limit' => 200]);
+        $usuarios = $this->Atendimentos->Usuarios->find('list', ['limit' => 200]);
+        $cidades = $this->Atendimentos->Cidades->find('list', ['limit' => 200]);
+        $tiposAtendimentos = $this->Atendimentos->TiposAtendimentos->find('list', ['limit' => 200]);
+        $pessoas = $this->Atendimentos->Pessoas->find('list', ['limit' => 200]);
         $orgaos = $this->Atendimentos->Orgaos->find('list', ['limit' => 200]);
         $this->set(compact('atendimento', 'usuarios', 'cidades', 'tiposAtendimentos', 'pessoas', 'orgaos'));
     }
@@ -101,10 +101,10 @@ class AtendimentosController extends AppController
             }
             $this->Flash->error(__('The atendimento could not be saved. Please, try again.'));
         }
-        $usuarios = $this->Atendimentos->usuarios->find('list', ['limit' => 200]);
-        $cidades = $this->Atendimentos->cidades->find('list', ['limit' => 200]);
-        $tiposAtendimentos = $this->Atendimentos->tiposAtendimentos->find('list', ['limit' => 200]);
-        $pessoas = $this->Atendimentos->pessoas->find('list', ['limit' => 200]);
+        $usuarios = $this->Atendimentos->Usuarios->find('list', ['limit' => 200]);
+        $cidades = $this->Atendimentos->Cidades->find('list', ['limit' => 200]);
+        $tiposAtendimentos = $this->Atendimentos->TiposAtendimentos->find('list', ['limit' => 200]);
+        $pessoas = $this->Atendimentos->Pessoas->find('list', ['limit' => 200]);
         $orgaos = $this->Atendimentos->Orgaos->find('list', ['limit' => 200]);
         $this->set(compact('atendimento', 'usuarios', 'cidades', 'tiposAtendimentos', 'pessoas', 'orgaos'));
     }

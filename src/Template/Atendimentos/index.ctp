@@ -3,6 +3,16 @@
     <ul class="nav nav-pills nav-stacked">
         <li class="active"><a><?= __('Actions') ?></a></li>
         <li><?= $this->Html->link(__('New {0}', ['Atendimento']), ['action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List {0}', ['Usuarios']), ['controller' => 'Usuarios', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New {0}', ['Usuario']), ['controller' => 'Usuarios', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List {0}', ['Cidades']), ['controller' => 'Cidades', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New {0}', ['Cidade']), ['controller' => 'Cidades', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List {0}', ['Tipos Atendimentos']), ['controller' => 'TiposAtendimentos', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New {0}', ['Tipos Atendimento']), ['controller' => 'TiposAtendimentos', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List {0}', ['Pessoas']), ['controller' => 'Pessoas', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New {0}', ['Pessoa']), ['controller' => 'Pessoas', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List {0}', ['Orgaos']), ['controller' => 'Orgaos', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New {0}', ['Orgao']), ['controller' => 'Orgaos', 'action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('Export'), ['_ext' => 'xlsx'], ['class'=>'add']) ?></li>
     </ul>
 </nav>
@@ -41,11 +51,11 @@
                 <tr>
                         <td><?= $this->Number->format($atendimento->id) ?></td>
                         <td><?= h($atendimento->inicio) ?></td>
-                        <td><?= $this->Number->format($atendimento->usuario_id) ?></td>
-                        <td><?= $this->Number->format($atendimento->cidade_id) ?></td>
-                        <td><?= $this->Number->format($atendimento->tipo_atendimento_id) ?></td>
+                        <td><?= $atendimento->has('usuario') ? $this->Html->link($atendimento->usuario->nome, ['controller' => 'Usuarios', 'action' => 'view', $atendimento->usuario->id]) : '' ?></td>
+                        <td><?= $atendimento->has('cidade') ? $this->Html->link($atendimento->cidade->nome, ['controller' => 'Cidades', 'action' => 'view', $atendimento->cidade->id]) : '' ?></td>
+                        <td><?= $atendimento->has('tipos_atendimento') ? $this->Html->link($atendimento->tipos_atendimento->nome, ['controller' => 'TiposAtendimentos', 'action' => 'view', $atendimento->tipos_atendimento->id]) : '' ?></td>
                         <td><?= $this->Number->format($atendimento->requerente_id) ?></td>
-                        <td><?= $this->Number->format($atendimento->beneficiario_id) ?></td>
+                        <td><?= $atendimento->has('pessoa') ? $this->Html->link($atendimento->pessoa->id, ['controller' => 'Pessoas', 'action' => 'view', $atendimento->pessoa->id]) : '' ?></td>
                         <td class="actions" style="white-space:nowrap">
                         <?= $this->Html->link(__('View'), ['action' => 'view', $atendimento->id], ['class'=>'btn btn-default btn-xs']) ?>
                         <?= $this->Html->link(__('Edit'), ['action' => 'edit', $atendimento->id], ['class'=>'btn btn-primary btn-xs']) ?>

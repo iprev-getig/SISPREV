@@ -33,7 +33,7 @@ class TiposAtendimentosTable extends Table
         parent::initialize($config);
 
         $this->setTable('tipos_atendimentos');
-        $this->setDisplayField('id');
+        $this->setDisplayField('nome');
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Search.Search');

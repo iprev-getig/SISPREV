@@ -20,10 +20,10 @@ use Cake\ORM\Entity;
  * @property \Cake\I18n\FrozenTime|null $created
  * @property \Cake\I18n\FrozenTime|null $modified
  *
- * @property \Public\Model\Entity\Usuario $usuario
- * @property \Public\Model\Entity\Cidade $cidade
- * @property \Public\Model\Entity\TiposAtendimento $tipos_atendimento
- * @property \Public\Model\Entity\Pessoa $pessoa
+ * @property \App\Model\Entity\Usuario $usuario
+ * @property \App\Model\Entity\Cidade $cidade
+ * @property \App\Model\Entity\TiposAtendimento $tipos_atendimento
+ * @property \App\Model\Entity\Pessoa $pessoa
  * @property \App\Model\Entity\Orgao $orgao
  */
 class Atendimento extends Entity
