@@ -8,20 +8,23 @@ use Cake\ORM\Entity;
  *
  * @property int $id
  * @property \Cake\I18n\FrozenTime|null $inicio
- * @property \Cake\I18n\FrozenTime|null $fim
+ * @property int|null $usuario_id
+ * @property int|null $cidade_id
+ * @property int|null $tipo_atendimento_id
+ * @property int|null $requerente_id
+ * @property int|null $beneficiario_id
+ * @property int|null $orgao_id
  * @property string|null $solucao
  * @property string|null $conclusao
- * @property int|null $tipo_atendimento_id
- * @property int|null $usuario_id
- * @property int|null $cidades_id
- * @property int|null $pessoa_id
+ * @property \Cake\I18n\FrozenTime|null $fim
  * @property \Cake\I18n\FrozenTime|null $created
  * @property \Cake\I18n\FrozenTime|null $modified
  *
- * @property \Public\Model\Entity\TiposAtendimento $tipos_atendimento
  * @property \Public\Model\Entity\Usuario $usuario
  * @property \Public\Model\Entity\Cidade $cidade
+ * @property \Public\Model\Entity\TiposAtendimento $tipos_atendimento
  * @property \Public\Model\Entity\Pessoa $pessoa
+ * @property \App\Model\Entity\Orgao $orgao
  */
 class Atendimento extends Entity
 {
@@ -36,18 +39,21 @@ class Atendimento extends Entity
      */
     protected $_accessible = [
         'inicio' => true,
-        'fim' => true,
+        'usuario_id' => true,
+        'cidade_id' => true,
+        'tipo_atendimento_id' => true,
+        'requerente_id' => true,
+        'beneficiario_id' => true,
+        'orgao_id' => true,
         'solucao' => true,
         'conclusao' => true,
-        'tipo_atendimento_id' => true,
-        'usuario_id' => true,
-        'cidades_id' => true,
-        'pessoa_id' => true,
+        'fim' => true,
         'created' => true,
         'modified' => true,
-        'tipos_atendimento' => true,
         'usuario' => true,
         'cidade' => true,
-        'pessoa' => true
+        'tipos_atendimento' => true,
+        'pessoa' => true,
+        'orgao' => true
     ];
 }

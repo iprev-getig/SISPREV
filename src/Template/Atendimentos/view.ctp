@@ -10,24 +10,32 @@
 <div class="atendimentos view col-lg-10 col-md-9">
     <h3>
         <?= $this->Html->tag('i', '', array('class' => 'fas fa-eye')) ?>
-        <?= h($atendimento->id) ?>
+        <?= h($atendimento->agencia) ?>
     </h3>
     <table class="table table-striped table-hover">
-        <tr>
-            <th>Tipo Atendimento Id</th>
-            <td><?= $this->Number->format($atendimento->tipo_atendimento_id) ?></td>
-        </tr>
         <tr>
             <th>Usuario Id</th>
             <td><?= $this->Number->format($atendimento->usuario_id) ?></td>
         </tr>
         <tr>
-            <th>Cidades Id</th>
-            <td><?= $this->Number->format($atendimento->cidades_id) ?></td>
+            <th>Cidade Id</th>
+            <td><?= $this->Number->format($atendimento->cidade_id) ?></td>
         </tr>
         <tr>
-            <th>Pessoa Id</th>
-            <td><?= $this->Number->format($atendimento->pessoa_id) ?></td>
+            <th>Tipo Atendimento Id</th>
+            <td><?= $this->Number->format($atendimento->tipo_atendimento_id) ?></td>
+        </tr>
+        <tr>
+            <th>Requerente Id</th>
+            <td><?= $this->Number->format($atendimento->requerente_id) ?></td>
+        </tr>
+        <tr>
+            <th>Beneficiario Id</th>
+            <td><?= $this->Number->format($atendimento->beneficiario_id) ?></td>
+        </tr>
+        <tr>
+            <th>Orgao Id</th>
+            <td><?= $this->Number->format($atendimento->orgao_id) ?></td>
         </tr>
         <tr>
             <th>Inicio</th>

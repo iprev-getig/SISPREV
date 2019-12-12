@@ -16,7 +16,7 @@
         <div class="row">
             <?php echo $this->Form->create(); ?>
             <div class="col-md-11">
-                                                                                                                                                                                                                                                                                                            <?php echo $this->Form->input('q', ['autofocus' => 'autofocus', 'value' => $busca, 'label' => False, 'placeholder' => 'Pesquisar por: ']); ?>
+                                                                                                                                                                                                                                                                                                                            <?php echo $this->Form->input('q', ['autofocus' => 'autofocus', 'value' => $busca, 'label' => False, 'placeholder' => 'Pesquisar por: id']); ?>
             </div>
             <div class="col-md-1">
                 <?php echo $this->Form->button($this->Html->tag('i', '', array('class' => 'fas fa-filter')), ['type' => 'submit']); ?>
@@ -28,11 +28,11 @@
                 <tr>
                         <th><?= $this->Paginator->sort('id') ?></th>
                         <th><?= $this->Paginator->sort('inicio') ?></th>
-                        <th><?= $this->Paginator->sort('fim') ?></th>
-                        <th><?= $this->Paginator->sort('tipo_atendimento_id') ?></th>
                         <th><?= $this->Paginator->sort('usuario_id') ?></th>
-                        <th><?= $this->Paginator->sort('cidades_id') ?></th>
-                        <th><?= $this->Paginator->sort('pessoa_id') ?></th>
+                        <th><?= $this->Paginator->sort('cidade_id') ?></th>
+                        <th><?= $this->Paginator->sort('tipo_atendimento_id') ?></th>
+                        <th><?= $this->Paginator->sort('requerente_id') ?></th>
+                        <th><?= $this->Paginator->sort('beneficiario_id') ?></th>
                         <th class="actions"><?= __('Actions') ?></th>
                 </tr>
             </thead>
@@ -41,11 +41,11 @@
                 <tr>
                         <td><?= $this->Number->format($atendimento->id) ?></td>
                         <td><?= h($atendimento->inicio) ?></td>
-                        <td><?= h($atendimento->fim) ?></td>
-                        <td><?= $this->Number->format($atendimento->tipo_atendimento_id) ?></td>
                         <td><?= $this->Number->format($atendimento->usuario_id) ?></td>
-                        <td><?= $this->Number->format($atendimento->cidades_id) ?></td>
-                        <td><?= $this->Number->format($atendimento->pessoa_id) ?></td>
+                        <td><?= $this->Number->format($atendimento->cidade_id) ?></td>
+                        <td><?= $this->Number->format($atendimento->tipo_atendimento_id) ?></td>
+                        <td><?= $this->Number->format($atendimento->requerente_id) ?></td>
+                        <td><?= $this->Number->format($atendimento->beneficiario_id) ?></td>
                         <td class="actions" style="white-space:nowrap">
                         <?= $this->Html->link(__('View'), ['action' => 'view', $atendimento->id], ['class'=>'btn btn-default btn-xs']) ?>
                         <?= $this->Html->link(__('Edit'), ['action' => 'edit', $atendimento->id], ['class'=>'btn btn-primary btn-xs']) ?>

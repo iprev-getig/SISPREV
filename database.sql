@@ -226,22 +226,26 @@ CREATE SCHEMA sagen;
 create table sagen.atendimentos (
 		id serial primary key,
 		inicio timestamp,
-		fim timestamp,
-		solucao text,
-		conclusao text,
-		tipo_atendimento_id int,
 		usuario_id int,
-		cidades_id int,
-		pessoa_id int,
+		cidade_id int,
+		tipo_atendimento_id int,
+		requerente_id int,
+        beneficiario_id int,
+        orgao_id int,
+	    solucao text,
+		conclusao text,
+		fim timestamp,
 		created timestamp,
-		modified timestamp,
+		modified timestamp,	
 		CONSTRAINT atendimento_tipo_id
             FOREIGN KEY (tipo_atendimento_id) REFERENCES public.tipos_atendimentos (id),
 		CONSTRAINT atendimento_usuario_id
             FOREIGN KEY (usuario_id) REFERENCES public.usuarios (id),
 	 	CONSTRAINT atendimento_cidades_id
-            FOREIGN KEY (localizacao_id) REFERENCES public.cidades (id),
-		CONSTRAINT atendimento_pessoa_id
-            FOREIGN KEY (pessoa_id) REFERENCES public.pessoas (id)
+            FOREIGN KEY (cidade_id) REFERENCES public.cidades (id),
+		CONSTRAINT atendimento_requerente_id
+            FOREIGN KEY (requerente_id) REFERENCES public.pessoas (id),
+	    CONSTRAINT atendimento_beneficiario_id
+            FOREIGN KEY (beneficiario_id) REFERENCES public.pessoas (id)		
 );
 

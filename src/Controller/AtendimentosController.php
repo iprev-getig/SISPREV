@@ -6,6 +6,7 @@ use App\Controller\AppController;
 /**
  * Atendimentos Controller
  *
+ * @property \App\Model\Table\AtendimentosTable $Atendimentos
  *
  * @method \App\Model\Entity\Atendimento[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
  */
@@ -20,9 +21,12 @@ class AtendimentosController extends AppController
     {
         $_ext = $this->request->params['_ext'];
         if (!$_ext == 'xlsx') {
+            $this->makeSearch($this->request->query, $search, $where, $value);
+
             $query = $this->Atendimentos
-            ->find('search', ['search' => $this->request->query])
-                                    ->where(['atendimentos.id IS NOT' => null]);
+            ->find('search', ['search' => $search])
+                            ->contain(['usuarios', 'cidades', 'tiposAtendimentos', 'pessoas', 'Orgaos'])
+                        ->where(['atendimentos.id ' . $where => $value]);
 
             $this->set('busca', $this->getSearch($query));
 
@@ -45,7 +49,7 @@ class AtendimentosController extends AppController
     public function view($id = null)
     {
         $atendimento = $this->Atendimentos->get($id, [
-            'contain' => []
+            'contain' => ['usuarios', 'cidades', 'tiposAtendimentos', 'pessoas', 'Orgaos']
         ]);
 
         $this->set('atendimento', $atendimento);
@@ -68,7 +72,12 @@ class AtendimentosController extends AppController
             }
             $this->Flash->error(__('The atendimento could not be saved. Please, try again.'));
         }
-        $this->set(compact('atendimento'));
+        $usuarios = $this->Atendimentos->usuarios->find('list', ['limit' => 200]);
+        $cidades = $this->Atendimentos->cidades->find('list', ['limit' => 200]);
+        $tiposAtendimentos = $this->Atendimentos->tiposAtendimentos->find('list', ['limit' => 200]);
+        $pessoas = $this->Atendimentos->pessoas->find('list', ['limit' => 200]);
+        $orgaos = $this->Atendimentos->Orgaos->find('list', ['limit' => 200]);
+        $this->set(compact('atendimento', 'usuarios', 'cidades', 'tiposAtendimentos', 'pessoas', 'orgaos'));
     }
 
     /**
@@ -92,7 +101,12 @@ class AtendimentosController extends AppController
             }
             $this->Flash->error(__('The atendimento could not be saved. Please, try again.'));
         }
-        $this->set(compact('atendimento'));
+        $usuarios = $this->Atendimentos->usuarios->find('list', ['limit' => 200]);
+        $cidades = $this->Atendimentos->cidades->find('list', ['limit' => 200]);
+        $tiposAtendimentos = $this->Atendimentos->tiposAtendimentos->find('list', ['limit' => 200]);
+        $pessoas = $this->Atendimentos->pessoas->find('list', ['limit' => 200]);
+        $orgaos = $this->Atendimentos->Orgaos->find('list', ['limit' => 200]);
+        $this->set(compact('atendimento', 'usuarios', 'cidades', 'tiposAtendimentos', 'pessoas', 'orgaos'));
     }
 
     /**
