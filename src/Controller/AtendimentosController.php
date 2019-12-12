@@ -75,9 +75,10 @@ class AtendimentosController extends AppController
         $usuarios = $this->Atendimentos->Usuarios->find('list', ['limit' => 200]);
         $cidades = $this->Atendimentos->Cidades->find('list', ['limit' => 200]);
         $tiposAtendimentos = $this->Atendimentos->TiposAtendimentos->find('list', ['limit' => 200]);
-        $pessoas = $this->Atendimentos->Pessoas->find('list', ['limit' => 200]);
+        $beneficiario = $this->Atendimentos->Pessoas->find('list', ['limit' => 200]);
+        $requerente = $this->Atendimentos->Pessoas->find('list', ['limit' => 200]);
         $orgaos = $this->Atendimentos->Orgaos->find('list', ['limit' => 200]);
-        $this->set(compact('atendimento', 'usuarios', 'cidades', 'tiposAtendimentos', 'pessoas', 'orgaos'));
+        $this->set(compact('atendimento', 'usuarios', 'cidades', 'tiposAtendimentos', 'requerente', 'beneficiario', 'orgaos'));
     }
 
     /**
