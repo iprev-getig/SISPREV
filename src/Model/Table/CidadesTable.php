@@ -10,6 +10,7 @@ use Cake\Validation\Validator;
  * Cidades Model
  *
  * @property \App\Model\Table\EstadosTable&\Cake\ORM\Association\BelongsTo $Estados
+ * @property \App\Model\Table\AtendimentosTable&\Cake\ORM\Association\HasMany $Atendimentos
  * @property \App\Model\Table\CoordenadoriasTable&\Cake\ORM\Association\HasMany $Coordenadorias
  * @property \App\Model\Table\OrgaosTable&\Cake\ORM\Association\HasMany $Orgaos
  * @property \App\Model\Table\SetoresTable&\Cake\ORM\Association\HasMany $Setores
@@ -52,13 +53,6 @@ class CidadesTable extends Table
             'wildcardAny' => '*',
             'wildcardOne' => '?'
         ];
-        
-        $field = [
-        'nome'
-    ];
-        if (count($field) > 0) {
-            $array_search['field'] = $field;
-        }
 
         $this->searchManager()
         ->add('q', 'Search.Like', $array_search);
@@ -68,6 +62,9 @@ class CidadesTable extends Table
 
         $this->belongsTo('Estados', [
             'foreignKey' => 'estado_id'
+        ]);
+        $this->hasMany('Atendimentos', [
+            'foreignKey' => 'cidade_id'
         ]);
         $this->hasMany('Coordenadorias', [
             'foreignKey' => 'cidade_id'

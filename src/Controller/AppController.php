@@ -66,37 +66,25 @@ class AppController extends Controller
     }
 
     /**
-     * makeSearch method
-     * @param array $q request->query
-     * @param array &$search|null
-     * @param array &$where|null
-     * @param array &$value|null
+     * setSearch method
      * @return \Cake\Http\Response|null
      */
-    public function makeSearch($q, &$search, &$where, &$value) {
-        $numeric = (gettype($q == 'array') && (is_array($q)) && 
-            (array_key_exists('q', $q)) && (is_numeric($q['q'])));
-        
-        $search = ($numeric) ? 'all' : $q;
-        $where = ($numeric) ? '' : ' IS NOT ';
-        $value = ($numeric) ? $q['q'] : null;
+    public function setSearch() 
+    {
+        $this->set('busca', $this->request->query('q'));
+        $this->set('field', $this->request->query('field'));
     }
 
     /**
      * getSearch method
-     *
-     * @return \Cake\Http\Response|string
+     * @param array $field|q
+     * @return \Cake\Http\Response|null
      */
-    public function getSearch($query)
+    public function getSearch($field = 'q') 
     {
-        // debug($query->__debugInfo());
-        $q = $query->__debugInfo()['extraOptions']['search'];
-        if (gettype($q) != 'string') {
-            $q = ((count($q) > 0) && (array_key_exists('q', $q))) ? $q['q'] : '';
-        } else {
-            $q = '';
-        }
-        return $q;
+        return ((count($this->request->query) > 0) && (array_key_exists($field, $this->request->query))) 
+            ? $this->request->query[$field] 
+            : '';
     }
 
     /**

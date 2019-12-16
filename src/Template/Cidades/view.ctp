@@ -7,6 +7,8 @@
         <li><?= $this->Html->link(__('New {0}', ['Cidade']), ['action' => 'add']) ?> </li>
         <li><?= $this->Html->link(__('List {0}', ['Estados']), ['controller' => 'Estados', 'action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New {0}', ['Estado']), ['controller' => 'Estados', 'action' => 'add']) ?> </li>
+        <li><?= $this->Html->link(__('List {0}', ['Atendimentos']), ['controller' => 'Atendimentos', 'action' => 'index']) ?> </li>
+        <li><?= $this->Html->link(__('New {0}', ['Atendimento']), ['controller' => 'Atendimentos', 'action' => 'add']) ?> </li>
         <li><?= $this->Html->link(__('List {0}', ['Coordenadorias']), ['controller' => 'Coordenadorias', 'action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New {0}', ['Coordenadoria']), ['controller' => 'Coordenadorias', 'action' => 'add']) ?> </li>
         <li><?= $this->Html->link(__('List {0}', ['Orgaos']), ['controller' => 'Orgaos', 'action' => 'index']) ?> </li>
@@ -27,6 +29,55 @@
         </tr>
     </table>
     <div class="related">
+        <?php if (!empty($cidade->atendimentos)): ?>
+            <h4>
+                <?= $this->Html->tag('i', '', array('class' => 'fas fa-user')) ?>
+                <?= __('Related {0}', ['Atendimentos']) ?>
+            </h4>
+        <table class="table table-striped table-hover">
+            <tr>
+                <th>Id</th>
+                <th>Inicio</th>
+                <th>Usuario Id</th>
+                <th>Cidade Id</th>
+                <th>Tipo Atendimento Id</th>
+                <th>Requerente Id</th>
+                <th>Beneficiario Id</th>
+                <th>Orgao Id</th>
+                <th>Solucao</th>
+                <th>Conclusao</th>
+                <th>Fim</th>
+                <th>Created</th>
+                <th>Modified</th>
+                <th class="actions"><?= __('Actions') ?></th>
+            </tr>
+            <?php foreach ($cidade->atendimentos as $atendimentos): ?>
+            <tr>
+                <td><?= h($atendimentos->id) ?></td>
+                <td><?= h($atendimentos->inicio) ?></td>
+                <td><?= h($atendimentos->usuario_id) ?></td>
+                <td><?= h($atendimentos->cidade_id) ?></td>
+                <td><?= h($atendimentos->tipo_atendimento_id) ?></td>
+                <td><?= h($atendimentos->requerente_id) ?></td>
+                <td><?= h($atendimentos->beneficiario_id) ?></td>
+                <td><?= h($atendimentos->orgao_id) ?></td>
+                <td><?= h($atendimentos->solucao) ?></td>
+                <td><?= h($atendimentos->conclusao) ?></td>
+                <td><?= h($atendimentos->fim) ?></td>
+                <td><?= h($atendimentos->created) ?></td>
+                <td><?= h($atendimentos->modified) ?></td>
+                <td class="actions">
+                    <?= $this->Html->link(__('View'), ['controller' => 'Atendimentos', 'action' => 'view', $atendimentos->id], ['class'=>'btn btn-default btn-xs']) ?>
+
+                    <?= $this->Html->link(__('Edit'), ['controller' => 'Atendimentos', 'action' => 'edit', $atendimentos->id], ['class'=>'btn btn-primary btn-xs']) ?>
+
+                </td>
+            </tr>
+            <?php endforeach; ?>
+        </table>
+    <?php endif; ?>
+    </div>
+    <div class="related">
         <?php if (!empty($cidade->coordenadorias)): ?>
             <h4>
                 <?= $this->Html->tag('i', '', array('class' => 'fas fa-user')) ?>
@@ -38,8 +89,6 @@
                 <th>Nome</th>
                 <th>Usuario Id</th>
                 <th>Cidade Id</th>
-                <th>Created</th>
-                <th>Modified</th>
                 <th class="actions"><?= __('Actions') ?></th>
             </tr>
             <?php foreach ($cidade->coordenadorias as $coordenadorias): ?>
@@ -48,8 +97,6 @@
                 <td><?= h($coordenadorias->nome) ?></td>
                 <td><?= h($coordenadorias->usuario_id) ?></td>
                 <td><?= h($coordenadorias->cidade_id) ?></td>
-                <td><?= h($coordenadorias->created) ?></td>
-                <td><?= h($coordenadorias->modified) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['controller' => 'Coordenadorias', 'action' => 'view', $coordenadorias->id], ['class'=>'btn btn-default btn-xs']) ?>
 

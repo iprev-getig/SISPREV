@@ -5,6 +5,8 @@
         <li><?= $this->Html->link(__('New {0}', ['Cidade']), ['action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List {0}', ['Estados']), ['controller' => 'Estados', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New {0}', ['Estado']), ['controller' => 'Estados', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List {0}', ['Atendimentos']), ['controller' => 'Atendimentos', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New {0}', ['Atendimento']), ['controller' => 'Atendimentos', 'action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List {0}', ['Coordenadorias']), ['controller' => 'Coordenadorias', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New {0}', ['Coordenadoria']), ['controller' => 'Coordenadorias', 'action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List {0}', ['Orgaos']), ['controller' => 'Orgaos', 'action' => 'index']) ?></li>
@@ -23,8 +25,11 @@
         </h3>
         <div class="row">
             <?php echo $this->Form->create(); ?>
-            <div class="col-md-11">
-                                                                                                                                                                                                                                                    <?php echo $this->Form->input('q', ['autofocus' => 'autofocus', 'value' => $busca, 'label' => False, 'placeholder' => 'Pesquisar por: id, nome']); ?>
+            <div class="col-md-3">
+                <?php echo $this->Form->input('field', ['type' => 'select', 'options' => $options, 'label' => False, 'value' => $field]); ?>
+            </div>
+            <div class="col-md-8">
+                <?php echo $this->Form->input('q', ['autofocus' => 'autofocus', 'value' => $busca, 'label' => False, 'placeholder' => __('_search')]); ?>
             </div>
             <div class="col-md-1">
                 <?php echo $this->Form->button($this->Html->tag('i', '', array('class' => 'fas fa-filter')), ['type' => 'submit']); ?>

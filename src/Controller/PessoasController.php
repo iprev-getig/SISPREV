@@ -21,14 +21,28 @@ class PessoasController extends AppController
     {
         $_ext = $this->request->params['_ext'];
         if (!$_ext == 'xlsx') {
-            $this->makeSearch($this->request->query, $search, $where, $value);
 
-            $query = $this->Pessoas
-            ->find('search', ['search' => $search])
-                                    ->where(['pessoas.id ' . $where => $value]);
+            $query = $this->Pessoas->find('search', ['search' => 'all']);
 
-            $this->set('busca', $this->getSearch($query));
+            if ($this->getSearch() != '') {
+                switch ($this->getSearch('field')) {
+                    case 'id':
+                        $query->where(['pessoas.id ' => $this->getSearch()]);
+                        break;
+                    case 'nome':
+                        $query->where(['pessoas.nome ILIKE ' => '%' . $this->getSearch() . '%']);
+                        break;
+                    case 'cpf':
+                        $query->where(['pessoas.cpf ILIKE ' => '%' . $this->getSearch() . '%']);
+                        break;
+                    case 'matricula':
+                        $query->where(['pessoas.matricula ILIKE ' => '%' . $this->getSearch() . '%']);
+                        break;
+                }              
+            }
 
+            $this->setSearch();
+            $this->set('options', array('id' => 'Id', 'nome' => 'Nome', 'cpf' => 'CPF', 'matricula' => 'Matrícula'));
             $this->set('pessoas', $this->paginate($query));
         } else {
             $rows = $this->Pessoas->find('all');

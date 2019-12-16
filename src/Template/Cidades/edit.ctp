@@ -10,6 +10,8 @@
         <li><?= $this->Html->link(__('List {0}', 'Cidades'), ['action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('List {0}', 'Estados'), ['controller' => 'Estados', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New {0}', 'Estado'), ['controller' => 'Estados', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List {0}', 'Atendimentos'), ['controller' => 'Atendimentos', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New {0}', 'Atendimento'), ['controller' => 'Atendimentos', 'action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List {0}', 'Coordenadorias'), ['controller' => 'Coordenadorias', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New {0}', 'Coordenadoria'), ['controller' => 'Coordenadorias', 'action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List {0}', 'Orgaos'), ['controller' => 'Orgaos', 'action' => 'index']) ?></li>

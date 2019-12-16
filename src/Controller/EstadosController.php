@@ -21,16 +21,25 @@ class EstadosController extends AppController
     {
         $this->export();
 
-        $this->makeSearch($this->request->query, $search, $where, $value);
+        $query = $this->Estados->find('search', ['search' => 'all']);
+        
+        if ($this->getSearch() != '') {
+            switch ($this->getSearch('field')) {
+                case 'id':
+                    $query->where(['estados.id ' => $this->getSearch()]);
+                    break;
+                //complete. Example:
+                //case 'nome':
+                //    $query->where(['estados.nome ILIKE ' => '%' . $this->getSearch() . '%']);
+                //    break;
+            }              
+        }
 
-        $query = $this->Estados
-        ->find('search', ['search' => $search])
-                                ->where(['estados.id ' . $where => $value]);
-
-        $this->set('busca', $this->getSearch($query));
+        $this->setSearch();
+        $this->set('options', array('id' => 'Id')); //complete
 
         $this->set('estados', $this->paginate($query));
-        
+
     }
 
 

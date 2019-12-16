@@ -21,18 +21,27 @@
     public function index()
     {
         $this->export();
-        
-        $this->makeSearch($this->request->query, $search, $where, $value);
 
-        $query = $this->{{ currentModelName }}
-        ->find('search', ['search' => $search])
+        $query = $this->{{ currentModelName }}->find('search', ['search' => 'all']);
         {% set belongsTo = Bake.aliasExtractor(modelObj, 'BelongsTo') %}
-        {% if belongsTo %}
-->contain([{{ Bake.stringifyList(belongsTo, {'indent': false})|raw }}])
+{% if belongsTo %}
+$query->contain([{{ Bake.stringifyList(belongsTo, {'indent': false})|raw }}]);
         {% endif %}
-        ->where(['{{ pluralName }}.id ' . $where => $value]);
 
-        $this->set('busca', $this->getSearch($query));
+        if ($this->getSearch() != '') {
+            switch ($this->getSearch('field')) {
+                case 'id':
+                    $query->where(['{{ pluralName }}.id ' => $this->getSearch()]);
+                    break;
+                //complete. Example:
+                //case 'nome':
+                //    $query->where(['{{ pluralName }}.nome ILIKE ' => '%' . $this->getSearch() . '%']);
+                //    break;
+            }              
+        }
+
+        $this->setSearch();
+        $this->set('options', array('id' => 'Id')); //complete
 
         $this->set('{{ pluralName }}', $this->paginate($query));
 

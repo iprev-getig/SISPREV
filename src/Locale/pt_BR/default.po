@@ -206,5 +206,8 @@ msgstr "Criado"
 msgid "Modified"
 msgstr "Modificado"
 
+msgid "_search"
+msgstr "Digite sua pesquisa..."
+
 msgid "Export"
 msgstr "Exportar"

@@ -22,6 +22,7 @@ class CidadesControllerTest extends TestCase
     public $fixtures = [
         'app.Cidades',
         'app.Estados',
+        'app.Atendimentos',
         'app.Coordenadorias',
         'app.Orgaos',
         'app.Setores'
