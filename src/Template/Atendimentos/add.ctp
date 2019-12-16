@@ -26,8 +26,8 @@
             echo $this->Form->input('usuario_id', ['options' => $usuarios, 'empty' => true]);
             echo $this->Form->input('cidade_id', ['options' => $cidades, 'empty' => true]);
             echo $this->Form->input('tipo_atendimento_id', ['options' => $tiposAtendimentos, 'empty' => true]);
-            echo $this->Form->input('requerente_id', ['options' => $requerente, 'empty' => true]);
-            echo $this->Form->input('beneficiario_id', ['options' => $beneficiario, 'empty' => true]);
+            echo $this->Form->input('requerente_id');
+            echo $this->Form->input('beneficiario_id', ['options' => $pessoas, 'empty' => true]);
             echo $this->Form->input('orgao_id', ['options' => $orgaos, 'empty' => true]);
             echo $this->Form->input('solucao');
             echo $this->Form->input('conclusao');

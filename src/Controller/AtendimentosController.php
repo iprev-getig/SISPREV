@@ -19,22 +19,40 @@ class AtendimentosController extends AppController
      */
     public function index()
     {
-        $_ext = $this->request->params['_ext'];
-        if (!$_ext == 'xlsx') {
-            $this->makeSearch($this->request->query, $search, $where, $value);
+        $this->export();
 
-            $query = $this->Atendimentos
-            ->find('search', ['search' => $search])
-                            ->contain(['Usuarios', 'Cidades', 'TiposAtendimentos', 'Pessoas', 'Orgaos'])
-                        ->where(['atendimentos.id ' . $where => $value]);
-
-            $this->set('busca', $this->getSearch($query));
-
-            $this->set('atendimentos', $this->paginate($query));
-        } else {
-            $rows = $this->Atendimentos->find('all');
-            $this->set('rows', $rows);
+        $query = $this->Atendimentos->find('search', ['search' => 'all']);
+        $query->contain(['Usuarios', 'Cidades', 'TiposAtendimentos', 'Pessoas', 'Orgaos']);
+        
+        if ($this->getSearch() != '') {
+            switch ($this->getSearch('field')) {
+                case 'id':
+                    $query->where(['atendimentos.id ' => $this->getSearch()]);
+                    break;
+                //complete. Example:
+                case 'usuarios':
+                    $query->where(['usuarios.nome ILIKE ' => '%' . $this->getSearch() . '%']);
+                    break;
+                case 'cidades':
+                    $query->where(['cidades.nome ILIKE ' => '%' . $this->getSearch() . '%']);
+                    break;
+                case 'tipos_atendimentos':
+                    $query->where(['tipos_atendimentos.nome ILIKE ' => '%' . $this->getSearch() . '%']);
+                    break;
+                case 'requerentes':
+                    $query->where(['pessoas.nome ILIKE ' => '%' . $this->getSearch() . '%']);
+                    break;     
+                case 'beneficiarios':
+                    $query->where(['pessoas.nome ILIKE ' => '%' . $this->getSearch() . '%']);
+                    break;        
+            }              
         }
+
+        $this->setSearch();
+        $this->set('options', array('id' => 'Id' ,  'usuarios' => 'Usuarios' , 'cidades' => 'Cidades' , 'tipos_atendimentos' => 'Tipo de Atendimento' , 'requerentes' => 'Requerentes' , 'beneficiarios' => 'Beneficiarios')); //complete
+
+        $this->set('atendimentos', $this->paginate($query));
+
     }
 
 
@@ -75,10 +93,9 @@ class AtendimentosController extends AppController
         $usuarios = $this->Atendimentos->Usuarios->find('list', ['limit' => 200]);
         $cidades = $this->Atendimentos->Cidades->find('list', ['limit' => 200]);
         $tiposAtendimentos = $this->Atendimentos->TiposAtendimentos->find('list', ['limit' => 200]);
-        $beneficiario = $this->Atendimentos->Pessoas->find('list', ['limit' => 200]);
-        $requerente = $this->Atendimentos->Pessoas->find('list', ['limit' => 200]);
+        $pessoas = $this->Atendimentos->Pessoas->find('list', ['limit' => 200]);
         $orgaos = $this->Atendimentos->Orgaos->find('list', ['limit' => 200]);
-        $this->set(compact('atendimento', 'usuarios', 'cidades', 'tiposAtendimentos', 'requerente', 'beneficiario', 'orgaos'));
+        $this->set(compact('atendimento', 'usuarios', 'cidades', 'tiposAtendimentos', 'pessoas', 'orgaos'));
     }
 
     /**

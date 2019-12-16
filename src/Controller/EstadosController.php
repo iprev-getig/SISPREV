@@ -29,14 +29,17 @@ class EstadosController extends AppController
                     $query->where(['estados.id ' => $this->getSearch()]);
                     break;
                 //complete. Example:
-                //case 'nome':
-                //    $query->where(['estados.nome ILIKE ' => '%' . $this->getSearch() . '%']);
-                //    break;
+                case 'nome':
+                    $query->where(['estados.nome ILIKE ' => '%' . $this->getSearch() . '%']);
+                    break;
+                case 'uf':
+                    $query->where(['estados.uf ILIKE ' => '%' . $this->getSearch() . '%']);
+                    break;       
             }              
         }
 
         $this->setSearch();
-        $this->set('options', array('id' => 'Id')); //complete
+        $this->set('options', array('id' => 'Id' , 'nome' => 'Nome', 'uf' => 'Uf')); //complete
 
         $this->set('estados', $this->paginate($query));
 

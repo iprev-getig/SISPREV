@@ -37,7 +37,7 @@
         </tr>
         <tr>
             <th>Pessoa</th>
-            <td><?= $atendimento->has('pessoa') ? $this->Html->link($atendimento->pessoa->id, ['controller' => 'Pessoas', 'action' => 'view', $atendimento->pessoa->id]) : '' ?></td>
+            <td><?= $atendimento->has('pessoa') ? $this->Html->link($atendimento->pessoa->nome, ['controller' => 'Pessoas', 'action' => 'view', $atendimento->pessoa->id]) : '' ?></td>
         </tr>
         <tr>
             <th>Orgao</th>

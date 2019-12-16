@@ -54,11 +54,6 @@ class AtendimentosTable extends Table
             'wildcardAny' => '*',
             'wildcardOne' => '?'
         ];
-        
-        $field = [];
-        if (count($field) > 0) {
-            $array_search['field'] = $field;
-        }
 
         $this->searchManager()
         ->add('q', 'Search.Like', $array_search);

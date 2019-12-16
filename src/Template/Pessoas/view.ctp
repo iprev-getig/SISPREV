@@ -10,13 +10,9 @@
 <div class="pessoas view col-lg-10 col-md-9">
     <h3>
         <?= $this->Html->tag('i', '', array('class' => 'fas fa-eye')) ?>
-        <?= h($pessoa->id) ?>
+        <?= h($pessoa->nome) ?>
     </h3>
     <table class="table table-striped table-hover">
-        <tr>
-            <th>Nome</th>
-            <td><?= h($pessoa->nome) ?></td>
-        </tr>
         <tr>
             <th>Cpf</th>
             <td><?= h($pessoa->cpf) ?></td>

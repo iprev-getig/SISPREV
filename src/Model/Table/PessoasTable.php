@@ -44,7 +44,6 @@ class PessoasTable extends Table
             'wildcardAny' => '*',
             'wildcardOne' => '?'
         ];
-        
 
         $this->searchManager()
         ->add('q', 'Search.Like', $array_search);

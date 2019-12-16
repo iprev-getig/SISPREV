@@ -25,8 +25,11 @@
         </h3>
         <div class="row">
             <?php echo $this->Form->create(); ?>
-            <div class="col-md-11">
-                                                                                                                                                                                                                                                                                                                            <?php echo $this->Form->input('q', ['autofocus' => 'autofocus', 'value' => $busca, 'label' => False, 'placeholder' => 'Pesquisar por: id']); ?>
+            <div class="col-md-3">
+                <?php echo $this->Form->input('field', ['type' => 'select', 'options' => $options, 'label' => False, 'value' => $field]); ?>
+            </div>
+            <div class="col-md-8">
+                <?php echo $this->Form->input('q', ['autofocus' => 'autofocus', 'value' => $busca, 'label' => False, 'placeholder' => __('_search')]); ?>
             </div>
             <div class="col-md-1">
                 <?php echo $this->Form->button($this->Html->tag('i', '', array('class' => 'fas fa-filter')), ['type' => 'submit']); ?>
@@ -55,7 +58,7 @@
                         <td><?= $atendimento->has('cidade') ? $this->Html->link($atendimento->cidade->nome, ['controller' => 'Cidades', 'action' => 'view', $atendimento->cidade->id]) : '' ?></td>
                         <td><?= $atendimento->has('tipos_atendimento') ? $this->Html->link($atendimento->tipos_atendimento->nome, ['controller' => 'TiposAtendimentos', 'action' => 'view', $atendimento->tipos_atendimento->id]) : '' ?></td>
                         <td><?= $this->Number->format($atendimento->requerente_id) ?></td>
-                        <td><?= $atendimento->has('pessoa') ? $this->Html->link($atendimento->pessoa->id, ['controller' => 'Pessoas', 'action' => 'view', $atendimento->pessoa->id]) : '' ?></td>
+                        <td><?= $atendimento->has('pessoa') ? $this->Html->link($atendimento->pessoa->nome, ['controller' => 'Pessoas', 'action' => 'view', $atendimento->pessoa->id]) : '' ?></td>
                         <td class="actions" style="white-space:nowrap">
                         <?= $this->Html->link(__('View'), ['action' => 'view', $atendimento->id], ['class'=>'btn btn-default btn-xs']) ?>
                         <?= $this->Html->link(__('Edit'), ['action' => 'edit', $atendimento->id], ['class'=>'btn btn-primary btn-xs']) ?>

@@ -32,11 +32,14 @@ class CidadesController extends AppController
                 case 'nome':
                     $query->where(['cidades.nome ILIKE ' => '%' . $this->getSearch() . '%']);
                     break;
+                case 'nome_estado':
+                    $query->where(['estados.nome ILIKE ' =>  '%' . $this->getSearch() . '%']);
+                    break;    
             }              
         }
 
         $this->setSearch();
-        $this->set('options', array('id' => 'Id', 'nome' => 'Nome'));
+        $this->set('options', array('id' => 'Id', 'nome' => 'Nome', 'nome_estado' => 'Estado'));
 
         $this->set('cidades', $this->paginate($query));
 
