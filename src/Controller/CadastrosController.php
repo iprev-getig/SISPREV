@@ -19,14 +19,21 @@ class CadastrosController extends AppController
      */
     public function index()
     {
+        $this->export();
+        
+        $this->makeSearch($this->request->query, $search, $where, $value);
+
         $query = $this->Cadastros
-        ->find('search', ['search' => $this->request->query])
-        ->where(['cadastros.id IS NOT' => null]);
+        ->find('search', ['search' => $search])
+                        ->where(['cadastros.id ' . $where => $value]);
 
         $this->set('busca', $this->getSearch($query));
 
         $this->set('cadastros', $this->paginate($query));
+
     }
+
+
 
     /**
      * View method

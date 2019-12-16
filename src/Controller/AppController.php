@@ -149,5 +149,19 @@ class AppController extends Controller
         ->order(['TipoAcesso.nome']);
         return $acessos;
     }
-    
+
+    /**
+     * export method
+     *
+     * @return \Cake\Http\Response|null
+     */
+    public function export()
+    {
+        $_ext = $this->request->params['_ext'];
+        if ($_ext == 'xlsx') {
+            $rows = $this->{$this->modelClass}->find('all');
+            $this->set('rows', $rows);
+            return True;
+        }
+    }
 }

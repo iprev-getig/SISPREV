@@ -19,21 +19,18 @@ class EstadosController extends AppController
      */
     public function index()
     {
-        $_ext = $this->request->params['_ext'];
-        if (!$_ext == 'xlsx') {
-            $this->makeSearch($this->request->query, $search, $where, $value);
+        $this->export();
 
-            $query = $this->Estados
-            ->find('search', ['search' => $search])
-                                    ->where(['estados.id ' . $where => $value]);
+        $this->makeSearch($this->request->query, $search, $where, $value);
 
-            $this->set('busca', $this->getSearch($query));
+        $query = $this->Estados
+        ->find('search', ['search' => $search])
+                                ->where(['estados.id ' . $where => $value]);
 
-            $this->set('estados', $this->paginate($query));
-        } else {
-            $rows = $this->Estados->find('all');
-            $this->set('rows', $rows);
-        }
+        $this->set('busca', $this->getSearch($query));
+
+        $this->set('estados', $this->paginate($query));
+        
     }
 
 

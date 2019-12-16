@@ -19,22 +19,19 @@ class CidadesController extends AppController
      */
     public function index()
     {
-        $_ext = $this->request->params['_ext'];
-        if (!$_ext == 'xlsx') {
-            $this->makeSearch($this->request->query, $search, $where, $value);
+        $this->export();
+        
+        $this->makeSearch($this->request->query, $search, $where, $value);
 
-            $query = $this->Cidades
-            ->find('search', ['search' => $search])
-                            ->contain(['Estados'])
-                        ->where(['cidades.id ' . $where => $value]);
+        $query = $this->Cidades
+        ->find('search', ['search' => $search])
+                ->contain(['Estados'])
+                ->where(['cidades.id ' . $where => $value]);
 
-            $this->set('busca', $this->getSearch($query));
+        $this->set('busca', $this->getSearch($query));
 
-            $this->set('cidades', $this->paginate($query));
-        } else {
-            $rows = $this->Cidades->find('all');
-            $this->set('rows', $rows);
-        }
+        $this->set('cidades', $this->paginate($query));
+
     }
 
 
