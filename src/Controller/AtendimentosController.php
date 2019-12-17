@@ -36,8 +36,8 @@ class AtendimentosController extends AppController
                 case 'cidades':
                     $query->where(['cidades.nome ILIKE ' => '%' . $this->getSearch() . '%']);
                     break;
-                case 'tipos_atendimentos':
-                    $query->where(['tipos_atendimentos.nome ILIKE ' => '%' . $this->getSearch() . '%']);
+                case 'tiposatendimentos':
+                    $query->where(['tiposatendimentos.nome ILIKE ' => '%' . $this->getSearch() . '%']);
                     break;
                 case 'requerentes':
                     $query->where(['pessoas.nome ILIKE ' => '%' . $this->getSearch() . '%']);
@@ -49,7 +49,7 @@ class AtendimentosController extends AppController
         }
 
         $this->setSearch();
-        $this->set('options', array('id' => 'Id' ,  'usuarios' => 'Usuarios' , 'cidades' => 'Cidades' , 'tipos_atendimentos' => 'Tipo de Atendimento' , 'requerentes' => 'Requerentes' , 'beneficiarios' => 'Beneficiarios')); //complete
+        $this->set('options', array('id' => 'Id' ,  'usuarios' => 'Usuarios' , 'cidades' => 'Cidades' , 'tiposatendimentos' => 'Tipo de Atendimento' , 'requerentes' => 'Requerentes' , 'beneficiarios' => 'Beneficiarios')); //complete
 
         $this->set('atendimentos', $this->paginate($query));
 

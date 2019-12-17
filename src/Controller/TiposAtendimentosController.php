@@ -19,21 +19,27 @@ class TiposAtendimentosController extends AppController
      */
     public function index()
     {
-        $_ext = $this->request->params['_ext'];
-        if (!$_ext == 'xlsx') {
-            $this->makeSearch($this->request->query, $search, $where, $value);
+        $this->export();
 
-            $query = $this->TiposAtendimentos
-            ->find('search', ['search' => $search])
-                                    ->where(['tiposAtendimentos.id ' . $where => $value]);
-
-            $this->set('busca', $this->getSearch($query));
-
-            $this->set('tiposAtendimentos', $this->paginate($query));
-        } else {
-            $rows = $this->TiposAtendimentos->find('all');
-            $this->set('rows', $rows);
+        $query = $this->TiposAtendimentos->find('search', ['search' => 'all']);
+        
+        if ($this->getSearch() != '') {
+            switch ($this->getSearch('field')) {
+                case 'id':
+                    $query->where(['tiposAtendimentos.id ' => $this->getSearch()]);
+                    break;
+                //complete. Example:
+                case 'nome':
+                  $query->where(['tiposAtendimentos.nome ILIKE ' => '%' . $this->getSearch() . '%']);
+                    break;
+            }              
         }
+
+        $this->setSearch();
+        $this->set('options', array('id' => 'Id', 'nome' => 'Nome')); //complete
+
+        $this->set('tiposAtendimentos', $this->paginate($query));
+
     }
 
 

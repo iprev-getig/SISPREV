@@ -19,22 +19,41 @@ class OrgaosController extends AppController
      */
     public function index()
     {
-        $_ext = $this->request->params['_ext'];
-        if (!$_ext == 'xlsx') {
-            $this->makeSearch($this->request->query, $search, $where, $value);
+        $this->export();
 
-            $query = $this->Orgaos
-            ->find('search', ['search' => $search])
-                            ->contain(['Cidades'])
-                        ->where(['orgaos.id ' . $where => $value]);
+        $query = $this->Orgaos->find('search', ['search' => 'all']);
+        $query->contain(['Cidades']);
+        
+        if ($this->getSearch() != '') {
+            switch ($this->getSearch('field')) {
+                case 'id':
+                    $query->where(['orgaos.id ' => $this->getSearch()]);
+                    break;
+                //complete. Example:
+                case 'nome':
+                    $query->where(['orgaos.nome ILIKE ' => '%' . $this->getSearch() . '%']);
+                break;
 
-            $this->set('busca', $this->getSearch($query));
+                case 'sigla':
+                    $query->where(['orgaos.sigla ILIKE ' => '%' . $this->getSearch() . '%']);
+                break;
 
-            $this->set('orgaos', $this->paginate($query));
-        } else {
-            $rows = $this->Orgaos->find('all');
-            $this->set('rows', $rows);
+                case 'codigo':
+                    $query->where(['orgaos.codigo ' => $this->getSearch()]);
+                break;
+
+                case 'cidade':
+                    $query->where(['cidades.nome ILIKE ' => '%' . $this->getSearch() . '%']);
+                break;
+
+            }              
         }
+
+        $this->setSearch();
+        $this->set('options', array('id' => 'Id', 'nome' => 'Nome', 'sigla' => 'Sigla', 'codigo' => 'Código', 'cidade' => 'Cidade')); //complete
+
+        $this->set('orgaos', $this->paginate($query));
+
     }
 
 

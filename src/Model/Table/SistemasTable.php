@@ -49,16 +49,6 @@ class SistemasTable extends Table
             'wildcardAny' => '*',
             'wildcardOne' => '?'
         ];
-        
-        $field = [
-        'sigla',
-        'nome',
-        'descricao',
-        'icone'
-    ];
-        if (count($field) > 0) {
-            $array_search['field'] = $field;
-        }
 
         $this->searchManager()
         ->add('q', 'Search.Like', $array_search);

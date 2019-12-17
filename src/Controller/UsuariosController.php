@@ -19,22 +19,34 @@ class UsuariosController extends AppController
      */
     public function index()
     {
-        $_ext = $this->request->params['_ext'];
-        if (!$_ext == 'xlsx') {
-            $this->makeSearch($this->request->query, $search, $where, $value);
+        $this->export();
 
-            $query = $this->Usuarios
-            ->find('search', ['search' => $search])
-                            ->contain(['Setores'])
-                        ->where(['usuarios.id ' . $where => $value]);
-
-            $this->set('busca', $this->getSearch($query));
-
-            $this->set('usuarios', $this->paginate($query));
-        } else {
-            $rows = $this->Usuarios->find('all');
-            $this->set('rows', $rows);
+        $query = $this->Usuarios->find('search', ['search' => 'all']);
+        $query->contain(['Setores']);
+        
+        if ($this->getSearch() != '') {
+            switch ($this->getSearch('field')) {
+                case 'id':
+                    $query->where(['usuarios.id ' => $this->getSearch()]);
+                    break;
+                //complete. Example:
+                case 'login':
+                    $query->where(['usuarios.login ILIKE ' => '%' . $this->getSearch() . '%']);
+                    break;
+                case 'email':
+                    $query->where(['usuarios.email ILIKE ' => '%' . $this->getSearch() . '%']);
+                    break;
+                case 'nome':
+                    $query->where(['usuarios.nome ILIKE ' => '%' . $this->getSearch() . '%']);
+                    break;
+            }              
         }
+
+        $this->setSearch();
+        $this->set('options', array('id' => 'Id', 'login' => 'Login','email' => 'Email','nome' => 'nome')); //complete
+
+        $this->set('usuarios', $this->paginate($query));
+
     }
 
 

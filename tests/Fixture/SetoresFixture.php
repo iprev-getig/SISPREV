@@ -39,8 +39,8 @@ class SetoresFixture extends TestFixture
                 'nome' => 'Lorem ipsum dolor sit amet',
                 'sigla' => 'Lorem ipsum dolor ',
                 'cidade_id' => 1,
-                'created' => 1575655705,
-                'modified' => 1575655705
+                'created' => 1576611552,
+                'modified' => 1576611552
             ],
         ];
         parent::init();

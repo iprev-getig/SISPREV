@@ -31,7 +31,7 @@ class PessoasTable extends Table
         parent::initialize($config);
 
         $this->setTable('pessoas');
-        $this->setDisplayField('nome');
+        $this->setDisplayField('id');
         $this->setPrimaryKey('id');
         $this->addBehavior('Search.Search');
 

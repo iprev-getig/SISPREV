@@ -19,22 +19,28 @@ class AcessosController extends AppController
      */
     public function index()
     {
-        $_ext = $this->request->params['_ext'];
-        if (!$_ext == 'xlsx') {
-            $this->makeSearch($this->request->query, $search, $where, $value);
+        $this->export();
 
-            $query = $this->Acessos
-            ->find('search', ['search' => $search])
-                            ->contain(['TiposAcessos', 'Usuarios', 'Sistemas'])
-                        ->where(['acessos.id ' . $where => $value]);
-
-            $this->set('busca', $this->getSearch($query));
-
-            $this->set('acessos', $this->paginate($query));
-        } else {
-            $rows = $this->Acessos->find('all');
-            $this->set('rows', $rows);
+        $query = $this->Acessos->find('search', ['search' => 'all']);
+        $query->contain(['TiposAcessos', 'Usuarios', 'Sistemas']);
+        
+        if ($this->getSearch() != '') {
+            switch ($this->getSearch('field')) {
+                case 'id':
+                    $query->where(['acessos.id ' => $this->getSearch()]);
+                    break;
+               
+                case 'tiposacessos':
+                    $query->where(['TiposAcessos.nome ILIKE ' => '%' . $this->getSearch() . '%']);
+                    break;
+            }              
         }
+
+        $this->setSearch();
+        $this->set('options', array('id' => 'Id', 'tiposacessos' => 'Tipo de Acesso')); //complete
+
+        $this->set('acessos', $this->paginate($query));
+
     }
 
 

@@ -11,6 +11,7 @@ use Cake\Validation\Validator;
  *
  * @property \App\Model\Table\SetoresTable&\Cake\ORM\Association\BelongsTo $Setores
  * @property \App\Model\Table\AcessosTable&\Cake\ORM\Association\HasMany $Acessos
+ * @property &\Cake\ORM\Association\HasMany $Atendimentos
  * @property \App\Model\Table\CoordenadoriasTable&\Cake\ORM\Association\HasMany $Coordenadorias
  *
  * @method \App\Model\Entity\Usuario get($primaryKey, $options = [])
@@ -51,16 +52,6 @@ class UsuariosTable extends Table
             'wildcardAny' => '*',
             'wildcardOne' => '?'
         ];
-        
-        $field = [
-        'login',
-        'email',
-        'nome',
-        'senha'
-    ];
-        if (count($field) > 0) {
-            $array_search['field'] = $field;
-        }
 
         $this->searchManager()
         ->add('q', 'Search.Like', $array_search);
@@ -72,6 +63,9 @@ class UsuariosTable extends Table
             'foreignKey' => 'setor_id'
         ]);
         $this->hasMany('Acessos', [
+            'foreignKey' => 'usuario_id'
+        ]);
+        $this->hasMany('Atendimentos', [
             'foreignKey' => 'usuario_id'
         ]);
         $this->hasMany('Coordenadorias', [

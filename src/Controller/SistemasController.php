@@ -19,21 +19,41 @@ class SistemasController extends AppController
      */
     public function index()
     {
-        $_ext = $this->request->params['_ext'];
-        if (!$_ext == 'xlsx') {
-            $this->makeSearch($this->request->query, $search, $where, $value);
+        $this->export();
 
-            $query = $this->Sistemas
-            ->find('search', ['search' => $search])
-                                    ->where(['sistemas.id ' . $where => $value]);
+        $query = $this->Sistemas->find('search', ['search' => 'all']);
+        
+        if ($this->getSearch() != '') {
+            switch ($this->getSearch('field')) {
+                case 'id':
+                    $query->where(['sistemas.id ' => $this->getSearch()]);
+                    break;
+                //complete. Example:
+                case 'sigla':
+                    $query->where(['sistemas.sigla ILIKE ' => '%' . $this->getSearch() . '%']);
+                    break;
+                case 'nome':
+                    $query->where(['sistemas.nome ILIKE ' => '%' . $this->getSearch() . '%']);
+                    break;
+                case 'descricao':
+                    $query->where(['sistemas.descricao ILIKE ' => '%' . $this->getSearch() . '%']);
+                    break;
+                case 'icone':
+                    $query->where(['sistemas.icone ILIKE ' => '%' . $this->getSearch() . '%']);
+                    break;            
 
-            $this->set('busca', $this->getSearch($query));
 
-            $this->set('sistemas', $this->paginate($query));
-        } else {
-            $rows = $this->Sistemas->find('all');
-            $this->set('rows', $rows);
+
+
+
+            }              
         }
+
+        $this->setSearch();
+        $this->set('options', array('id' => 'Id', 'sigla' => 'Sigla', 'nome' => 'Nome', 'descricao' => 'Descricao', 'icone' => 'Icone')); //complete
+
+        $this->set('sistemas', $this->paginate($query));
+
     }
 
 
