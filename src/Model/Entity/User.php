@@ -1,10 +1,10 @@
 <?php
 namespace App\Model\Entity;
-
+use Cake\Auth\DefaultPasswordHasher;
 use Cake\ORM\Entity;
 
 /**
- * Usuario Entity
+ * User Entity
  *
  * @property int $id
  * @property string|null $login
@@ -18,10 +18,8 @@ use Cake\ORM\Entity;
  * @property \Cake\I18n\FrozenTime|null $modified
  *
  * @property \App\Model\Entity\Setore $setore
- * @property \App\Model\Entity\Acesso[] $acessos
- * @property \App\Model\Entity\Coordenadoria[] $coordenadorias
  */
-class Usuario extends Entity
+class User extends Entity
 {
     /**
      * Fields that can be mass assigned using newEntity() or patchEntity().
@@ -33,17 +31,20 @@ class Usuario extends Entity
      * @var array
      */
     protected $_accessible = [
-        'login' => true,
+        'username' => true,
         'email' => true,
         'nome' => true,
-        'senha' => true,
+        'password' => true,
         'bloqueado' => true,
         'ult_acesso' => true,
         'setor_id' => true,
         'created' => true,
         'modified' => true,
-        'setore' => true,
-        'acessos' => true,
-        'coordenadorias' => true
+        'setore' => true
     ];
+
+    protected function _setPassword($password) {
+        return (new DefaultPasswordHasher)->hash($password);
+    }
+    
 }

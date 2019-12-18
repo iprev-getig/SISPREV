@@ -7,25 +7,22 @@ use Cake\ORM\Table;
 use Cake\Validation\Validator;
 
 /**
- * Usuarios Model
+ * Users Model
  *
  * @property \App\Model\Table\SetoresTable&\Cake\ORM\Association\BelongsTo $Setores
- * @property \App\Model\Table\AcessosTable&\Cake\ORM\Association\HasMany $Acessos
- * @property &\Cake\ORM\Association\HasMany $Atendimentos
- * @property \App\Model\Table\CoordenadoriasTable&\Cake\ORM\Association\HasMany $Coordenadorias
  *
- * @method \App\Model\Entity\Usuario get($primaryKey, $options = [])
- * @method \App\Model\Entity\Usuario newEntity($data = null, array $options = [])
- * @method \App\Model\Entity\Usuario[] newEntities(array $data, array $options = [])
- * @method \App\Model\Entity\Usuario|false save(\Cake\Datasource\EntityInterface $entity, $options = [])
- * @method \App\Model\Entity\Usuario saveOrFail(\Cake\Datasource\EntityInterface $entity, $options = [])
- * @method \App\Model\Entity\Usuario patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
- * @method \App\Model\Entity\Usuario[] patchEntities($entities, array $data, array $options = [])
- * @method \App\Model\Entity\Usuario findOrCreate($search, callable $callback = null, $options = [])
+ * @method \App\Model\Entity\User get($primaryKey, $options = [])
+ * @method \App\Model\Entity\User newEntity($data = null, array $options = [])
+ * @method \App\Model\Entity\User[] newEntities(array $data, array $options = [])
+ * @method \App\Model\Entity\User|false save(\Cake\Datasource\EntityInterface $entity, $options = [])
+ * @method \App\Model\Entity\User saveOrFail(\Cake\Datasource\EntityInterface $entity, $options = [])
+ * @method \App\Model\Entity\User patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
+ * @method \App\Model\Entity\User[] patchEntities($entities, array $data, array $options = [])
+ * @method \App\Model\Entity\User findOrCreate($search, callable $callback = null, $options = [])
  *
  * @mixin \Cake\ORM\Behavior\TimestampBehavior
  */
-class UsuariosTable extends Table
+class UsersTable extends Table
 {
     /**
      * Initialize method
@@ -37,8 +34,8 @@ class UsuariosTable extends Table
     {
         parent::initialize($config);
 
-        $this->setTable('usuarios');
-        $this->setDisplayField('nome');
+        $this->setTable('users');
+        $this->setDisplayField('id');
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Search.Search');
@@ -63,13 +60,13 @@ class UsuariosTable extends Table
             'foreignKey' => 'setor_id'
         ]);
         $this->hasMany('Acessos', [
-            'foreignKey' => 'usuario_id'
+            'foreignKey' => 'user_id'
         ]);
         $this->hasMany('Atendimentos', [
-            'foreignKey' => 'usuario_id'
+            'foreignKey' => 'user_id'
         ]);
         $this->hasMany('Coordenadorias', [
-            'foreignKey' => 'usuario_id'
+            'foreignKey' => 'user_id'
         ]);
     }
 
@@ -143,4 +140,12 @@ class UsuariosTable extends Table
 
         return $rules;
     }
+
+    
+    // protected function _setPassword($password) {
+    //     $pass = (new DefaultPasswordHasher)->hash($password);
+    //     $this->log('$pass', 'debug');
+    //     $this->log($pass, 'debug');
+    //     return $pass;
+    // }
 }

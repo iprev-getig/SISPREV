@@ -10,7 +10,7 @@ use Cake\Validation\Validator;
  * Acessos Model
  *
  * @property \App\Model\Table\TiposAcessosTable&\Cake\ORM\Association\BelongsTo $TiposAcessos
- * @property \App\Model\Table\UsuariosTable&\Cake\ORM\Association\BelongsTo $Usuarios
+ * @property \App\Model\Table\UsersTable&\Cake\ORM\Association\BelongsTo $Users
  * @property \App\Model\Table\SistemasTable&\Cake\ORM\Association\BelongsTo $Sistemas
  *
  * @method \App\Model\Entity\Acesso get($primaryKey, $options = [])
@@ -61,8 +61,8 @@ class AcessosTable extends Table
         $this->belongsTo('TiposAcessos', [
             'foreignKey' => 'tipo_acesso_id'
         ]);
-        $this->belongsTo('Usuarios', [
-            'foreignKey' => 'usuario_id'
+        $this->belongsTo('Users', [
+            'foreignKey' => 'user_id'
         ]);
         $this->belongsTo('Sistemas', [
             'foreignKey' => 'sistema_id'
@@ -128,7 +128,7 @@ class AcessosTable extends Table
     public function buildRules(RulesChecker $rules)
     {
         $rules->add($rules->existsIn(['tipo_acesso_id'], 'TiposAcessos'));
-        $rules->add($rules->existsIn(['usuario_id'], 'Usuarios'));
+        $rules->add($rules->existsIn(['user_id'], 'Users'));
         $rules->add($rules->existsIn(['sistema_id'], 'Sistemas'));
 
         return $rules;

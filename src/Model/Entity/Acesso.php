@@ -40,12 +40,12 @@ class Acesso extends Entity
         'del' => true,
         'view' => true,
         'tipo_acesso_id' => true,
-        'usuario_id' => true,
+        'user_id' => true,
         'sistema_id' => true,
         'created' => true,
         'modified' => true,
         'tipos_acesso' => true,
-        'usuario' => true,
+        'user' => true,
         'sistema' => true
     ];
 }

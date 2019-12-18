@@ -2,22 +2,18 @@
 <nav class="col-md-2" id="actions-sidebar">
     <ul class="nav nav-pills nav-stacked">
         <li class="active"><a><?= __('Actions') ?></a></li>
-        <li><?= $this->Html->link(__('New {0}', ['Usuario']), ['action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('New {0}', ['User']), ['action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List {0}', ['Setores']), ['controller' => 'Setores', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New {0}', ['Setore']), ['controller' => 'Setores', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List {0}', ['Acessos']), ['controller' => 'Acessos', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New {0}', ['Acesso']), ['controller' => 'Acessos', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List {0}', ['Coordenadorias']), ['controller' => 'Coordenadorias', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New {0}', ['Coordenadoria']), ['controller' => 'Coordenadorias', 'action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('Export'), ['_ext' => 'xlsx'], ['class'=>'add']) ?></li>
     </ul>
 </nav>
 
 <div class="ajax-form">
-    <div class="usuarios index col-md-10 columns content">
+    <div class="users index col-md-10 columns content">
         <h3>
             <?= $this->Html->tag('i', '', array('class' => 'fas fa-chevron-right')) ?>
-            Usuarios
+            Users
         </h3>
         <div class="row">
             <?php echo $this->Form->create(); ?>
@@ -36,33 +32,33 @@
             <thead>
                 <tr>
                         <th><?= $this->Paginator->sort('id') ?></th>
-                        <th><?= $this->Paginator->sort('login') ?></th>
+                        <th><?= $this->Paginator->sort('username') ?></th>
                         <th><?= $this->Paginator->sort('email') ?></th>
                         <th><?= $this->Paginator->sort('nome') ?></th>
-                        <th><?= $this->Paginator->sort('senha') ?></th>
+                        <th><?= $this->Paginator->sort('password') ?></th>
                         <th><?= $this->Paginator->sort('bloqueado') ?></th>
                         <th><?= $this->Paginator->sort('ult_acesso') ?></th>
                         <th class="actions"><?= __('Actions') ?></th>
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($usuarios as $usuario): ?>
+                <?php foreach ($users as $user): ?>
                 <tr>
-                        <td><?= $this->Number->format($usuario->id) ?></td>
-                        <td><?= h($usuario->login) ?></td>
-                        <td><?= h($usuario->email) ?></td>
-                        <td><?= h($usuario->nome) ?></td>
-                        <td><?= h($usuario->senha) ?></td>
+                        <td><?= $this->Number->format($user->id) ?></td>
+                        <td><?= h($user->username) ?></td>
+                        <td><?= h($user->email) ?></td>
+                        <td><?= h($user->nome) ?></td>
+                        <td><?= h($user->password) ?></td>
                         <td>
-                        <?php echo $usuario->bloqueado 
+                        <?php echo $user->bloqueado 
                             ? $this->Html->tag('i', '', array('class' => 'far fa-check-square')) 
                             : $this->Html->tag('i', '', array('class' => 'far fa-square')) ; ?>
                     </td>
-                        <td><?= h($usuario->ult_acesso) ?></td>
+                        <td><?= h($user->ult_acesso) ?></td>
                         <td class="actions" style="white-space:nowrap">
-                        <?= $this->Html->link(__('View'), ['action' => 'view', $usuario->id], ['class'=>'btn btn-default btn-xs']) ?>
-                        <?= $this->Html->link(__('Edit'), ['action' => 'edit', $usuario->id], ['class'=>'btn btn-primary btn-xs']) ?>
-                        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $usuario->id], ['class'=>'btn btn-danger btn-xs ajax-delete', 'escapeTitle' => false]) ?>
+                        <?= $this->Html->link(__('View'), ['action' => 'view', $user->id], ['class'=>'btn btn-default btn-xs']) ?>
+                        <?= $this->Html->link(__('Edit'), ['action' => 'edit', $user->id], ['class'=>'btn btn-primary btn-xs']) ?>
+                        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $user->id], ['class'=>'btn btn-danger btn-xs ajax-delete', 'escapeTitle' => false]) ?>
                     </td>
                 </tr>
                 <?php endforeach; ?>

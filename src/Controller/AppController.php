@@ -17,6 +17,8 @@ namespace App\Controller;
 use Cake\Controller\Controller;
 use Cake\Event\Event;
 use Cake\ORM\TableRegistry;
+use App\Controller\AuthComponent;
+use Cake\Core\App;
 
 /**
  * Application Controller
@@ -47,7 +49,25 @@ class AppController extends Controller
             'viewClassmap' => ['xlsx' => 'CakeExcel.Excel']
         ]);
         $this->loadComponent('Flash');
+        $this->loadComponent('Auth', [
+            'authenticate' => [
+                'Form' => [
+                    'fields' => ['username'=>'username', 'password'=>'password'],
+                    'userModel' => 'Users',
+                    'passwordHasher' => 'Default'
+                ]
+            ],
+            'loginAction' => [
+                'controller' => 'Users',
+                'action' => 'login'
+            ],
+            'loginRedirect' => ['controller'=>'Users', 'action'=>'dashboard'],
+            'logoutRedirect' => ['controller'=>'Users', 'action'=>'login'],
+            'authError' => __('You do not have permission to access.'),
+            'storage' => 'Session'
+            ]);
 
+            
         $this->viewBuilder()->theme('TwitterBootstrap');
 
         $this->set('project_name', 'SISPREV');
@@ -63,6 +83,23 @@ class AppController extends Controller
         $this->configSistema();
 
         ini_set('memory_limit', '-1');
+    }
+
+    public function beforeFilter(Event $event)
+    {
+        $this->Auth->allow(['login', 'display']); 
+        // $this->Auth->allow();
+        $user = $this->Auth->user('id');
+        $controller = $this->modelClass;
+        $action = $this->request->params['action'];
+        
+        if ((!$user == null) && (!in_array(strtolower($controller), ['dashboard'])) && (in_array($action, ['edit', 'add', 'delete', 'index']))) {
+            $Acessos = new AcessosController;
+            if (!$Acessos->checkPermission($user, $controller, $action)) {
+                $this->Flash->error(__('blabla bla' . $controller));
+                $this->redirect(['controller' => 'pages', 'action' => 'display']);
+            } 
+        }
     }
 
     /**
@@ -95,10 +132,12 @@ class AppController extends Controller
     public function configSistema()
     {
         $config_sistema = $this->request->session()->read('config_sistema');
+        $user = $this->Auth->user('id');
         if ($config_sistema == null) {
             if (($this->request->here != '/SISPREV/') 
             && ($this->request->here != '/SISPREV/pages/home')
-            && (strpos($this->request->here, '/SISPREV/dashboard/index/') === false)) {
+            && (strpos($this->request->here, '/SISPREV/dashboard/index/') === false)
+            && (! $user == null)) {
                 $this->log($this->request->here, 'debug');
                 $this->Flash->error(__('Sua sessão expirou, selecione o sistema para continuar.'));
                 $this->redirect(['controller' => 'pages', 'action' => 'home']);

@@ -3,31 +3,27 @@
         <li class="active"><a><?= __('Actions') ?></a></li>
         <li><?= $this->Form->postLink(
                 __('Delete'),
-                ['action' => 'delete', $usuario->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $usuario->id)]
+                ['action' => 'delete', $user->id],
+                ['confirm' => __('Are you sure you want to delete # {0}?', $user->id)]
             )
         ?></li>
-        <li><?= $this->Html->link(__('List {0}', 'Usuarios'), ['action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('List {0}', 'Users'), ['action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('List {0}', 'Setores'), ['controller' => 'Setores', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New {0}', 'Setore'), ['controller' => 'Setores', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List {0}', 'Acessos'), ['controller' => 'Acessos', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New {0}', 'Acesso'), ['controller' => 'Acessos', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List {0}', 'Coordenadorias'), ['controller' => 'Coordenadorias', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New {0}', 'Coordenadoria'), ['controller' => 'Coordenadorias', 'action' => 'add']) ?></li>
     </ul>
 </nav>
-<div class="usuarios form col-md-10 columns content">
-    <?= $this->Form->create($usuario) ?>
+<div class="users form col-md-10 columns content">
+    <?= $this->Form->create($user) ?>
     <fieldset>
         <legend>
             <?= $this->Html->tag('i', '', array('class' => 'far fa-edit')) ?>
-            <?= __('Edit {0}', 'Usuario') ?>
+            <?= __('Edit {0}', 'User') ?>
         </legend>
         <?php
-            echo $this->Form->input('login', ['autofocus' => 'autofocus']);
+            echo $this->Form->input('username', ['autofocus' => 'autofocus']);
             echo $this->Form->input('email');
             echo $this->Form->input('nome');
-            echo $this->Form->input('senha');
+            echo $this->Form->input('password');
             echo $this->Form->input('bloqueado');
             echo $this->Form->input('ult_acesso');
             echo $this->Form->input('setor_id', ['options' => $setores, 'empty' => true]);
