@@ -19,21 +19,31 @@ class TiposAcessosController extends AppController
      */
     public function index()
     {
-        $_ext = $this->request->params['_ext'];
-        if (!$_ext == 'xlsx') {
-            $this->makeSearch($this->request->query, $search, $where, $value);
+        $this->export();
 
-            $query = $this->TiposAcessos
-            ->find('search', ['search' => $search])
-                                    ->where(['tiposAcessos.id ' . $where => $value]);
-
-            $this->set('busca', $this->getSearch($query));
-
-            $this->set('tiposAcessos', $this->paginate($query));
-        } else {
-            $rows = $this->TiposAcessos->find('all');
-            $this->set('rows', $rows);
+        $query = $this->TiposAcessos->find('search', ['search' => 'all']);
+        
+        if ($this->getSearch() != '') {
+            switch ($this->getSearch('field')) {
+                case 'id':
+                    $query->where(['tiposAcessos.id ' => $this->getSearch()]);
+                    break;
+                //complete. Example:
+                case 'nome':
+                    $query->where(['tiposAcessos.nome ILIKE ' => '%' . $this->getSearch() . '%']);
+                    break;
+                case 'controller':
+                    $query->where(['tiposAcessos.controller ILIKE ' => '%' . $this->getSearch() . '%']);
+                    break;
+               
+            }              
         }
+
+        $this->setSearch();
+        $this->set('options', array('id' => 'Id', 'nome' => 'Nome', 'controller' => 'Controller')); //complete
+
+        $this->set('tiposAcessos', $this->paginate($query));
+
     }
 
 

@@ -40,19 +40,10 @@ class PessoasTable extends Table
             'before' => true,
             'after' => true,
             'mode' => 'or',
-            'comparison' => 'LIKE',
+            'comparison' => 'ILIKE',
             'wildcardAny' => '*',
             'wildcardOne' => '?'
         ];
-        
-        $field = [
-        'nome',
-        'cpf',
-        'matricula'
-    ];
-        if (count($field) > 0) {
-            $array_search['field'] = $field;
-        }
 
         $this->searchManager()
         ->add('q', 'Search.Like', $array_search);

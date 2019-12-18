@@ -81,11 +81,9 @@
                 <td><?= h($cadastros->created) ?></td>
                 <td><?= h($cadastros->modified) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['controller' => 'Cadastros', 'action' => 'view', $cadastros->id]) ?>
+                    <?= $this->Html->link(__('View'), ['controller' => 'Cadastros', 'action' => 'view', $cadastros->id], ['class'=>'btn btn-default btn-xs']) ?>
 
-                    <?= $this->Html->link(__('Edit'), ['controller' => 'Cadastros', 'action' => 'edit', $cadastros->id]) ?>
-
-                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Cadastros', 'action' => 'delete', $cadastros->id], ['confirm' => __('Are you sure you want to delete # {0}?', $cadastros->id)]) ?>
+                    <?= $this->Html->link(__('Edit'), ['controller' => 'Cadastros', 'action' => 'edit', $cadastros->id], ['class'=>'btn btn-primary btn-xs']) ?>
 
                 </td>
             </tr>

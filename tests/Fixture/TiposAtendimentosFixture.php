@@ -35,8 +35,8 @@ class TiposAtendimentosFixture extends TestFixture
             [
                 'id' => 1,
                 'nome' => 'Lorem ipsum dolor sit amet',
-                'created' => 1575655767,
-                'modified' => 1575655767
+                'created' => 1576614604,
+                'modified' => 1576614604
             ],
         ];
         parent::init();

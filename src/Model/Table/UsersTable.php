@@ -45,20 +45,10 @@ class UsersTable extends Table
             'before' => true,
             'after' => true,
             'mode' => 'or',
-            'comparison' => 'LIKE',
+            'comparison' => 'ILIKE',
             'wildcardAny' => '*',
             'wildcardOne' => '?'
         ];
-        
-        $field = [
-        'username',
-        'email',
-        'nome',
-        'senha'
-    ];
-        if (count($field) > 0) {
-            $array_search['field'] = $field;
-        }
 
         $this->searchManager()
         ->add('q', 'Search.Like', $array_search);
@@ -68,6 +58,15 @@ class UsersTable extends Table
 
         $this->belongsTo('Setores', [
             'foreignKey' => 'setor_id'
+        ]);
+        $this->hasMany('Acessos', [
+            'foreignKey' => 'user_id'
+        ]);
+        $this->hasMany('Atendimentos', [
+            'foreignKey' => 'user_id'
+        ]);
+        $this->hasMany('Coordenadorias', [
+            'foreignKey' => 'user_id'
         ]);
     }
 

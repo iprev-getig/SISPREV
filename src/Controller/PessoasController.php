@@ -19,21 +19,33 @@ class PessoasController extends AppController
      */
     public function index()
     {
-        $_ext = $this->request->params['_ext'];
-        if (!$_ext == 'xlsx') {
-            $this->makeSearch($this->request->query, $search, $where, $value);
+        $this->export();
 
-            $query = $this->Pessoas
-            ->find('search', ['search' => $search])
-                                    ->where(['pessoas.id ' . $where => $value]);
-
-            $this->set('busca', $this->getSearch($query));
-
-            $this->set('pessoas', $this->paginate($query));
-        } else {
-            $rows = $this->Pessoas->find('all');
-            $this->set('rows', $rows);
+        $query = $this->Pessoas->find('search', ['search' => 'all']);
+        
+        if ($this->getSearch() != '') {
+            switch ($this->getSearch('field')) {
+                case 'id':
+                    $query->where(['pessoas.id ' => $this->getSearch()]);
+                    break;
+                //complete. Example:
+                case 'nome':
+                    $query->where(['pessoas.nome ILIKE ' => '%' . $this->getSearch() . '%']);
+                    break;
+                case 'cpf':
+                    $query->where(['pessoas.cpf ' => $this->getSearch()]);
+                    break;
+                case 'matricula':
+                    $query->where(['pessoas.matricula ' => $this->getSearch()]);
+                    break;        
+            }              
         }
+
+        $this->setSearch();
+        $this->set('options', array('id' => 'Id', 'nome' => 'Nome', 'cpf' => 'Cpf', 'matricula' => 'Matricula')); //complete
+
+        $this->set('pessoas', $this->paginate($query));
+
     }
 
 

@@ -21,10 +21,11 @@ class AtendimentosControllerTest extends TestCase
      */
     public $fixtures = [
         'app.Atendimentos',
-        'app.TiposAtendimentos',
         'app.Usuarios',
         'app.Cidades',
-        'app.Pessoas'
+        'app.TiposAtendimentos',
+        'app.Pessoas',
+        'app.Orgaos'
     ];
 
     /**

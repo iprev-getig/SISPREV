@@ -33,7 +33,7 @@ class TiposAtendimentosTable extends Table
         parent::initialize($config);
 
         $this->setTable('tipos_atendimentos');
-        $this->setDisplayField('id');
+        $this->setDisplayField('nome');
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Search.Search');
@@ -43,17 +43,10 @@ class TiposAtendimentosTable extends Table
             'before' => true,
             'after' => true,
             'mode' => 'or',
-            'comparison' => 'LIKE',
+            'comparison' => 'ILIKE',
             'wildcardAny' => '*',
             'wildcardOne' => '?'
         ];
-        
-        $field = [
-        'nome'
-    ];
-        if (count($field) > 0) {
-            $array_search['field'] = $field;
-        }
 
         $this->searchManager()
         ->add('q', 'Search.Like', $array_search);

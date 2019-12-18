@@ -46,7 +46,7 @@ class CoordenadoriasTable extends Table
             'before' => true,
             'after' => true,
             'mode' => 'or',
-            'comparison' => 'LIKE',
+            'comparison' => 'ILIKE',
             'wildcardAny' => '*',
             'wildcardOne' => '?'
         ];

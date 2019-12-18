@@ -9,10 +9,12 @@ use Cake\Validation\Validator;
 /**
  * Atendimentos Model
  *
- * @property &\Cake\ORM\Association\BelongsTo $Public.tiposAtendimentos
- * @property &\Cake\ORM\Association\BelongsTo $Public.usuarios
- * @property &\Cake\ORM\Association\BelongsTo $Public.cidades
- * @property &\Cake\ORM\Association\BelongsTo $Public.pessoas
+ * @property \App\Model\Table\UsuariosTable&\Cake\ORM\Association\BelongsTo $Usuarios
+ * @property \App\Model\Table\CidadesTable&\Cake\ORM\Association\BelongsTo $Cidades
+ * @property \App\Model\Table\TiposAtendimentosTable&\Cake\ORM\Association\BelongsTo $TiposAtendimentos
+ * @property \App\Model\Table\PessoasTable&\Cake\ORM\Association\BelongsTo $Pessoas
+ * @property \App\Model\Table\PessoasTable&\Cake\ORM\Association\BelongsTo $Pessoas
+ * @property \App\Model\Table\OrgaosTable&\Cake\ORM\Association\BelongsTo $Orgaos
  *
  * @method \App\Model\Entity\Atendimento get($primaryKey, $options = [])
  * @method \App\Model\Entity\Atendimento newEntity($data = null, array $options = [])
@@ -37,38 +39,45 @@ class AtendimentosTable extends Table
     {
         parent::initialize($config);
 
-        $this->setTable('sagen.atendimentos');
+        $this->setTable('atendimentos');
         $this->setDisplayField('id');
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Search.Search');
 
 
-        $this->searchManager()
-        ->add('q', 'Search.Like', [
+        $array_search = [
             'before' => true,
             'after' => true,
             'mode' => 'or',
-            'comparison' => 'LIKE',
+            'comparison' => 'ILIKE',
             'wildcardAny' => '*',
-            'wildcardOne' => '?',
-            'field' => ['id']
-        ]);
+            'wildcardOne' => '?'
+        ];
+
+        $this->searchManager()
+        ->add('q', 'Search.Like', $array_search);
 
         $this->addBehavior('DateFormat');
         $this->addBehavior('Timestamp');
 
-        $this->belongsTo('Public.tiposAtendimentos', [
-            'foreignKey' => 'tipo_atendimento_id'
-        ]);
-        $this->belongsTo('Public.usuarios', [
+        $this->belongsTo('Usuarios', [
             'foreignKey' => 'usuario_id'
         ]);
-        $this->belongsTo('Public.cidades', [
-            'foreignKey' => 'cidades_id'
+        $this->belongsTo('Cidades', [
+            'foreignKey' => 'cidade_id'
         ]);
-        $this->belongsTo('Public.pessoas', [
-            'foreignKey' => 'pessoa_id'
+        $this->belongsTo('TiposAtendimentos', [
+            'foreignKey' => 'tipo_atendimento_id'
+        ]);
+        $this->belongsTo('Pessoas', [
+            'foreignKey' => 'requerente_id'
+        ]);
+        $this->belongsTo('Pessoas', [
+            'foreignKey' => 'beneficiario_id'
+        ]);
+        $this->belongsTo('Orgaos', [
+            'foreignKey' => 'orgao_id'
         ]);
     }
 
@@ -102,15 +111,15 @@ class AtendimentosTable extends Table
             ->allowEmptyString('inicio');
 
         $validator
-            ->allowEmptyString('fim');
-
-        $validator
             ->scalar('solucao')
             ->allowEmptyString('solucao');
 
         $validator
             ->scalar('conclusao')
             ->allowEmptyString('conclusao');
+
+        $validator
+            ->allowEmptyString('fim');
 
         return $validator;
     }
@@ -124,10 +133,12 @@ class AtendimentosTable extends Table
      */
     public function buildRules(RulesChecker $rules)
     {
-        $rules->add($rules->existsIn(['tipo_atendimento_id'], 'Public.tiposAtendimentos'));
-        $rules->add($rules->existsIn(['usuario_id'], 'Public.usuarios'));
-        $rules->add($rules->existsIn(['cidades_id'], 'Public.cidades'));
-        $rules->add($rules->existsIn(['pessoa_id'], 'Public.pessoas'));
+        $rules->add($rules->existsIn(['usuario_id'], 'Usuarios'));
+        $rules->add($rules->existsIn(['cidade_id'], 'Cidades'));
+        $rules->add($rules->existsIn(['tipo_atendimento_id'], 'TiposAtendimentos'));
+        $rules->add($rules->existsIn(['requerente_id'], 'Pessoas'));
+        $rules->add($rules->existsIn(['beneficiario_id'], 'Pessoas'));
+        $rules->add($rules->existsIn(['orgao_id'], 'Orgaos'));
 
         return $rules;
     }

@@ -19,22 +19,30 @@ class CidadesController extends AppController
      */
     public function index()
     {
-        $_ext = $this->request->params['_ext'];
-        if (!$_ext == 'xlsx') {
-            $this->makeSearch($this->request->query, $search, $where, $value);
+        $this->export();
 
-            $query = $this->Cidades
-            ->find('search', ['search' => $search])
-                            ->contain(['Estados'])
-                        ->where(['cidades.id ' . $where => $value]);
-
-            $this->set('busca', $this->getSearch($query));
-
-            $this->set('cidades', $this->paginate($query));
-        } else {
-            $rows = $this->Cidades->find('all');
-            $this->set('rows', $rows);
+        $query = $this->Cidades->find('search', ['search' => 'all']);
+        $query->contain(['Estados']);
+        
+        if ($this->getSearch() != '') {
+            switch ($this->getSearch('field')) {
+                case 'id':
+                    $query->where(['cidades.id ' => $this->getSearch()]);
+                    break;
+                case 'nome':
+                    $query->where(['cidades.nome ILIKE ' => '%' . $this->getSearch() . '%']);
+                    break;
+                case 'nome_estado':
+                    $query->where(['estados.nome ILIKE ' =>  '%' . $this->getSearch() . '%']);
+                    break;    
+            }              
         }
+
+        $this->setSearch();
+        $this->set('options', array('id' => 'Id', 'nome' => 'Nome', 'nome_estado' => 'Estado'));
+
+        $this->set('cidades', $this->paginate($query));
+
     }
 
 
@@ -49,7 +57,7 @@ class CidadesController extends AppController
     public function view($id = null)
     {
         $cidade = $this->Cidades->get($id, [
-            'contain' => ['Estados', 'Coordenadorias', 'Orgaos', 'Setores']
+            'contain' => ['Estados', 'Atendimentos', 'Coordenadorias', 'Orgaos', 'Setores']
         ]);
 
         $this->set('cidade', $cidade);

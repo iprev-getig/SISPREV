@@ -37,8 +37,8 @@ class EstadosFixture extends TestFixture
                 'id' => 1,
                 'nome' => 'Lorem ipsum dolor sit amet',
                 'uf' => 'L',
-                'created' => 1575655651,
-                'modified' => 1575655651
+                'created' => 1576529036,
+                'modified' => 1576529036
             ],
         ];
         parent::init();

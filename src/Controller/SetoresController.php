@@ -19,22 +19,36 @@ class SetoresController extends AppController
      */
     public function index()
     {
-        $_ext = $this->request->params['_ext'];
-        if (!$_ext == 'xlsx') {
-            $this->makeSearch($this->request->query, $search, $where, $value);
+        $this->export();
 
-            $query = $this->Setores
-            ->find('search', ['search' => $search])
-                            ->contain(['Cidades'])
-                        ->where(['setores.id ' . $where => $value]);
+        $query = $this->Setores->find('search', ['search' => 'all']);
+        $query->contain(['Cidades']);
+        
+        if ($this->getSearch() != '') {
+            switch ($this->getSearch('field')) {
+                case 'id':
+                    $query->where(['setores.id ' => $this->getSearch()]);
+                    break;
+                //complete. Example:
+                case 'nome':
+                    $query->where(['setores.nome ILIKE ' => '%' . $this->getSearch() . '%']);
+                    break;
 
-            $this->set('busca', $this->getSearch($query));
+                case 'sigla':
+                    $query->where(['setores.sigla ILIKE ' => '%' . $this->getSearch() . '%']);
+                    break;    
 
-            $this->set('setores', $this->paginate($query));
-        } else {
-            $rows = $this->Setores->find('all');
-            $this->set('rows', $rows);
+                case 'cidade':
+                    $query->where(['cidades.nome ILIKE ' => '%' . $this->getSearch() . '%']);
+                    break;
+            }              
         }
+
+        $this->setSearch();
+        $this->set('options', array('id' => 'Id', 'nome' => 'Nome', 'sigla' => 'Sigla', 'cidade' => 'Cidade')); //complete
+
+        $this->set('setores', $this->paginate($query));
+
     }
 
 

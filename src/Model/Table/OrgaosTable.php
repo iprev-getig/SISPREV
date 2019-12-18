@@ -10,6 +10,7 @@ use Cake\Validation\Validator;
  * Orgaos Model
  *
  * @property \App\Model\Table\CidadesTable&\Cake\ORM\Association\BelongsTo $Cidades
+ * @property &\Cake\ORM\Association\HasMany $Atendimentos
  *
  * @method \App\Model\Entity\Orgao get($primaryKey, $options = [])
  * @method \App\Model\Entity\Orgao newEntity($data = null, array $options = [])
@@ -45,18 +46,10 @@ class OrgaosTable extends Table
             'before' => true,
             'after' => true,
             'mode' => 'or',
-            'comparison' => 'LIKE',
+            'comparison' => 'ILIKE',
             'wildcardAny' => '*',
             'wildcardOne' => '?'
         ];
-        
-        $field = [
-        'nome',
-        'sigla'
-    ];
-        if (count($field) > 0) {
-            $array_search['field'] = $field;
-        }
 
         $this->searchManager()
         ->add('q', 'Search.Like', $array_search);
@@ -66,6 +59,9 @@ class OrgaosTable extends Table
 
         $this->belongsTo('Cidades', [
             'foreignKey' => 'cidade_id'
+        ]);
+        $this->hasMany('Atendimentos', [
+            'foreignKey' => 'orgao_id'
         ]);
     }
 

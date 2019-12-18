@@ -19,21 +19,30 @@ class EstadosController extends AppController
      */
     public function index()
     {
-        $_ext = $this->request->params['_ext'];
-        if (!$_ext == 'xlsx') {
-            $this->makeSearch($this->request->query, $search, $where, $value);
+        $this->export();
 
-            $query = $this->Estados
-            ->find('search', ['search' => $search])
-                                    ->where(['estados.id ' . $where => $value]);
-
-            $this->set('busca', $this->getSearch($query));
-
-            $this->set('estados', $this->paginate($query));
-        } else {
-            $rows = $this->Estados->find('all');
-            $this->set('rows', $rows);
+        $query = $this->Estados->find('search', ['search' => 'all']);
+        
+        if ($this->getSearch() != '') {
+            switch ($this->getSearch('field')) {
+                case 'id':
+                    $query->where(['estados.id ' => $this->getSearch()]);
+                    break;
+                //complete. Example:
+                case 'nome':
+                    $query->where(['estados.nome ILIKE ' => '%' . $this->getSearch() . '%']);
+                    break;
+                case 'uf':
+                    $query->where(['estados.uf ILIKE ' => '%' . $this->getSearch() . '%']);
+                    break;       
+            }              
         }
+
+        $this->setSearch();
+        $this->set('options', array('id' => 'Id' , 'nome' => 'Nome', 'uf' => 'Uf')); //complete
+
+        $this->set('estados', $this->paginate($query));
+
     }
 
 
