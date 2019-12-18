@@ -25,7 +25,7 @@ class AcessosController extends AppController
 
             $query = $this->Acessos
             ->find('search', ['search' => $search])
-                            ->contain(['TiposAcessos', 'Usuarios', 'Sistemas'])
+                            ->contain(['TiposAcessos', 'Users', 'Sistemas'])
                         ->where(['acessos.id ' . $where => $value]);
 
             $this->set('busca', $this->getSearch($query));
@@ -49,7 +49,7 @@ class AcessosController extends AppController
     public function view($id = null)
     {
         $acesso = $this->Acessos->get($id, [
-            'contain' => ['TiposAcessos', 'Usuarios', 'Sistemas']
+            'contain' => ['TiposAcessos', 'Users', 'Sistemas']
         ]);
 
         $this->set('acesso', $acesso);
@@ -73,9 +73,9 @@ class AcessosController extends AppController
             $this->Flash->error(__('The acesso could not be saved. Please, try again.'));
         }
         $tiposAcessos = $this->Acessos->TiposAcessos->find('list', ['limit' => 200]);
-        $usuarios = $this->Acessos->Usuarios->find('list', ['limit' => 200]);
+        $users = $this->Acessos->Users->find('list', ['limit' => 200]);
         $sistemas = $this->Acessos->Sistemas->find('list', ['limit' => 200]);
-        $this->set(compact('acesso', 'tiposAcessos', 'usuarios', 'sistemas'));
+        $this->set(compact('acesso', 'tiposAcessos', 'users', 'sistemas'));
     }
 
     /**
@@ -100,9 +100,9 @@ class AcessosController extends AppController
             $this->Flash->error(__('The acesso could not be saved. Please, try again.'));
         }
         $tiposAcessos = $this->Acessos->TiposAcessos->find('list', ['limit' => 200]);
-        $usuarios = $this->Acessos->Usuarios->find('list', ['limit' => 200]);
+        $users = $this->Acessos->Users->find('list', ['limit' => 200]);
         $sistemas = $this->Acessos->Sistemas->find('list', ['limit' => 200]);
-        $this->set(compact('acesso', 'tiposAcessos', 'usuarios', 'sistemas'));
+        $this->set(compact('acesso', 'tiposAcessos', 'users', 'sistemas'));
     }
 
     /**
@@ -124,4 +124,18 @@ class AcessosController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+
+    public function checkPermission($user, $controller, $action)
+    {
+        $query = $this->Acessos->find('all', [
+            'fields' => ['Acessos.id'],
+            'conditions' => ['Acessos.user_id' => $user,
+                             'Acessos.' . $action => True,
+                            'TiposAcessos.controller' => strtolower($controller)],
+            'contain' => ['TiposAcessos']
+        ]); 
+
+        return count($query->toArray()) == 1;
+    }
+
 }

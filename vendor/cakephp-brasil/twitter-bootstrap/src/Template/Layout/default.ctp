@@ -28,6 +28,7 @@
     <![endif]-->
 </head>
 <body>
+	<?php if ($this->Session->read('Auth.User')){ ?>
 	<nav class="navbar navbar-default">
 	  <div class="container-fluid">
 	    <!-- Brand and toggle get grouped for better mobile display -->
@@ -74,6 +75,7 @@
 	    </div><!-- /.navbar-collapse -->
 	  </div><!-- /.container-fluid -->
 	</nav>
+	<?php } ?>
 	<section class="container clearfix">
         <?= $this->Flash->render() ?>
         <?= $this->fetch('content') ?>

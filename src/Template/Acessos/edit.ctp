@@ -10,8 +10,8 @@
         <li><?= $this->Html->link(__('List {0}', 'Acessos'), ['action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('List {0}', 'Tipos Acessos'), ['controller' => 'TiposAcessos', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New {0}', 'Tipos Acesso'), ['controller' => 'TiposAcessos', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List {0}', 'Usuarios'), ['controller' => 'Usuarios', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New {0}', 'Usuario'), ['controller' => 'Usuarios', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List {0}', 'Users'), ['controller' => 'Users', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New {0}', 'Usuario'), ['controller' => 'Users', 'action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List {0}', 'Sistemas'), ['controller' => 'Sistemas', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New {0}', 'Sistema'), ['controller' => 'Sistemas', 'action' => 'add']) ?></li>
     </ul>
@@ -30,7 +30,7 @@
             echo $this->Form->input('del');
             echo $this->Form->input('view');
             echo $this->Form->input('tipo_acesso_id', ['options' => $tiposAcessos, 'empty' => true]);
-            echo $this->Form->input('usuario_id', ['options' => $usuarios, 'empty' => true]);
+            echo $this->Form->input('usuario_id', ['options' => $users, 'empty' => true]);
             echo $this->Form->input('sistema_id', ['options' => $sistemas, 'empty' => true]);
         ?>
     </fieldset>

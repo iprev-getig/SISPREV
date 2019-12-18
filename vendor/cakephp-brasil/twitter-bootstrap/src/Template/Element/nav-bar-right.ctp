@@ -9,13 +9,14 @@
 
   <li class="dropdown">
     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-      <?= $this->Html->tag('i', '', array('class' => 'far fa-user')); ?> Usuário
+      <?= $this->Html->tag('i', '', array('class' => 'far fa-user')); ?> 
+      <?= $this->Session->read('Auth.User')['nome']; ?>
       <span class="caret"></span>
     </a>
     <ul class="dropdown-menu">
       <li>
         <a href="#">
-          <?= $this->Html->tag('i', '', array('class' => 'far fa-user')); ?> Perfil
+          <?= $this->Html->link('Perfil', ['controller' => 'users', 'action' => 'view', $this->Session->read('Auth.User')['id']]); ?>
         </a>
       </li>
       <li>
@@ -26,7 +27,7 @@
       <li role="separator" class="divider"></li>
       <li>
         <a href="#">
-          <?= $this->Html->tag('i', '', array('class' => 'fas fa-sign-out-alt')); ?> Sair
+          <?= $this->Html->link('Sair', ['controller' => 'users', 'action' => 'logout']); ?>
         </a>
       </li>
     </ul>

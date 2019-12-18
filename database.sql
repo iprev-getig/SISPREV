@@ -41,25 +41,25 @@ insert into tipos_acessos (nome, controller) values ('Tipo de acessos', 'tipos_a
 insert into tipos_acessos (nome, controller) values ('Sistemas', 'sistemas');
 insert into tipos_acessos (nome, controller) values ('Acessos', 'acessos');
 insert into tipos_acessos (nome, controller) values ('Pessoas', 'pessoas');
-insert into tipos_acessos (nome, controller) values ('Usuários', 'usuarios');
+insert into tipos_acessos (nome, controller) values ('Usuários', 'users');
 insert into tipos_acessos (nome, controller, principal) values ('Atendimentos', 'atendimentos', true);
 
-create table usuarios (
+create table users (
 		id serial primary key,
-		login varchar(50),
+		username varchar(50),
 		email varchar(100),
 		nome varchar(250),
-		senha varchar(250),
+		password varchar(250),
 		bloqueado boolean,
 		ult_acesso timestamp,
 		setor_id int,
 		created timestamp,
 		modified timestamp,
-	CONSTRAINT usuario_setor_id
+	CONSTRAINT user_setor_id
 		FOREIGN KEY (setor_id) REFERENCES setores (id)
 );
 
-insert into usuarios (login, email, nome, senha, bloqueado) values ('admin', 'suporte.getig@iprev.sc.gov.br', 'Usuário Master', '', false);
+insert into users (username, email, nome, senha, bloqueado) values ('admin', 'suporte.getig@iprev.sc.gov.br', 'Usuário Master', '$2y$10$VoVeEg8L1rLQW5epdaZeZu5WbKhDbo5HnMac1kvxIkZf3EdQaI7GO', false);
 
 create table acessos (
 		id serial primary key,
@@ -69,52 +69,52 @@ create table acessos (
 		del boolean,
 		view boolean,
 		tipo_acesso_id int,
-		usuario_id int,
+		user_id int,
 		sistema_id int,
 		created timestamp,
 		modified timestamp,
 		CONSTRAINT acesso_tipo_acesso_id
 			FOREIGN KEY (tipo_acesso_id) REFERENCES tipos_acessos (id),
-		CONSTRAINT acesso_usuario_id
-			FOREIGN KEY (usuario_id) REFERENCES usuarios (id),
+		CONSTRAINT acesso_user_id
+			FOREIGN KEY (user_id) REFERENCES users (id),
 		CONSTRAINT acesso_sistema_id
 			FOREIGN KEY (sistema_id) REFERENCES sistemas (id)
 	);
 
-insert into acessos (index, add, edit, del, view, tipo_acesso_id, usuario_id, sistema_id) values
+insert into acessos (index, add, edit, del, view, tipo_acesso_id, user_id, sistema_id) values
 (true, true, true, true, true, 1, 1, 1);
-insert into acessos (index, add, edit, del, view, tipo_acesso_id, usuario_id, sistema_id) values
+insert into acessos (index, add, edit, del, view, tipo_acesso_id, user_id, sistema_id) values
 (true, true, true, true, true, 2, 1, 1);
-insert into acessos (index, add, edit, del, view, tipo_acesso_id, usuario_id, sistema_id) values
+insert into acessos (index, add, edit, del, view, tipo_acesso_id, user_id, sistema_id) values
 (true, true, true, true, true, 3, 1, 1);
-insert into acessos (index, add, edit, del, view, tipo_acesso_id, usuario_id, sistema_id) values
+insert into acessos (index, add, edit, del, view, tipo_acesso_id, user_id, sistema_id) values
 (true, true, true, true, true, 4, 1, 1);
-insert into acessos (index, add, edit, del, view, tipo_acesso_id, usuario_id, sistema_id) values
+insert into acessos (index, add, edit, del, view, tipo_acesso_id, user_id, sistema_id) values
 (true, true, true, true, true, 5, 1, 1);
-insert into acessos (index, add, edit, del, view, tipo_acesso_id, usuario_id, sistema_id) values
+insert into acessos (index, add, edit, del, view, tipo_acesso_id, user_id, sistema_id) values
 (true, true, true, true, true, 6, 1, 1);
-insert into acessos (index, add, edit, del, view, tipo_acesso_id, usuario_id, sistema_id) values
+insert into acessos (index, add, edit, del, view, tipo_acesso_id, user_id, sistema_id) values
 (true, true, true, true, true, 7, 1, 1);
-insert into acessos (index, add, edit, del, view, tipo_acesso_id, usuario_id, sistema_id) values
+insert into acessos (index, add, edit, del, view, tipo_acesso_id, user_id, sistema_id) values
 (true, true, true, true, true, 8, 1, 1);
-insert into acessos (index, add, edit, del, view, tipo_acesso_id, usuario_id, sistema_id) values
+insert into acessos (index, add, edit, del, view, tipo_acesso_id, user_id, sistema_id) values
 (true, true, true, true, true, 9, 1, 1);
-insert into acessos (index, add, edit, del, view, tipo_acesso_id, usuario_id, sistema_id) values
+insert into acessos (index, add, edit, del, view, tipo_acesso_id, user_id, sistema_id) values
 (true, true, true, true, true, 10, 1, 1);
-insert into acessos (index, add, edit, del, view, tipo_acesso_id, usuario_id, sistema_id) values
+insert into acessos (index, add, edit, del, view, tipo_acesso_id, user_id, sistema_id) values
 (true, true, true, true, true, 11, 1, 1);
-insert into acessos (index, add, edit, del, view, tipo_acesso_id, usuario_id, sistema_id) values
+insert into acessos (index, add, edit, del, view, tipo_acesso_id, user_id, sistema_id) values
 (true, true, true, true, true, 12, 1, 1);
 
 create table coordenadorias (
 		id serial primary key,
 		nome varchar(150),
-		usuario_id int,
+		user_id int,
 		cidade_id int,
 		created timestamp,
 		modified timestamp,
-		CONSTRAINT coordenadoria_usuarios_id
-			FOREIGN KEY (usuario_id) REFERENCES usuarios (id),
+		CONSTRAINT coordenadoria_users_id
+			FOREIGN KEY (user_id) REFERENCES users (id),
 		CONSTRAINT coordenadoria_cidade_id
 			FOREIGN KEY (cidade_id) REFERENCES cidades (id)
 	);
@@ -221,24 +221,22 @@ create table pessoas (
 		modified timestamp
 );
 
-CREATE SCHEMA sagen;
-
-create table sagen.atendimentos (
+create table atendimentos (
 		id serial primary key,
 		inicio timestamp,
 		fim timestamp,
 		solucao text,
 		conclusao text,
 		tipo_atendimento_id int,
-		usuario_id int,
+		user_id int,
 		cidades_id int,
 		pessoa_id int,
 		created timestamp,
 		modified timestamp,
 		CONSTRAINT atendimento_tipo_id
             FOREIGN KEY (tipo_atendimento_id) REFERENCES public.tipos_atendimentos (id),
-		CONSTRAINT atendimento_usuario_id
-            FOREIGN KEY (usuario_id) REFERENCES public.usuarios (id),
+		CONSTRAINT atendimento_user_id
+            FOREIGN KEY (user_id) REFERENCES public.users (id),
 	 	CONSTRAINT atendimento_cidades_id
             FOREIGN KEY (localizacao_id) REFERENCES public.cidades (id),
 		CONSTRAINT atendimento_pessoa_id
