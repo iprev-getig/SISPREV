@@ -24,7 +24,7 @@
             echo $this->Form->input('del');
             echo $this->Form->input('view');
             echo $this->Form->input('tipo_acesso_id', ['options' => $tiposAcessos, 'empty' => true]);
-            echo $this->Form->input('usuario_id', ['options' => $usuarios, 'empty' => true]);
+            echo $this->Form->input('user_id', ['options' => $users, 'empty' => true]);
             echo $this->Form->input('sistema_id', ['options' => $sistemas, 'empty' => true]);
         ?>
     </fieldset>

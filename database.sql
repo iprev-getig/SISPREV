@@ -59,7 +59,7 @@ create table users (
 		FOREIGN KEY (setor_id) REFERENCES setores (id)
 );
 
-insert into users (username, email, nome, senha, bloqueado) values ('admin', 'suporte.getig@iprev.sc.gov.br', 'Usuário Master', '$2y$10$VoVeEg8L1rLQW5epdaZeZu5WbKhDbo5HnMac1kvxIkZf3EdQaI7GO', false);
+insert into users (username, email, nome, password, bloqueado) values ('admin', 'suporte.getig@iprev.sc.gov.br', 'Usuário Master', '$2y$10$VoVeEg8L1rLQW5epdaZeZu5WbKhDbo5HnMac1kvxIkZf3EdQaI7GO', false);
 
 create table acessos (
 		id serial primary key,
