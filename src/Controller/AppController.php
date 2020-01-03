@@ -19,6 +19,7 @@ use Cake\Event\Event;
 use Cake\ORM\TableRegistry;
 use App\Controller\AuthComponent;
 use Cake\Core\App;
+use Cake\Utility\Inflector;
 
 /**
  * Application Controller
@@ -96,7 +97,7 @@ class AppController extends Controller
         if ((!$user == null) && (!in_array(strtolower($controller), ['dashboard'])) && (in_array($action, ['edit', 'add', 'delete', 'index']))) {
             $Acessos = new AcessosController;
             if (!$Acessos->checkPermission($user, $controller, $action)) {
-                $this->Flash->error(__('blabla bla' . $controller));
+                $this->Flash->error(__('Permissao Negada. ' . $action . ' ' . Inflector::underscore($controller)));
                 $this->redirect(['controller' => 'pages', 'action' => 'display']);
             } 
         }

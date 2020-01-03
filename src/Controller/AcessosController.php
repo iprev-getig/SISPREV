@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Utility\Inflector;
 
 /**
  * Acessos Controller
@@ -137,7 +138,7 @@ class AcessosController extends AppController
             'fields' => ['Acessos.id'],
             'conditions' => ['Acessos.user_id' => $user,
                              'Acessos.' . $action => True,
-                            'TiposAcessos.controller' => strtolower($controller)],
+                            'TiposAcessos.controller' => strtolower(Inflector::underscore($controller))],
             'contain' => ['TiposAcessos']
         ]); 
 
